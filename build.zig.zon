@@ -1,5 +1,5 @@
 .{
-    .name = .libqt6zig,
+    .name = "libqt6zig",
     .version = "6.4.2",
     .dependencies = .{},
     .paths = .{
