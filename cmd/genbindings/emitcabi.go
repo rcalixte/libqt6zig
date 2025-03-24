@@ -870,11 +870,12 @@ var (
 		"QVariant":                    {},
 	}
 
-	privateMethods = map[string]struct{}{
+	privateAndSkippedMethods = map[string]struct{}{
 		"QAbstractListModel_HasChildren":     {},
 		"QAbstractListModel_Parent":          {},
 		"QAbstractTableModel_HasChildren":    {},
 		"QAbstractTableModel_Parent":         {},
+		"QHostAddress_IsInSubnetWithSubnet":  {},
 		"QListWidget_SetModel":               {},
 		"QPaintDeviceWindow_PaintEngine":     {},
 		"QRasterWindow_PaintEngine":          {},
@@ -975,7 +976,7 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 						}
 					}
 					baseName := methodPrefixName + "_" + m.SafeMethodName()
-					if _, ok := privateMethods[baseName]; ok {
+					if _, ok := privateAndSkippedMethods[baseName]; ok {
 						continue
 					}
 					seenMethodVariants[m.MethodName] = false
@@ -1072,7 +1073,7 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 					seenVirtuals[m.MethodName] = false
 					seenVirtuals[m.SafeMethodName()] = false
 
-					if _, ok := privateMethods[methodPrefixName+"_"+m.SafeMethodName()]; ok {
+					if _, ok := privateAndSkippedMethods[methodPrefixName+"_"+m.SafeMethodName()]; ok {
 						continue
 					}
 
@@ -1508,7 +1509,7 @@ extern "C" {
 			if m.IsProtected && !m.IsVirtual {
 				continue
 			}
-			if _, ok := privateMethods[c.ClassName+"_"+m.SafeMethodName()]; ok {
+			if _, ok := privateAndSkippedMethods[c.ClassName+"_"+m.SafeMethodName()]; ok {
 				continue
 			}
 			if (m.IsProtected || m.IsPrivate) && (!virtualEligible || len(virtualMethods) == 0) {
@@ -1569,12 +1570,12 @@ extern "C" {
 			if c.ClassName == "QTest::QTouchEventSequence" || !virtualEligible {
 				continue
 			}
+			if _, ok := privateAndSkippedMethods[methodPrefixName+"_"+m.SafeMethodName()]; ok {
+				continue
+			}
 			if _, exists := seenClassMethods[methodPrefixName+"_"+m.SafeMethodName()]; !exists {
 				seenClassMethods[methodPrefixName+"_"+m.SafeMethodName()] = struct{}{}
 			} else {
-				continue
-			}
-			if _, ok := privateMethods[methodPrefixName+"_"+m.SafeMethodName()]; ok {
 				continue
 			}
 
@@ -1831,7 +1832,7 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 			if _, ok := allVirtualsMap[c.ClassName+"_"+m.SafeMethodName()]; ok {
 				continue
 			}
-			if _, ok := privateMethods[c.ClassName+"_"+m.SafeMethodName()]; ok {
+			if _, ok := privateAndSkippedMethods[c.ClassName+"_"+m.SafeMethodName()]; ok {
 				continue
 			}
 			if (m.IsProtected || m.IsPrivate) && (!virtualEligible || len(virtualMethods) == 0) {
@@ -2087,13 +2088,13 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 				continue
 			}
 
-			if _, exists := seenClassMethods[methodPrefixName+"_"+m.SafeMethodName()]; !exists {
-				seenClassMethods[methodPrefixName+"_"+m.SafeMethodName()] = struct{}{}
-			} else {
+			if _, ok := privateAndSkippedMethods[methodPrefixName+"_"+m.SafeMethodName()]; ok {
 				continue
 			}
 
-			if _, ok := privateMethods[methodPrefixName+"_"+m.SafeMethodName()]; ok {
+			if _, exists := seenClassMethods[methodPrefixName+"_"+m.SafeMethodName()]; !exists {
+				seenClassMethods[methodPrefixName+"_"+m.SafeMethodName()] = struct{}{}
+			} else {
 				continue
 			}
 

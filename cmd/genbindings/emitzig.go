@@ -1261,6 +1261,12 @@ pub const ` + zigStruct + ` = struct {`)
 				continue
 			}
 
+			if _, ok := privateAndSkippedMethods[c.ClassName+"_"+m.SafeMethodName()]; ok {
+				if m.InheritedFrom == "" {
+					continue
+				}
+			}
+
 			var showHiddenParams bool
 			if _, ok := seenMethodVariants[m.SafeMethodName()]; ok {
 				continue
@@ -1278,12 +1284,6 @@ pub const ` + zigStruct + ` = struct {`)
 
 			mSafeMethodName := m.SafeMethodName()
 			cSafeMethodName := mSafeMethodName
-
-			if _, ok := privateMethods[c.ClassName+"_"+mSafeMethodName]; ok {
-				if m.InheritedFrom == "" {
-					continue
-				}
-			}
 
 			if zigReservedWord(mSafeMethodName) {
 				mSafeMethodName = "_" + mSafeMethodName
@@ -1480,6 +1480,16 @@ C.` + cmdStructName + `_On` + cSafeMethodName + `(@ptrCast(self), @as(isize, @bi
 				continue
 			}
 
+			if c.ClassName == "QTest::QTouchEventSequence" {
+				continue
+			}
+
+			if _, ok := privateAndSkippedMethods[c.ClassName+"_"+m.SafeMethodName()]; ok {
+				if m.InheritedFrom == "" {
+					continue
+				}
+			}
+
 			var showHiddenParams bool
 			if _, ok := seenVirtuals[m.SafeMethodName()]; ok {
 				continue
@@ -1494,13 +1504,6 @@ C.` + cmdStructName + `_On` + cSafeMethodName + `(@ptrCast(self), @as(isize, @bi
 			}
 			seenVirtuals[m.MethodName] = false
 			seenVirtuals[m.SafeMethodName()] = false
-
-			if c.ClassName == "QTest::QTouchEventSequence" {
-				continue
-			}
-			if (c.ClassName == "QsciScintillaBase" || c.ClassName == "QsciScintilla") && m.SafeMethodName() == "InputMethodQuery" {
-				continue
-			}
 
 			if _, ok := previousMethods[m.MethodName]; ok {
 				continue
