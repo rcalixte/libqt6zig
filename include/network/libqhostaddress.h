@@ -67,7 +67,6 @@ bool QHostAddress_OperatorNotEqualWithAddress(const QHostAddress* self, int addr
 bool QHostAddress_IsNull(const QHostAddress* self);
 void QHostAddress_Clear(QHostAddress* self);
 bool QHostAddress_IsInSubnet(const QHostAddress* self, QHostAddress* subnet, int netmask);
-bool QHostAddress_IsInSubnetWithSubnet(const QHostAddress* self, libqt_pair /* tuple of QHostAddress* and int */ subnet);
 bool QHostAddress_IsLoopback(const QHostAddress* self);
 bool QHostAddress_IsGlobal(const QHostAddress* self);
 bool QHostAddress_IsLinkLocal(const QHostAddress* self);

@@ -151,15 +151,6 @@ bool QHostAddress_IsInSubnet(const QHostAddress* self, QHostAddress* subnet, int
     return self->isInSubnet(*subnet, static_cast<int>(netmask));
 }
 
-bool QHostAddress_IsInSubnetWithSubnet(const QHostAddress* self, libqt_pair /* tuple of QHostAddress* and int */ subnet) {
-    QPair<QHostAddress, int> subnet_QPair;
-    QHostAddress** subnet_first = static_cast<QHostAddress**>(subnet.first);
-    int* subnet_second = static_cast<int*>(subnet.second);
-    subnet_QPair.first = **subnet_first;
-    subnet_QPair.second = *subnet_second;
-    return self->isInSubnet(subnet_QPair);
-}
-
 bool QHostAddress_IsLoopback(const QHostAddress* self) {
     return self->isLoopback();
 }

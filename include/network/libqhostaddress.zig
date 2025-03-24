@@ -251,17 +251,6 @@ pub const qhostaddress = struct {
         return C.QHostAddress_IsInSubnet(@ptrCast(self), @ptrCast(subnet), @intCast(netmask));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#isInSubnet)
-    ///
-    /// ``` self: ?*C.QHostAddress, subnet: struct_cqhostaddress_i32 ```
-    pub fn IsInSubnetWithSubnet(self: ?*anyopaque, subnet: struct_cqhostaddress_i32) bool {
-        const subnet_pair = C.struct_libqt_pair{
-            .first = @ptrCast(subnet.first),
-            .second = @intCast(@intFromPtr(subnet.second)),
-        };
-        return C.QHostAddress_IsInSubnetWithSubnet(@ptrCast(self), subnet_pair);
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#isLoopback)
     ///
     /// ``` self: ?*C.QHostAddress ```
