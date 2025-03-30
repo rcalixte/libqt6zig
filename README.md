@@ -14,7 +14,7 @@ This library is a straightforward binding of the Qt 6.4+ API. You must have a wo
 
 This library is designed to be used as a dependency in a larger application and not as a standalone library. The versioning scheme used by this library is based on the Qt version used to generate the bindings with an additional nod to the library revision number. Any breaking changes to the library will be reflected in the changelog.
 
-These bindings are based on the [MIQT bindings for Go](https://github.com/mappu/miqt) that were released in 2024. The bindings are complete for QtCore, QtGui, QtWidgets, QtMultimedia, QtMultimediaWidgets, QtSpatialAudio, QtPrintSupport, QtSvg, QtNetwork, QtWebChannel, QtWebEngine, QScintilla, and others. There is support for slots/signals, subclassing, custom widgets, async via Qt, etc., but the bindings may be immature or unstable in some ways. It is fairly easy to encounter segmentation faults with improper handling. Q3 of the [FAQ](#faq) is a decent entry point for newcomers. Please try out the library and start a [discussion](https://github.com/rcalixte/libqt6zig/discussions) if you have any questions or issues relevant to this library.
+These bindings are based on the [MIQT bindings for Go](https://github.com/mappu/miqt) that were released in 2024. The bindings are complete for QtCore, QtGui, QtWidgets, QtCharts, QtMultimedia, QtMultimediaWidgets, QtNetwork, QtPrintSupport, QtSpatialAudio, QtSvg, QtWebChannel, QtWebEngine, QScintilla, and others. There is support for slots/signals, subclassing, custom widgets, async via Qt, etc., but the bindings may be immature or unstable in some ways. It is fairly easy to encounter segmentation faults with improper handling. Q3 of the [FAQ](#faq) is a decent entry point for newcomers. Please try out the library and start a [discussion](https://github.com/rcalixte/libqt6zig/discussions) if you have any questions or issues relevant to this library.
 
 ---
 
@@ -105,7 +105,7 @@ FreeBSD (native)
 For dynamic linking with the Qt 6 system libraries:
 
 ```bash
-sudo pkg install qt6-base qt6-multimedia qt6-svg qt6-webchannel qt6-webengine qscintilla2-qt6 zig
+sudo pkg install qt6-base qt6-charts qt6-multimedia qt6-svg qt6-webchannel qt6-webengine qscintilla2-qt6 zig
 ```
 
 > [!NOTE]
@@ -129,7 +129,7 @@ For dynamic linking with the Qt 6 system libraries:
 - __Debian-based distributions__:
 
 ```bash
-sudo apt install qt6-base-dev libqscintilla2-qt6-dev qt6-base-private-dev qt6-multimedia-dev qt6-svg-dev qt6-webchannel-dev qt6-webengine-dev
+sudo apt install qt6-base-dev libqscintilla2-qt6-dev qt6-base-private-dev qt6-charts-dev qt6-multimedia-dev qt6-svg-dev qt6-webchannel-dev qt6-webengine-dev
 ```
 
 > [!NOTE]
@@ -138,7 +138,7 @@ sudo apt install qt6-base-dev libqscintilla2-qt6-dev qt6-base-private-dev qt6-mu
 - __Fedora-based distributions__:
 
 ```bash
-sudo dnf install qt6-qtbase-devel qscintilla-qt6-devel qt6-qtmultimedia-devel qt6-qtsvg-devel qt6-qtwebchannel-devel qt6-qtwebengine-devel zig
+sudo dnf install qt6-qtbase-devel qscintilla-qt6-devel qt6-qtcharts-devel qt6-qtmultimedia-devel qt6-qtsvg-devel qt6-qtwebchannel-devel qt6-qtwebengine-devel zig
 ```
 
 > [!NOTE]
@@ -147,7 +147,7 @@ sudo dnf install qt6-qtbase-devel qscintilla-qt6-devel qt6-qtmultimedia-devel qt
 - __Arch-based distributions__:
 
 ```bash
-sudo pacman -S qt6-base qscintilla-qt6 qt6-multimedia qt6-svg qt6-webchannel qt6-webengine zig
+sudo pacman -S qt6-base qscintilla-qt6 qt6-charts qt6-multimedia qt6-svg qt6-webchannel qt6-webengine zig
 ```
 
 Once the required packages are installed, the library can be built from the root of the repository:
