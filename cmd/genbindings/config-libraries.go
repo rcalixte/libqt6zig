@@ -195,6 +195,24 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		qtstructdefs,
 	)
 
+	// Qt 6 Charts
+	// Depends on QtCore/Gui/Widgets
+	generate(
+		"src/charts",
+		[]string{
+			"/usr/include/x86_64-linux-gnu/qt6/QtCharts",
+		},
+		AllowAllHeaders,
+		clangBin,
+		"--std=c++17 "+pkgConfigCflags("Qt6Charts"),
+		outDir,
+		"include/charts",
+		ClangMatchSameHeaderDefinitionOnly,
+		&headerList,
+		zigIncMap,
+		qtstructdefs,
+	)
+
 	// Qt 6 QScintilla
 	// Depends on QtCore/Gui/Widgets, QPrintSupport
 	generate(
