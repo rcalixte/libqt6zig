@@ -276,6 +276,22 @@ func AllowVirtualForClass(className string) bool {
 		return false
 	}
 
+	// Qt 6 Charts
+	if className == "QBarModelMapper" {
+		return false
+	}
+	if className == "QBoxPlotModelMapper" {
+		return false
+	}
+	if className == "QLegend" {
+		return false
+	}
+	if className == "QPieModelMapper" {
+		return false
+	}
+	if className == "QXYModelMapper" {
+		return false
+	}
 	return true
 }
 
