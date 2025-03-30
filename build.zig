@@ -19,35 +19,31 @@ pub fn build(b: *std.Build) !void {
     var cpp_sources: std.ArrayListUnmanaged([]const u8) = .empty;
     var cpp_header_files: std.ArrayListUnmanaged([]const u8) = .empty;
 
-    {
-        const src_dir = b.build_root.path.?;
-        var dir = try std.fs.cwd().openDir(src_dir, .{ .iterate = true });
-        var walker = try dir.walk(b.allocator);
-        defer walker.deinit();
+    const src_dir = b.build_root.path.?;
+    var dir = try std.fs.cwd().openDir(src_dir, .{ .iterate = true });
+    var walker = try dir.walk(b.allocator);
+    defer walker.deinit();
 
-        while (try walker.next()) |entry| {
-            if (entry.kind == .file and std.mem.endsWith(u8, entry.path, ".cpp")) {
-                var basename = std.fs.path.basename(entry.path);
-                basename = basename[3 .. basename.len - 4];
-                // conditional removals
-                if ((enable_workaround or is_bsd_family) and (std.mem.eql(u8, basename, "qsctpsocket") or std.mem.eql(u8, basename, "qsctpserver")))
-                    continue;
-                if (skip_restricted and std.mem.startsWith(u8, entry.path, "src/restricted"))
-                    continue;
+    while (try walker.next()) |entry| {
+        if (entry.kind == .file and std.mem.endsWith(u8, entry.path, ".cpp")) {
+            var basename = std.fs.path.basename(entry.path);
+            basename = basename[3 .. basename.len - 4];
+            // conditional removals
+            if ((enable_workaround or is_bsd_family) and (std.mem.eql(u8, basename, "qsctpsocket") or std.mem.eql(u8, basename, "qsctpserver")))
+                continue;
+            if (skip_restricted and std.mem.startsWith(u8, entry.path, "src/restricted"))
+                continue;
 
-                try cpp_sources.append(allocator, b.dupe(entry.path));
-            } else if (entry.kind == .file and std.mem.endsWith(u8, entry.path, ".h")) {
-                const full_path = try std.fs.path.join(b.allocator, &.{entry.path});
-                if (!std.mem.endsWith(u8, full_path, "libqt6c.h")) {
-                    try cpp_header_files.append(allocator, full_path);
-                }
-            }
+            try cpp_sources.append(allocator, b.dupe(entry.path));
+        } else if (entry.kind == .file and std.mem.endsWith(u8, entry.path, ".h")) {
+            const full_path = try std.fs.path.join(b.allocator, &.{entry.path});
+            if (!std.mem.endsWith(u8, full_path, "libqt6c.h"))
+                try cpp_header_files.append(allocator, full_path);
         }
     }
 
-    if (cpp_sources.items.len == 0) {
+    if (cpp_sources.items.len == 0)
         @panic("No .cpp files found.\n");
-    }
 
     const qt_include_path: []const []const u8 = switch (target.result.os.tag) {
         .dragonfly, .freebsd, .netbsd, .openbsd => &.{"/usr/local/include/qt6"},
@@ -77,6 +73,7 @@ pub fn build(b: *std.Build) !void {
         "QtCore",
         "QtWidgets",
         "QtGui",
+        "QtCharts",
         "QtMultimedia",
         "QtMultimediaWidgets",
         "QtNetwork",
