@@ -43,9 +43,10 @@ func cabiEnumName(className string) string {
 
 func (p CppParameter) RenderTypeMapZig(zfs *zigFileState, isReturnType bool) string {
 	baseType := p.RenderTypeZig(zfs, true, true)
-	if baseType == "qnetworkrequest_enums.Attribute" && zfs.currentHeaderName == "qabstractnetworkcache" {
+	if strings.Contains(baseType, "_enums") {
 		baseType = "i32"
 	}
+
 	return mapParamToString(baseType)
 }
 
