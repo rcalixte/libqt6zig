@@ -282,26 +282,28 @@ func generate(packageName string, srcDirs []string, allowHeaderFn func(string) b
 			panic(err)
 		}
 
-		cmd := exec.Command("clang-format", "-i", outputName+".cpp")
-		cmd.Stderr = os.Stderr
-		err = cmd.Start()
+		cmdCpp := exec.Command("clang-format", "-i", outputName+".cpp")
+		cmdCpp.Stderr = os.Stderr
+		err = cmdCpp.Start()
 		if err != nil {
 			panic(err)
 		}
 
-		cmd = exec.Command("clang-format", "-i", outputName+".h")
-		cmd.Stderr = os.Stderr
-		err = cmd.Start()
+		cmdH := exec.Command("clang-format", "-i", outputName+".h")
+		cmdH.Stderr = os.Stderr
+		err = cmdH.Start()
 		if err != nil {
 			panic(err)
 		}
 
-		cmd = exec.Command("clang-format", "-i", outputName+".hxx")
-		cmd.Stderr = os.Stderr
-		err = cmd.Start()
+		cmdHxx := exec.Command("clang-format", "-i", outputName+".hxx")
+		cmdHxx.Stderr = os.Stderr
+		err = cmdHxx.Start()
 		if err != nil {
 			panic(err)
 		}
+
+		cmdH.Wait()
 
 		formattedHeader, err := os.ReadFile(outputName + ".h")
 		if err != nil {
@@ -338,6 +340,9 @@ func generate(packageName string, srcDirs []string, allowHeaderFn func(string) b
 		if err != nil {
 			panic(err)
 		}
+
+		cmdCpp.Wait()
+		cmdHxx.Wait()
 	}
 
 	log.Printf("Processing %d file(s) completed", len(includeFiles))
