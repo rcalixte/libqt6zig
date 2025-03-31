@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -22,13 +21,13 @@ typedef struct QTextBoundaryFinder QTextBoundaryFinder;
 #endif
 
 #ifdef __cplusplus
-typedef QTextBoundaryFinder::BoundaryReason BoundaryReason; // C++ enum
+typedef QTextBoundaryFinder::BoundaryReason BoundaryReason;   // C++ enum
 typedef QTextBoundaryFinder::BoundaryReasons BoundaryReasons; // C++ QFlags
-typedef QTextBoundaryFinder::BoundaryType BoundaryType; // C++ enum
+typedef QTextBoundaryFinder::BoundaryType BoundaryType;       // C++ enum
 #else
-typedef int BoundaryReason; // C ABI enum
+typedef int BoundaryReason;  // C ABI enum
 typedef int BoundaryReasons; // C ABI QFlags
-typedef int BoundaryType; // C ABI enum
+typedef int BoundaryType;    // C ABI enum
 #endif
 
 QTextBoundaryFinder* QTextBoundaryFinder_new();
@@ -53,6 +52,6 @@ void QTextBoundaryFinder_Delete(QTextBoundaryFinder* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

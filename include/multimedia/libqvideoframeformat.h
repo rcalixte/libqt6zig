@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,18 +22,18 @@ typedef struct QVideoFrameFormat QVideoFrameFormat;
 #endif
 
 #ifdef __cplusplus
-typedef QVideoFrameFormat::ColorRange ColorRange; // C++ enum
-typedef QVideoFrameFormat::ColorSpace ColorSpace; // C++ enum
-typedef QVideoFrameFormat::ColorTransfer ColorTransfer; // C++ enum
-typedef QVideoFrameFormat::Direction Direction; // C++ enum
-typedef QVideoFrameFormat::PixelFormat PixelFormat; // C++ enum
+typedef QVideoFrameFormat::ColorRange ColorRange;           // C++ enum
+typedef QVideoFrameFormat::ColorSpace ColorSpace;           // C++ enum
+typedef QVideoFrameFormat::ColorTransfer ColorTransfer;     // C++ enum
+typedef QVideoFrameFormat::Direction Direction;             // C++ enum
+typedef QVideoFrameFormat::PixelFormat PixelFormat;         // C++ enum
 typedef QVideoFrameFormat::YCbCrColorSpace YCbCrColorSpace; // C++ enum
 #else
-typedef int ColorRange; // C ABI enum
-typedef int ColorSpace; // C ABI enum
-typedef int ColorTransfer; // C ABI enum
-typedef int Direction; // C ABI enum
-typedef int PixelFormat; // C ABI enum
+typedef int ColorRange;      // C ABI enum
+typedef int ColorSpace;      // C ABI enum
+typedef int ColorTransfer;   // C ABI enum
+typedef int Direction;       // C ABI enum
+typedef int PixelFormat;     // C ABI enum
 typedef int YCbCrColorSpace; // C ABI enum
 #endif
 
@@ -81,6 +80,6 @@ void QVideoFrameFormat_Delete(QVideoFrameFormat* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -286,6 +285,6 @@ void QGroupBox_Delete(QGroupBox* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

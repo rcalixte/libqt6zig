@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -27,7 +26,7 @@ typedef struct QThreadPool QThreadPool;
 typedef QFutureInterfaceBase::State State; // C++ enum
 #else
 typedef int CancelMode; // C ABI enum
-typedef int State; // C ABI enum
+typedef int State;      // C ABI enum
 #endif
 
 QFutureInterfaceBase* QFutureInterfaceBase_new();
@@ -88,6 +87,6 @@ void QFutureInterfaceBase_Delete(QFutureInterfaceBase* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

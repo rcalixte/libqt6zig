@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -37,10 +36,10 @@ typedef struct QWebEngineNavigationRequest QWebEngineNavigationRequest;
 
 #ifdef __cplusplus
 typedef QWebEngineNavigationRequest::NavigationRequestAction NavigationRequestAction; // C++ enum
-typedef QWebEngineNavigationRequest::NavigationType NavigationType; // C++ enum
+typedef QWebEngineNavigationRequest::NavigationType NavigationType;                   // C++ enum
 #else
 typedef int NavigationRequestAction; // C ABI enum
-typedef int NavigationType; // C ABI enum
+typedef int NavigationType;          // C ABI enum
 #endif
 
 QMetaObject* QWebEngineNavigationRequest_MetaObject(const QWebEngineNavigationRequest* self);
@@ -62,6 +61,6 @@ void QWebEngineNavigationRequest_Delete(QWebEngineNavigationRequest* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

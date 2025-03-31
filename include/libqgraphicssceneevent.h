@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -238,6 +237,6 @@ void QGraphicsSceneMoveEvent_Delete(QGraphicsSceneMoveEvent* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

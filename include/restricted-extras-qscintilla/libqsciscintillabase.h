@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -368,6 +367,6 @@ void QsciScintillaBase_Delete(QsciScintillaBase* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

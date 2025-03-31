@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -84,10 +83,10 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QDockWidget::DockWidgetFeature DockWidgetFeature; // C++ enum
+typedef QDockWidget::DockWidgetFeature DockWidgetFeature;   // C++ enum
 typedef QDockWidget::DockWidgetFeatures DockWidgetFeatures; // C++ QFlags
 #else
-typedef int DockWidgetFeature; // C ABI enum
+typedef int DockWidgetFeature;  // C ABI enum
 typedef int DockWidgetFeatures; // C ABI QFlags
 #endif
 
@@ -302,6 +301,6 @@ void QDockWidget_Delete(QDockWidget* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

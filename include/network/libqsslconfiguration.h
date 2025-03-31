@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -102,6 +101,6 @@ void QSslConfiguration_Delete(QSslConfiguration* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -22,12 +21,12 @@ typedef struct QWebEngineLoadingInfo QWebEngineLoadingInfo;
 #endif
 
 #ifdef __cplusplus
-typedef QWebEngineLoadingInfo::ErrorDomain ErrorDomain; // C++ enum
-typedef QWebEngineLoadingInfo::LoadStatus LoadStatus; // C++ enum
+typedef QWebEngineLoadingInfo::ErrorDomain ErrorDomain;       // C++ enum
+typedef QWebEngineLoadingInfo::LoadStatus LoadStatus;         // C++ enum
 typedef QWebEngineLoadingInfo::QtGadgetHelper QtGadgetHelper; // C++ QFlags
 #else
-typedef int ErrorDomain; // C ABI enum
-typedef int LoadStatus; // C ABI enum
+typedef int ErrorDomain;     // C ABI enum
+typedef int LoadStatus;      // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -43,6 +42,6 @@ void QWebEngineLoadingInfo_Delete(QWebEngineLoadingInfo* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

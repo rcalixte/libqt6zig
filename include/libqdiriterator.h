@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,10 +22,10 @@ typedef struct QFileInfo QFileInfo;
 #endif
 
 #ifdef __cplusplus
-typedef QDirIterator::IteratorFlag IteratorFlag; // C++ enum
+typedef QDirIterator::IteratorFlag IteratorFlag;   // C++ enum
 typedef QDirIterator::IteratorFlags IteratorFlags; // C++ QFlags
 #else
-typedef int IteratorFlag; // C ABI enum
+typedef int IteratorFlag;  // C ABI enum
 typedef int IteratorFlags; // C ABI QFlags
 #endif
 
@@ -50,6 +49,6 @@ void QDirIterator_Delete(QDirIterator* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

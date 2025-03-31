@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -33,35 +32,35 @@ typedef struct QJsonArray QJsonArray;
 #endif
 
 #ifdef __cplusplus
-typedef QCborArray::ConstIterator::difference_type ConstIteratordifference_type; // C++ QFlags
+typedef QCborArray::ConstIterator::difference_type ConstIteratordifference_type;     // C++ QFlags
 typedef QCborArray::ConstIterator::iterator_category ConstIteratoriterator_category; // C++ QFlags
-typedef QCborArray::ConstIterator::pointer ConstIteratorpointer; // C++ QFlags
-typedef QCborArray::ConstIterator::reference ConstIteratorreference; // C++ QFlags
-typedef QCborArray::ConstIterator::value_type ConstIteratorvalue_type; // C++ QFlags
-typedef QCborArray::Iterator::difference_type Iteratordifference_type; // C++ QFlags
-typedef QCborArray::Iterator::iterator_category Iteratoriterator_category; // C++ QFlags
-typedef QCborArray::Iterator::pointer Iteratorpointer; // C++ QFlags
-typedef QCborArray::Iterator::reference Iteratorreference; // C++ QFlags
-typedef QCborArray::Iterator::value_type Iteratorvalue_type; // C++ QFlags
-typedef QCborArray::const_pointer const_pointer; // C++ QFlags
-typedef QCborArray::const_reference const_reference; // C++ QFlags
-typedef QCborArray::difference_type difference_type; // C++ QFlags
-typedef QCborArray::iterator iterator; // C++ QFlags
-typedef QCborArray::pointer pointer; // C++ QFlags
-typedef QCborArray::reference reference; // C++ QFlags
-typedef QCborArray::size_type size_type; // C++ QFlags
-typedef QCborArray::value_type value_type; // C++ QFlags
+typedef QCborArray::ConstIterator::pointer ConstIteratorpointer;                     // C++ QFlags
+typedef QCborArray::ConstIterator::reference ConstIteratorreference;                 // C++ QFlags
+typedef QCborArray::ConstIterator::value_type ConstIteratorvalue_type;               // C++ QFlags
+typedef QCborArray::Iterator::difference_type Iteratordifference_type;               // C++ QFlags
+typedef QCborArray::Iterator::iterator_category Iteratoriterator_category;           // C++ QFlags
+typedef QCborArray::Iterator::pointer Iteratorpointer;                               // C++ QFlags
+typedef QCborArray::Iterator::reference Iteratorreference;                           // C++ QFlags
+typedef QCborArray::Iterator::value_type Iteratorvalue_type;                         // C++ QFlags
+typedef QCborArray::const_pointer const_pointer;                                     // C++ QFlags
+typedef QCborArray::const_reference const_reference;                                 // C++ QFlags
+typedef QCborArray::difference_type difference_type;                                 // C++ QFlags
+typedef QCborArray::iterator iterator;                                               // C++ QFlags
+typedef QCborArray::pointer pointer;                                                 // C++ QFlags
+typedef QCborArray::reference reference;                                             // C++ QFlags
+typedef QCborArray::size_type size_type;                                             // C++ QFlags
+typedef QCborArray::value_type value_type;                                           // C++ QFlags
 #else
-typedef QCborValue* ConstIteratorvalue_type; // C ABI QFlags
-typedef QCborValue* Iteratorvalue_type; // C ABI QFlags
-typedef QCborValueRef* ConstIteratorpointer; // C ABI QFlags
-typedef QCborValueRef* ConstIteratorreference; // C ABI QFlags
-typedef QCborValueRef* Iteratorpointer; // C ABI QFlags
-typedef QCborValueRef* Iteratorreference; // C ABI QFlags
-typedef long long difference_type; // C ABI QFlags
+typedef QCborValue* ConstIteratorvalue_type;    // C ABI QFlags
+typedef QCborValue* Iteratorvalue_type;         // C ABI QFlags
+typedef QCborValueRef* ConstIteratorpointer;    // C ABI QFlags
+typedef QCborValueRef* ConstIteratorreference;  // C ABI QFlags
+typedef QCborValueRef* Iteratorpointer;         // C ABI QFlags
+typedef QCborValueRef* Iteratorreference;       // C ABI QFlags
+typedef long long difference_type;              // C ABI QFlags
 typedef ptrdiff_t ConstIteratordifference_type; // C ABI QFlags
-typedef ptrdiff_t Iteratordifference_type; // C ABI QFlags
-typedef ptrdiff_t size_type; // C ABI QFlags
+typedef ptrdiff_t Iteratordifference_type;      // C ABI QFlags
+typedef ptrdiff_t size_type;                    // C ABI QFlags
 #endif
 
 QCborArray* QCborArray_new();
@@ -183,6 +182,6 @@ void QCborArray__ConstIterator_Delete(QCborArray__ConstIterator* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

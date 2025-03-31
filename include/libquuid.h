@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,12 +23,12 @@ typedef struct QUuid QUuid;
 
 #ifdef __cplusplus
 typedef QUuid::StringFormat StringFormat; // C++ enum
-typedef QUuid::Variant Variant; // C++ enum
-typedef QUuid::Version Version; // C++ enum
+typedef QUuid::Variant Variant;           // C++ enum
+typedef QUuid::Version Version;           // C++ enum
 #else
 typedef int StringFormat; // C ABI enum
-typedef int Variant; // C ABI enum
-typedef int Version; // C ABI enum
+typedef int Variant;      // C ABI enum
+typedef int Version;      // C ABI enum
 #endif
 
 QUuid* QUuid_new(QUuid* other);
@@ -63,6 +62,6 @@ void QUuid_Delete(QUuid* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

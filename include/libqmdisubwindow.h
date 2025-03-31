@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -85,10 +84,10 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QMdiSubWindow::SubWindowOption SubWindowOption; // C++ enum
+typedef QMdiSubWindow::SubWindowOption SubWindowOption;   // C++ enum
 typedef QMdiSubWindow::SubWindowOptions SubWindowOptions; // C++ QFlags
 #else
-typedef int SubWindowOption; // C ABI enum
+typedef int SubWindowOption;  // C ABI enum
 typedef int SubWindowOptions; // C ABI QFlags
 #endif
 
@@ -296,6 +295,6 @@ void QMdiSubWindow_Delete(QMdiSubWindow* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

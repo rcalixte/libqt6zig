@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -30,17 +29,17 @@ typedef struct QVideoFrame__PaintOptions QVideoFrame__PaintOptions;
 #endif
 
 #ifdef __cplusplus
-typedef QVideoFrame::HandleType HandleType; // C++ enum
-typedef QVideoFrame::MapMode MapMode; // C++ enum
-typedef QVideoFrame::PaintOptions::PaintFlag PaintOptionsPaintFlag; // C++ enum
+typedef QVideoFrame::HandleType HandleType;                           // C++ enum
+typedef QVideoFrame::MapMode MapMode;                                 // C++ enum
+typedef QVideoFrame::PaintOptions::PaintFlag PaintOptionsPaintFlag;   // C++ enum
 typedef QVideoFrame::PaintOptions::PaintFlags PaintOptionsPaintFlags; // C++ QFlags
-typedef QVideoFrame::RotationAngle RotationAngle; // C++ enum
+typedef QVideoFrame::RotationAngle RotationAngle;                     // C++ enum
 #else
-typedef int HandleType; // C ABI enum
-typedef int MapMode; // C ABI enum
-typedef int PaintOptionsPaintFlag; // C ABI enum
+typedef int HandleType;             // C ABI enum
+typedef int MapMode;                // C ABI enum
+typedef int PaintOptionsPaintFlag;  // C ABI enum
 typedef int PaintOptionsPaintFlags; // C ABI QFlags
-typedef int RotationAngle; // C ABI enum
+typedef int RotationAngle;          // C ABI enum
 #endif
 
 QVideoFrame* QVideoFrame_new();
@@ -90,6 +89,6 @@ void QVideoFrame__PaintOptions_Delete(QVideoFrame__PaintOptions* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

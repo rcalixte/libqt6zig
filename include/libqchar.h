@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -22,23 +21,23 @@ typedef struct QLatin1Char QLatin1Char;
 #endif
 
 #ifdef __cplusplus
-typedef QChar::Category Category; // C++ enum
-typedef QChar::CombiningClass CombiningClass; // C++ enum
-typedef QChar::Decomposition Decomposition; // C++ enum
-typedef QChar::Direction Direction; // C++ enum
-typedef QChar::JoiningType JoiningType; // C++ enum
-typedef QChar::Script Script; // C++ enum
+typedef QChar::Category Category;                 // C++ enum
+typedef QChar::CombiningClass CombiningClass;     // C++ enum
+typedef QChar::Decomposition Decomposition;       // C++ enum
+typedef QChar::Direction Direction;               // C++ enum
+typedef QChar::JoiningType JoiningType;           // C++ enum
+typedef QChar::Script Script;                     // C++ enum
 typedef QChar::SpecialCharacter SpecialCharacter; // C++ enum
-typedef QChar::UnicodeVersion UnicodeVersion; // C++ enum
+typedef QChar::UnicodeVersion UnicodeVersion;     // C++ enum
 #else
-typedef int Category; // C ABI enum
-typedef int CombiningClass; // C ABI enum
-typedef int Decomposition; // C ABI enum
-typedef int Direction; // C ABI enum
-typedef int JoiningType; // C ABI enum
-typedef int Script; // C ABI enum
+typedef int Category;         // C ABI enum
+typedef int CombiningClass;   // C ABI enum
+typedef int Decomposition;    // C ABI enum
+typedef int Direction;        // C ABI enum
+typedef int JoiningType;      // C ABI enum
+typedef int Script;           // C ABI enum
 typedef int SpecialCharacter; // C ABI enum
-typedef int UnicodeVersion; // C ABI enum
+typedef int UnicodeVersion;   // C ABI enum
 #endif
 
 QLatin1Char* QLatin1Char_new(QLatin1Char* other);
@@ -108,6 +107,6 @@ void QChar_Delete(QChar* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

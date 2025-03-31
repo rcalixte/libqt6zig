@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -39,10 +38,10 @@ typedef struct QVariant QVariant;
 
 #ifdef __cplusplus
 typedef QSystemTrayIcon::ActivationReason ActivationReason; // C++ enum
-typedef QSystemTrayIcon::MessageIcon MessageIcon; // C++ enum
+typedef QSystemTrayIcon::MessageIcon MessageIcon;           // C++ enum
 #else
 typedef int ActivationReason; // C ABI enum
-typedef int MessageIcon; // C ABI enum
+typedef int MessageIcon;      // C ABI enum
 #endif
 
 QSystemTrayIcon* QSystemTrayIcon_new();
@@ -116,6 +115,6 @@ void QSystemTrayIcon_Delete(QSystemTrayIcon* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

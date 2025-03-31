@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -28,8 +27,8 @@ typedef QAudioBuffer::S16M S16M; // C++ QFlags
 typedef QAudioBuffer::S16S S16S; // C++ QFlags
 typedef QAudioBuffer::S32M S32M; // C++ QFlags
 typedef QAudioBuffer::S32S S32S; // C++ QFlags
-typedef QAudioBuffer::U8M U8M; // C++ QFlags
-typedef QAudioBuffer::U8S U8S; // C++ QFlags
+typedef QAudioBuffer::U8M U8M;   // C++ QFlags
+typedef QAudioBuffer::U8S U8S;   // C++ QFlags
 #else
 
 #endif
@@ -54,6 +53,6 @@ void QAudioBuffer_Delete(QAudioBuffer* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

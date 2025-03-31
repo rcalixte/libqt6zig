@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -86,17 +85,17 @@ typedef struct QWizardPage QWizardPage;
 #endif
 
 #ifdef __cplusplus
-typedef QWizard::WizardButton WizardButton; // C++ enum
-typedef QWizard::WizardOption WizardOption; // C++ enum
+typedef QWizard::WizardButton WizardButton;   // C++ enum
+typedef QWizard::WizardOption WizardOption;   // C++ enum
 typedef QWizard::WizardOptions WizardOptions; // C++ QFlags
-typedef QWizard::WizardPixmap WizardPixmap; // C++ enum
-typedef QWizard::WizardStyle WizardStyle; // C++ enum
+typedef QWizard::WizardPixmap WizardPixmap;   // C++ enum
+typedef QWizard::WizardStyle WizardStyle;     // C++ enum
 #else
-typedef int WizardButton; // C ABI enum
-typedef int WizardOption; // C ABI enum
+typedef int WizardButton;  // C ABI enum
+typedef int WizardOption;  // C ABI enum
 typedef int WizardOptions; // C ABI QFlags
-typedef int WizardPixmap; // C ABI enum
-typedef int WizardStyle; // C ABI enum
+typedef int WizardPixmap;  // C ABI enum
+typedef int WizardStyle;   // C ABI enum
 #endif
 
 QWizard* QWizard_new(QWidget* parent);
@@ -587,6 +586,6 @@ void QWizardPage_Delete(QWizardPage* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

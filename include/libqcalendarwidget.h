@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -87,12 +86,12 @@ typedef struct QWindow QWindow;
 
 #ifdef __cplusplus
 typedef QCalendarWidget::HorizontalHeaderFormat HorizontalHeaderFormat; // C++ enum
-typedef QCalendarWidget::SelectionMode SelectionMode; // C++ enum
-typedef QCalendarWidget::VerticalHeaderFormat VerticalHeaderFormat; // C++ enum
+typedef QCalendarWidget::SelectionMode SelectionMode;                   // C++ enum
+typedef QCalendarWidget::VerticalHeaderFormat VerticalHeaderFormat;     // C++ enum
 #else
 typedef int HorizontalHeaderFormat; // C ABI enum
-typedef int SelectionMode; // C ABI enum
-typedef int VerticalHeaderFormat; // C ABI enum
+typedef int SelectionMode;          // C ABI enum
+typedef int VerticalHeaderFormat;   // C ABI enum
 #endif
 
 QCalendarWidget* QCalendarWidget_new(QWidget* parent);
@@ -335,6 +334,6 @@ void QCalendarWidget_Delete(QCalendarWidget* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

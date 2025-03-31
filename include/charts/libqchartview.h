@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -95,10 +94,10 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QChartView::RubberBand RubberBand; // C++ enum
+typedef QChartView::RubberBand RubberBand;   // C++ enum
 typedef QChartView::RubberBands RubberBands; // C++ QFlags
 #else
-typedef int RubberBand; // C ABI enum
+typedef int RubberBand;  // C ABI enum
 typedef int RubberBands; // C ABI QFlags
 #endif
 
@@ -320,6 +319,6 @@ void QChartView_Delete(QChartView* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

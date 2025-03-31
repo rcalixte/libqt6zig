@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -48,33 +47,33 @@ typedef struct QWidget QWidget;
 #endif
 
 #ifdef __cplusplus
-typedef QStyle::ComplexControl ComplexControl; // C++ enum
-typedef QStyle::ContentsType ContentsType; // C++ enum
-typedef QStyle::ControlElement ControlElement; // C++ enum
-typedef QStyle::PixelMetric PixelMetric; // C++ enum
-typedef QStyle::PrimitiveElement PrimitiveElement; // C++ enum
+typedef QStyle::ComplexControl ComplexControl;                       // C++ enum
+typedef QStyle::ContentsType ContentsType;                           // C++ enum
+typedef QStyle::ControlElement ControlElement;                       // C++ enum
+typedef QStyle::PixelMetric PixelMetric;                             // C++ enum
+typedef QStyle::PrimitiveElement PrimitiveElement;                   // C++ enum
 typedef QStyle::RequestSoftwareInputPanel RequestSoftwareInputPanel; // C++ enum
-typedef QStyle::StandardPixmap StandardPixmap; // C++ enum
-typedef QStyle::State State; // C++ QFlags
-typedef QStyle::StateFlag StateFlag; // C++ enum
-typedef QStyle::StyleHint StyleHint; // C++ enum
-typedef QStyle::SubControl SubControl; // C++ enum
-typedef QStyle::SubControls SubControls; // C++ QFlags
-typedef QStyle::SubElement SubElement; // C++ enum
+typedef QStyle::StandardPixmap StandardPixmap;                       // C++ enum
+typedef QStyle::State State;                                         // C++ QFlags
+typedef QStyle::StateFlag StateFlag;                                 // C++ enum
+typedef QStyle::StyleHint StyleHint;                                 // C++ enum
+typedef QStyle::SubControl SubControl;                               // C++ enum
+typedef QStyle::SubControls SubControls;                             // C++ QFlags
+typedef QStyle::SubElement SubElement;                               // C++ enum
 #else
-typedef int ComplexControl; // C ABI enum
-typedef int ContentsType; // C ABI enum
-typedef int ControlElement; // C ABI enum
-typedef int PixelMetric; // C ABI enum
-typedef int PrimitiveElement; // C ABI enum
+typedef int ComplexControl;            // C ABI enum
+typedef int ContentsType;              // C ABI enum
+typedef int ControlElement;            // C ABI enum
+typedef int PixelMetric;               // C ABI enum
+typedef int PrimitiveElement;          // C ABI enum
 typedef int RequestSoftwareInputPanel; // C ABI enum
-typedef int StandardPixmap; // C ABI enum
-typedef int State; // C ABI QFlags
-typedef int StateFlag; // C ABI enum
-typedef int StyleHint; // C ABI enum
-typedef int SubControl; // C ABI enum
-typedef int SubControls; // C ABI QFlags
-typedef int SubElement; // C ABI enum
+typedef int StandardPixmap;            // C ABI enum
+typedef int State;                     // C ABI QFlags
+typedef int StateFlag;                 // C ABI enum
+typedef int StyleHint;                 // C ABI enum
+typedef int SubControl;                // C ABI enum
+typedef int SubControls;               // C ABI QFlags
+typedef int SubElement;                // C ABI enum
 #endif
 
 QStyle* QStyle_new();
@@ -205,6 +204,6 @@ void QStyle_Delete(QStyle* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

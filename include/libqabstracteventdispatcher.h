@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -81,6 +80,6 @@ void QAbstractEventDispatcher__TimerInfo_Delete(QAbstractEventDispatcher__TimerI
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

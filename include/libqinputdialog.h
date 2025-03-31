@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -84,13 +83,13 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QInputDialog::InputDialogOption InputDialogOption; // C++ enum
+typedef QInputDialog::InputDialogOption InputDialogOption;   // C++ enum
 typedef QInputDialog::InputDialogOptions InputDialogOptions; // C++ QFlags
-typedef QInputDialog::InputMode InputMode; // C++ enum
+typedef QInputDialog::InputMode InputMode;                   // C++ enum
 #else
-typedef int InputDialogOption; // C ABI enum
+typedef int InputDialogOption;  // C ABI enum
 typedef int InputDialogOptions; // C ABI QFlags
-typedef int InputMode; // C ABI enum
+typedef int InputMode;          // C ABI enum
 #endif
 
 QInputDialog* QInputDialog_new(QWidget* parent);
@@ -379,6 +378,6 @@ void QInputDialog_Delete(QInputDialog* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

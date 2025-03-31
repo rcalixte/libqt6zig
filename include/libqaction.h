@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -40,12 +39,12 @@ typedef struct QVariant QVariant;
 
 #ifdef __cplusplus
 typedef QAction::ActionEvent ActionEvent; // C++ enum
-typedef QAction::MenuRole MenuRole; // C++ enum
-typedef QAction::Priority Priority; // C++ enum
+typedef QAction::MenuRole MenuRole;       // C++ enum
+typedef QAction::Priority Priority;       // C++ enum
 #else
 typedef int ActionEvent; // C ABI enum
-typedef int MenuRole; // C ABI enum
-typedef int Priority; // C ABI enum
+typedef int MenuRole;    // C ABI enum
+typedef int Priority;    // C ABI enum
 #endif
 
 QAction* QAction_new();
@@ -169,6 +168,6 @@ void QAction_Delete(QAction* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

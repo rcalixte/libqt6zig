@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,18 +23,18 @@ typedef struct QStringView QStringView;
 #endif
 
 #ifdef __cplusplus
-typedef QStringView::const_pointer const_pointer; // C++ QFlags
+typedef QStringView::const_pointer const_pointer;     // C++ QFlags
 typedef QStringView::const_reference const_reference; // C++ QFlags
 typedef QStringView::difference_type difference_type; // C++ QFlags
-typedef QStringView::iterator iterator; // C++ QFlags
-typedef QStringView::pointer pointer; // C++ QFlags
-typedef QStringView::reference reference; // C++ QFlags
-typedef QStringView::size_type size_type; // C++ QFlags
-typedef QStringView::storage_type storage_type; // C++ QFlags
-typedef QStringView::value_type value_type; // C++ QFlags
+typedef QStringView::iterator iterator;               // C++ QFlags
+typedef QStringView::pointer pointer;                 // C++ QFlags
+typedef QStringView::reference reference;             // C++ QFlags
+typedef QStringView::size_type size_type;             // C++ QFlags
+typedef QStringView::storage_type storage_type;       // C++ QFlags
+typedef QStringView::value_type value_type;           // C++ QFlags
 #else
 typedef long long difference_type; // C ABI QFlags
-typedef ptrdiff_t size_type; // C ABI QFlags
+typedef ptrdiff_t size_type;       // C ABI QFlags
 #endif
 
 QStringView* QStringView_new();
@@ -126,6 +125,6 @@ void QStringView_Delete(QStringView* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

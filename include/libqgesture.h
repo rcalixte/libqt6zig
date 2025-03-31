@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -44,14 +43,14 @@ typedef struct QWidget QWidget;
 
 #ifdef __cplusplus
 typedef QGesture::GestureCancelPolicy GestureCancelPolicy; // C++ enum
-typedef QPinchGesture::ChangeFlag ChangeFlag; // C++ enum
-typedef QPinchGesture::ChangeFlags ChangeFlags; // C++ QFlags
-typedef QSwipeGesture::SwipeDirection SwipeDirection; // C++ enum
+typedef QPinchGesture::ChangeFlag ChangeFlag;              // C++ enum
+typedef QPinchGesture::ChangeFlags ChangeFlags;            // C++ QFlags
+typedef QSwipeGesture::SwipeDirection SwipeDirection;      // C++ enum
 #else
-typedef int ChangeFlag; // C ABI enum
-typedef int ChangeFlags; // C ABI QFlags
+typedef int ChangeFlag;          // C ABI enum
+typedef int ChangeFlags;         // C ABI QFlags
 typedef int GestureCancelPolicy; // C ABI enum
-typedef int SwipeDirection; // C ABI enum
+typedef int SwipeDirection;      // C ABI enum
 #endif
 
 QGesture* QGesture_new();
@@ -395,6 +394,6 @@ void QGestureEvent_Delete(QGestureEvent* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

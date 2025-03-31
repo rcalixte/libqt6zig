@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -42,14 +41,13 @@ typedef struct QObject QObject;
 #endif
 
 #ifdef __cplusplus
-typedef QMetaObject::Call Call; // C++ enum
-typedef QMetaObject::Connection::RestrictedBool ConnectionRestrictedBool; // C++ QFlags
+typedef QMetaObject::Call Call;                                               // C++ enum
+typedef QMetaObject::Connection::RestrictedBool ConnectionRestrictedBool;     // C++ QFlags
 typedef QMetaObject::Data::StaticMetacallFunction DataStaticMetacallFunction; // C++ QFlags
-typedef QMetaObject::SuperData::Getter SuperDataGetter; // C++ QFlags
+typedef QMetaObject::SuperData::Getter SuperDataGetter;                       // C++ QFlags
 #else
 typedef int Call; // C ABI enum
 #endif
-
 
 QGenericArgument* QGenericArgument_new(QGenericArgument* other);
 QGenericArgument* QGenericArgument_new2(QGenericArgument* other);
@@ -198,6 +196,6 @@ void QMetaObject__Data_Delete(QMetaObject__Data* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

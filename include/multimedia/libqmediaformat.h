@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -22,18 +21,18 @@ typedef struct QMimeType QMimeType;
 #endif
 
 #ifdef __cplusplus
-typedef QMediaFormat::AudioCodec AudioCodec; // C++ enum
+typedef QMediaFormat::AudioCodec AudioCodec;         // C++ enum
 typedef QMediaFormat::ConversionMode ConversionMode; // C++ enum
-typedef QMediaFormat::FileFormat FileFormat; // C++ enum
+typedef QMediaFormat::FileFormat FileFormat;         // C++ enum
 typedef QMediaFormat::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QMediaFormat::ResolveFlags ResolveFlags; // C++ enum
-typedef QMediaFormat::VideoCodec VideoCodec; // C++ enum
+typedef QMediaFormat::ResolveFlags ResolveFlags;     // C++ enum
+typedef QMediaFormat::VideoCodec VideoCodec;         // C++ enum
 #else
-typedef int AudioCodec; // C ABI enum
-typedef int ConversionMode; // C ABI enum
-typedef int FileFormat; // C ABI enum
-typedef int ResolveFlags; // C ABI enum
-typedef int VideoCodec; // C ABI enum
+typedef int AudioCodec;      // C ABI enum
+typedef int ConversionMode;  // C ABI enum
+typedef int FileFormat;      // C ABI enum
+typedef int ResolveFlags;    // C ABI enum
+typedef int VideoCodec;      // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -66,6 +65,6 @@ void QMediaFormat_Delete(QMediaFormat* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

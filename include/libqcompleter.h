@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -41,10 +40,10 @@ typedef struct QWidget QWidget;
 
 #ifdef __cplusplus
 typedef QCompleter::CompletionMode CompletionMode; // C++ enum
-typedef QCompleter::ModelSorting ModelSorting; // C++ enum
+typedef QCompleter::ModelSorting ModelSorting;     // C++ enum
 #else
 typedef int CompletionMode; // C ABI enum
-typedef int ModelSorting; // C ABI enum
+typedef int ModelSorting;   // C ABI enum
 #endif
 
 QCompleter* QCompleter_new();
@@ -140,6 +139,6 @@ void QCompleter_Delete(QCompleter* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

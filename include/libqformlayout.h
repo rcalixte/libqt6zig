@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -47,12 +46,12 @@ typedef struct QWidget QWidget;
 
 #ifdef __cplusplus
 typedef QFormLayout::FieldGrowthPolicy FieldGrowthPolicy; // C++ enum
-typedef QFormLayout::ItemRole ItemRole; // C++ enum
-typedef QFormLayout::RowWrapPolicy RowWrapPolicy; // C++ enum
+typedef QFormLayout::ItemRole ItemRole;                   // C++ enum
+typedef QFormLayout::RowWrapPolicy RowWrapPolicy;         // C++ enum
 #else
 typedef int FieldGrowthPolicy; // C ABI enum
-typedef int ItemRole; // C ABI enum
-typedef int RowWrapPolicy; // C ABI enum
+typedef int ItemRole;          // C ABI enum
+typedef int RowWrapPolicy;     // C ABI enum
 #endif
 
 QFormLayout* QFormLayout_new(QWidget* parent);
@@ -228,9 +227,8 @@ void QFormLayout_OnIsSignalConnected(const QFormLayout* self, intptr_t slot);
 bool QFormLayout_QBaseIsSignalConnected(const QFormLayout* self, QMetaMethod* signal);
 void QFormLayout_Delete(QFormLayout* self);
 
-
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

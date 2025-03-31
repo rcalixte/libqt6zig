@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -85,13 +84,13 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QAbstractPrintDialog::PrintDialogOption PrintDialogOption; // C++ enum
+typedef QAbstractPrintDialog::PrintDialogOption PrintDialogOption;   // C++ enum
 typedef QAbstractPrintDialog::PrintDialogOptions PrintDialogOptions; // C++ QFlags
-typedef QAbstractPrintDialog::PrintRange PrintRange; // C++ enum
+typedef QAbstractPrintDialog::PrintRange PrintRange;                 // C++ enum
 #else
-typedef int PrintDialogOption; // C ABI enum
+typedef int PrintDialogOption;  // C ABI enum
 typedef int PrintDialogOptions; // C ABI QFlags
-typedef int PrintRange; // C ABI enum
+typedef int PrintRange;         // C ABI enum
 #endif
 
 QAbstractPrintDialog* QAbstractPrintDialog_new(QPrinter* printer);
@@ -304,6 +303,6 @@ void QAbstractPrintDialog_Delete(QAbstractPrintDialog* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

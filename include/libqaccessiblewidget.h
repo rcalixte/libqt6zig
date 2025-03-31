@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -69,6 +68,6 @@ libqt_string QAccessibleWidget_LocalizedActionDescription(const QAccessibleWidge
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

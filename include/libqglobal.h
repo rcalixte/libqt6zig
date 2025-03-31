@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -28,6 +27,6 @@ typedef int Deprecated_t; // C ABI enum
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

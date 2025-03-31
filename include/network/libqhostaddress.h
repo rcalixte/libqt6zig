@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -22,17 +21,17 @@ typedef struct QIPv6Address QIPv6Address;
 #endif
 
 #ifdef __cplusplus
-typedef QHostAddress::ConversionMode ConversionMode; // C++ QFlags
-typedef QHostAddress::ConversionModeFlag ConversionModeFlag; // C++ enum
+typedef QHostAddress::ConversionMode ConversionMode;             // C++ QFlags
+typedef QHostAddress::ConversionModeFlag ConversionModeFlag;     // C++ enum
 typedef QHostAddress::NetworkLayerProtocol NetworkLayerProtocol; // C++ QFlags
-typedef QHostAddress::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QHostAddress::SpecialAddress SpecialAddress; // C++ enum
+typedef QHostAddress::QtGadgetHelper QtGadgetHelper;             // C++ QFlags
+typedef QHostAddress::SpecialAddress SpecialAddress;             // C++ enum
 #else
-typedef int ConversionMode; // C ABI QFlags
-typedef int ConversionModeFlag; // C ABI enum
+typedef int ConversionMode;       // C ABI QFlags
+typedef int ConversionModeFlag;   // C ABI enum
 typedef int NetworkLayerProtocol; // C ABI QFlags
-typedef int SpecialAddress; // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
+typedef int SpecialAddress;       // C ABI enum
+typedef void QtGadgetHelper;      // C ABI QFlags
 #endif
 
 unsigned char QIPv6Address_OperatorSubscript(const QIPv6Address* self, int index);
@@ -81,6 +80,6 @@ void QHostAddress_Delete(QHostAddress* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

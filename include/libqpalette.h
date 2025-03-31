@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,15 +23,15 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QPalette::ColorGroup ColorGroup; // C++ enum
-typedef QPalette::ColorRole ColorRole; // C++ enum
+typedef QPalette::ColorGroup ColorGroup;         // C++ enum
+typedef QPalette::ColorRole ColorRole;           // C++ enum
 typedef QPalette::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QPalette::ResolveMask ResolveMask; // C++ QFlags
+typedef QPalette::ResolveMask ResolveMask;       // C++ QFlags
 #else
-typedef int ColorGroup; // C ABI enum
-typedef int ColorRole; // C ABI enum
+typedef int ColorGroup;       // C ABI enum
+typedef int ColorRole;        // C ABI enum
 typedef uint64_t ResolveMask; // C ABI QFlags
-typedef void QtGadgetHelper; // C ABI QFlags
+typedef void QtGadgetHelper;  // C ABI QFlags
 #endif
 
 QPalette* QPalette_new();
@@ -89,6 +88,6 @@ void QPalette_Delete(QPalette* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

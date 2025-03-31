@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -41,10 +40,10 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QMovie::CacheMode CacheMode; // C++ enum
+typedef QMovie::CacheMode CacheMode;   // C++ enum
 typedef QMovie::MovieState MovieState; // C++ enum
 #else
-typedef int CacheMode; // C ABI enum
+typedef int CacheMode;  // C ABI enum
 typedef int MovieState; // C ABI enum
 #endif
 
@@ -146,6 +145,6 @@ void QMovie_Delete(QMovie* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

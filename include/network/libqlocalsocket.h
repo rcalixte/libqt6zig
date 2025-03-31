@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -39,13 +38,13 @@ typedef struct QVariant QVariant;
 #ifdef __cplusplus
 typedef QLocalSocket::LocalSocketError LocalSocketError; // C++ enum
 typedef QLocalSocket::LocalSocketState LocalSocketState; // C++ enum
-typedef QLocalSocket::SocketOption SocketOption; // C++ enum
-typedef QLocalSocket::SocketOptions SocketOptions; // C++ QFlags
+typedef QLocalSocket::SocketOption SocketOption;         // C++ enum
+typedef QLocalSocket::SocketOptions SocketOptions;       // C++ QFlags
 #else
 typedef int LocalSocketError; // C ABI enum
 typedef int LocalSocketState; // C ABI enum
-typedef int SocketOption; // C ABI enum
-typedef int SocketOptions; // C ABI QFlags
+typedef int SocketOption;     // C ABI enum
+typedef int SocketOptions;    // C ABI QFlags
 #endif
 
 QLocalSocket* QLocalSocket_new();
@@ -185,6 +184,6 @@ void QLocalSocket_Delete(QLocalSocket* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

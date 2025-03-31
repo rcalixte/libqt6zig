@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -37,14 +36,14 @@ typedef struct QVariant QVariant;
 
 #ifdef __cplusplus
 typedef QInputDevice::Capabilities Capabilities; // C++ QFlags
-typedef QInputDevice::Capability Capability; // C++ enum
-typedef QInputDevice::DeviceType DeviceType; // C++ enum
-typedef QInputDevice::DeviceTypes DeviceTypes; // C++ QFlags
+typedef QInputDevice::Capability Capability;     // C++ enum
+typedef QInputDevice::DeviceType DeviceType;     // C++ enum
+typedef QInputDevice::DeviceTypes DeviceTypes;   // C++ QFlags
 #else
 typedef int Capabilities; // C ABI QFlags
-typedef int Capability; // C ABI enum
-typedef int DeviceType; // C ABI enum
-typedef int DeviceTypes; // C ABI QFlags
+typedef int Capability;   // C ABI enum
+typedef int DeviceType;   // C ABI enum
+typedef int DeviceTypes;  // C ABI QFlags
 #endif
 
 QInputDevice* QInputDevice_new();
@@ -111,6 +110,6 @@ void QInputDevice_Delete(QInputDevice* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

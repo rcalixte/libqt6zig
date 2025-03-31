@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -69,12 +68,12 @@ typedef struct QWidget QWidget;
 
 #ifdef __cplusplus
 typedef QGraphicsScene::ItemIndexMethod ItemIndexMethod; // C++ enum
-typedef QGraphicsScene::SceneLayer SceneLayer; // C++ enum
-typedef QGraphicsScene::SceneLayers SceneLayers; // C++ QFlags
+typedef QGraphicsScene::SceneLayer SceneLayer;           // C++ enum
+typedef QGraphicsScene::SceneLayers SceneLayers;         // C++ QFlags
 #else
 typedef int ItemIndexMethod; // C ABI enum
-typedef int SceneLayer; // C ABI enum
-typedef int SceneLayers; // C ABI QFlags
+typedef int SceneLayer;      // C ABI enum
+typedef int SceneLayers;     // C ABI QFlags
 #endif
 
 QGraphicsScene* QGraphicsScene_new();
@@ -309,6 +308,6 @@ void QGraphicsScene_Delete(QGraphicsScene* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -40,14 +39,14 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QPointingDevice::GrabTransition GrabTransition; // C++ enum
-typedef QPointingDevice::PointerType PointerType; // C++ enum
-typedef QPointingDevice::PointerTypes PointerTypes; // C++ QFlags
+typedef QPointingDevice::GrabTransition GrabTransition;         // C++ enum
+typedef QPointingDevice::PointerType PointerType;               // C++ enum
+typedef QPointingDevice::PointerTypes PointerTypes;             // C++ QFlags
 typedef QPointingDeviceUniqueId::QtGadgetHelper QtGadgetHelper; // C++ QFlags
 #else
-typedef int GrabTransition; // C ABI enum
-typedef int PointerType; // C ABI enum
-typedef int PointerTypes; // C ABI QFlags
+typedef int GrabTransition;  // C ABI enum
+typedef int PointerType;     // C ABI enum
+typedef int PointerTypes;    // C ABI QFlags
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -125,6 +124,6 @@ void QPointingDevice_Delete(QPointingDevice* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

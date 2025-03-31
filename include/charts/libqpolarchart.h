@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -85,10 +84,10 @@ typedef struct QWidget QWidget;
 #endif
 
 #ifdef __cplusplus
-typedef QPolarChart::PolarOrientation PolarOrientation; // C++ enum
+typedef QPolarChart::PolarOrientation PolarOrientation;   // C++ enum
 typedef QPolarChart::PolarOrientations PolarOrientations; // C++ QFlags
 #else
-typedef int PolarOrientation; // C ABI enum
+typedef int PolarOrientation;  // C ABI enum
 typedef int PolarOrientations; // C ABI QFlags
 #endif
 
@@ -334,6 +333,6 @@ void QPolarChart_Delete(QPolarChart* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

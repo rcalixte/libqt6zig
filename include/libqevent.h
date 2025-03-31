@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -84,17 +83,17 @@ typedef struct QWindowStateChangeEvent QWindowStateChangeEvent;
 #endif
 
 #ifdef __cplusplus
-typedef QContextMenuEvent::Reason Reason; // C++ enum
-typedef QInputMethodEvent::AttributeType AttributeType; // C++ enum
+typedef QContextMenuEvent::Reason Reason;                         // C++ enum
+typedef QInputMethodEvent::AttributeType AttributeType;           // C++ enum
 typedef QPlatformSurfaceEvent::SurfaceEventType SurfaceEventType; // C++ enum
-typedef QScrollEvent::ScrollState ScrollState; // C++ enum
+typedef QScrollEvent::ScrollState ScrollState;                    // C++ enum
 #else
 typedef QEventPoint* TouchPoint; // C ABI QFlags
-typedef int AttributeType; // C ABI enum
-typedef int Reason; // C ABI enum
-typedef int ScrollState; // C ABI enum
-typedef int SurfaceEventType; // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
+typedef int AttributeType;       // C ABI enum
+typedef int Reason;              // C ABI enum
+typedef int ScrollState;         // C ABI enum
+typedef int SurfaceEventType;    // C ABI enum
+typedef void QtGadgetHelper;     // C ABI QFlags
 #endif
 
 QInputEvent* QInputEvent_new(int typeVal, QInputDevice* m_dev);
@@ -787,6 +786,6 @@ void QInputMethodEvent__Attribute_Delete(QInputMethodEvent__Attribute* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

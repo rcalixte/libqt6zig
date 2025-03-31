@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,11 +23,11 @@ typedef struct QSurfaceFormat QSurfaceFormat;
 
 #ifdef __cplusplus
 typedef QSurface::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QSurface::SurfaceClass SurfaceClass; // C++ enum
-typedef QSurface::SurfaceType SurfaceType; // C++ enum
+typedef QSurface::SurfaceClass SurfaceClass;     // C++ enum
+typedef QSurface::SurfaceType SurfaceType;       // C++ enum
 #else
-typedef int SurfaceClass; // C ABI enum
-typedef int SurfaceType; // C ABI enum
+typedef int SurfaceClass;    // C ABI enum
+typedef int SurfaceType;     // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -41,6 +40,6 @@ void QSurface_Delete(QSurface* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

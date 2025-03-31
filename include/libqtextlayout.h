@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -37,13 +36,13 @@ typedef struct QTextOption QTextOption;
 #endif
 
 #ifdef __cplusplus
-typedef QTextLayout::CursorMode CursorMode; // C++ enum
+typedef QTextLayout::CursorMode CursorMode;       // C++ enum
 typedef QTextLine::CursorPosition CursorPosition; // C++ enum
-typedef QTextLine::Edge Edge; // C++ enum
+typedef QTextLine::Edge Edge;                     // C++ enum
 #else
-typedef int CursorMode; // C ABI enum
+typedef int CursorMode;     // C ABI enum
 typedef int CursorPosition; // C ABI enum
-typedef int Edge; // C ABI enum
+typedef int Edge;           // C ABI enum
 #endif
 
 QTextInlineObject* QTextInlineObject_new(QTextInlineObject* other);
@@ -163,6 +162,6 @@ void QTextLayout__FormatRange_Delete(QTextLayout__FormatRange* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -85,6 +84,6 @@ void QClipboard_SetPixmap2(QClipboard* self, QPixmap* param1, int mode);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

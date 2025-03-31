@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -29,12 +28,12 @@ typedef struct QTransform QTransform;
 
 #ifdef __cplusplus
 typedef QRawFont::AntialiasingType AntialiasingType; // C++ enum
-typedef QRawFont::LayoutFlag LayoutFlag; // C++ enum
-typedef QRawFont::LayoutFlags LayoutFlags; // C++ QFlags
+typedef QRawFont::LayoutFlag LayoutFlag;             // C++ enum
+typedef QRawFont::LayoutFlags LayoutFlags;           // C++ QFlags
 #else
 typedef int AntialiasingType; // C ABI enum
-typedef int LayoutFlag; // C ABI enum
-typedef int LayoutFlags; // C ABI QFlags
+typedef int LayoutFlag;       // C ABI enum
+typedef int LayoutFlags;      // C ABI QFlags
 #endif
 
 QRawFont* QRawFont_new();
@@ -88,6 +87,6 @@ void QRawFont_Delete(QRawFont* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

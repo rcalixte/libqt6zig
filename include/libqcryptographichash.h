@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,10 +22,10 @@ typedef struct QIODevice QIODevice;
 #endif
 
 #ifdef __cplusplus
-typedef QCryptographicHash::Algorithm Algorithm; // C++ enum
+typedef QCryptographicHash::Algorithm Algorithm;           // C++ enum
 typedef QCryptographicHash::QtGadgetHelper QtGadgetHelper; // C++ QFlags
 #else
-typedef int Algorithm; // C ABI enum
+typedef int Algorithm;       // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -43,6 +42,6 @@ void QCryptographicHash_Delete(QCryptographicHash* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

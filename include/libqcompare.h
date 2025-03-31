@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -21,10 +20,10 @@ typedef struct QPartialOrdering QPartialOrdering;
 #endif
 
 #ifdef __cplusplus
-typedef QtPrivate::Ordering Ordering; // C++ enum
+typedef QtPrivate::Ordering Ordering;         // C++ enum
 typedef QtPrivate::Uncomparable Uncomparable; // C++ enum
 #else
-typedef signed char Ordering; // C ABI enum
+typedef signed char Ordering;     // C ABI enum
 typedef signed char Uncomparable; // C ABI enum
 #endif
 
@@ -37,6 +36,6 @@ void QPartialOrdering_Delete(QPartialOrdering* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

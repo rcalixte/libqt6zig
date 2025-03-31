@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -88,10 +87,10 @@ typedef struct QWindow QWindow;
 
 #ifdef __cplusplus
 typedef QLineEdit::ActionPosition ActionPosition; // C++ enum
-typedef QLineEdit::EchoMode EchoMode; // C++ enum
+typedef QLineEdit::EchoMode EchoMode;             // C++ enum
 #else
 typedef int ActionPosition; // C ABI enum
-typedef int EchoMode; // C ABI enum
+typedef int EchoMode;       // C ABI enum
 #endif
 
 QLineEdit* QLineEdit_new(QWidget* parent);
@@ -365,6 +364,6 @@ void QLineEdit_Delete(QLineEdit* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

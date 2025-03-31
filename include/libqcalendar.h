@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -33,9 +32,9 @@ typedef struct QLocale QLocale;
 
 #ifdef __cplusplus
 typedef QCalendar::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QCalendar::System System; // C++ enum
+typedef QCalendar::System System;                 // C++ enum
 #else
-typedef int System; // C ABI enum
+typedef int System;          // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -103,6 +102,6 @@ void QCalendar__SystemId_Delete(QCalendar__SystemId* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

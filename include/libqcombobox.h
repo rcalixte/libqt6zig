@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -91,10 +90,10 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QComboBox::InsertPolicy InsertPolicy; // C++ enum
+typedef QComboBox::InsertPolicy InsertPolicy;         // C++ enum
 typedef QComboBox::SizeAdjustPolicy SizeAdjustPolicy; // C++ enum
 #else
-typedef int InsertPolicy; // C ABI enum
+typedef int InsertPolicy;     // C ABI enum
 typedef int SizeAdjustPolicy; // C ABI enum
 #endif
 
@@ -377,6 +376,6 @@ void QComboBox_Delete(QComboBox* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

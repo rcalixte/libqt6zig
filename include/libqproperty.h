@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -28,14 +27,14 @@ typedef struct QUntypedPropertyBinding QUntypedPropertyBinding;
 #endif
 
 #ifdef __cplusplus
-typedef QPropertyBindingError::Type Type; // C++ enum
-typedef QPropertyObserverBase::ObserverTag ObserverTag; // C++ enum
+typedef QPropertyBindingError::Type Type;                                     // C++ enum
+typedef QPropertyObserverBase::ObserverTag ObserverTag;                       // C++ enum
 typedef QUntypedPropertyBinding::BindingFunctionVTable BindingFunctionVTable; // C++ QFlags
-typedef QtPrivate::BindableWarnings::Reason BindableWarningsReason; // C++ enum
+typedef QtPrivate::BindableWarnings::Reason BindableWarningsReason;           // C++ enum
 #else
 typedef int BindableWarningsReason; // C ABI enum
-typedef int ObserverTag; // C ABI enum
-typedef unsigned char Type; // C ABI enum
+typedef int ObserverTag;            // C ABI enum
+typedef unsigned char Type;         // C ABI enum
 #endif
 
 QPropertyBindingSourceLocation* QPropertyBindingSourceLocation_new(QPropertyBindingSourceLocation* other);
@@ -95,6 +94,6 @@ void QUntypedBindable_Delete(QUntypedBindable* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

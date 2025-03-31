@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -40,10 +39,10 @@ typedef struct QVector3D QVector3D;
 
 #ifdef __cplusplus
 typedef QSpatialSound::DistanceModel DistanceModel; // C++ enum
-typedef QSpatialSound::Loops Loops; // C++ enum
+typedef QSpatialSound::Loops Loops;                 // C++ enum
 #else
 typedef int DistanceModel; // C ABI enum
-typedef int Loops; // C ABI enum
+typedef int Loops;         // C ABI enum
 #endif
 
 QSpatialSound* QSpatialSound_new(QAudioEngine* engine);
@@ -152,6 +151,6 @@ void QSpatialSound_Delete(QSpatialSound* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

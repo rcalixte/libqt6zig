@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -30,10 +29,10 @@ typedef struct QVector4D QVector4D;
 #endif
 
 #ifdef __cplusplus
-typedef QMatrix4x4::Flag Flag; // C++ enum
+typedef QMatrix4x4::Flag Flag;   // C++ enum
 typedef QMatrix4x4::Flags Flags; // C++ QFlags
 #else
-typedef int Flag; // C ABI enum
+typedef int Flag;  // C ABI enum
 typedef int Flags; // C ABI QFlags
 #endif
 
@@ -110,6 +109,6 @@ void QMatrix4x4_Delete(QMatrix4x4* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

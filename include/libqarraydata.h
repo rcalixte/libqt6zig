@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -21,16 +20,16 @@ typedef struct QArrayData QArrayData;
 #endif
 
 #ifdef __cplusplus
-typedef QArrayData::AllocationOption AllocationOption; // C++ enum
-typedef QArrayData::ArrayOption ArrayOption; // C++ enum
-typedef QArrayData::ArrayOptions ArrayOptions; // C++ QFlags
-typedef QArrayData::GrowthPosition GrowthPosition; // C++ enum
+typedef QArrayData::AllocationOption AllocationOption;                            // C++ enum
+typedef QArrayData::ArrayOption ArrayOption;                                      // C++ enum
+typedef QArrayData::ArrayOptions ArrayOptions;                                    // C++ QFlags
+typedef QArrayData::GrowthPosition GrowthPosition;                                // C++ enum
 typedef QtPrivate::QContainerImplHelper::CutResult QContainerImplHelperCutResult; // C++ enum
 #else
-typedef int AllocationOption; // C ABI enum
-typedef int ArrayOption; // C ABI enum
-typedef int ArrayOptions; // C ABI QFlags
-typedef int GrowthPosition; // C ABI enum
+typedef int AllocationOption;              // C ABI enum
+typedef int ArrayOption;                   // C ABI enum
+typedef int ArrayOptions;                  // C ABI QFlags
+typedef int GrowthPosition;                // C ABI enum
 typedef int QContainerImplHelperCutResult; // C ABI enum
 #endif
 
@@ -47,6 +46,6 @@ void QArrayData_Delete(QArrayData* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -36,13 +35,13 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QImage::DataPtr DataPtr; // C++ QFlags
-typedef QImage::Format Format; // C++ enum
-typedef QImage::InvertMode InvertMode; // C++ enum
+typedef QImage::DataPtr DataPtr;               // C++ QFlags
+typedef QImage::Format Format;                 // C++ enum
+typedef QImage::InvertMode InvertMode;         // C++ enum
 typedef QImage::QtGadgetHelper QtGadgetHelper; // C++ QFlags
 #else
-typedef int Format; // C ABI enum
-typedef int InvertMode; // C ABI enum
+typedef int Format;          // C ABI enum
+typedef int InvertMode;      // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -238,6 +237,6 @@ void QImage_Delete(QImage* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

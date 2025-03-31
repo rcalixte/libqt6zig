@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,9 +23,9 @@ typedef struct QWebEngineCertificateError QWebEngineCertificateError;
 
 #ifdef __cplusplus
 typedef QWebEngineCertificateError::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QWebEngineCertificateError::Type Type; // C++ enum
+typedef QWebEngineCertificateError::Type Type;                     // C++ enum
 #else
-typedef unsigned char Type; // C ABI enum
+typedef unsigned char Type;  // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -44,6 +43,6 @@ void QWebEngineCertificateError_Delete(QWebEngineCertificateError* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

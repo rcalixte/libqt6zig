@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -93,10 +92,10 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QDateTimeEdit::Section Section; // C++ enum
+typedef QDateTimeEdit::Section Section;   // C++ enum
 typedef QDateTimeEdit::Sections Sections; // C++ QFlags
 #else
-typedef int Section; // C ABI enum
+typedef int Section;  // C ABI enum
 typedef int Sections; // C ABI QFlags
 #endif
 
@@ -798,6 +797,6 @@ void QDateEdit_Delete(QDateEdit* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

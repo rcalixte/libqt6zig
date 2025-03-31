@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -21,10 +20,10 @@ typedef struct QIODeviceBase QIODeviceBase;
 #endif
 
 #ifdef __cplusplus
-typedef QIODeviceBase::OpenMode OpenMode; // C++ QFlags
+typedef QIODeviceBase::OpenMode OpenMode;         // C++ QFlags
 typedef QIODeviceBase::OpenModeFlag OpenModeFlag; // C++ enum
 #else
-typedef int OpenMode; // C ABI QFlags
+typedef int OpenMode;     // C ABI QFlags
 typedef int OpenModeFlag; // C ABI enum
 #endif
 
@@ -33,6 +32,6 @@ void QIODeviceBase_CopyAssign(QIODeviceBase* self, QIODeviceBase* other);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

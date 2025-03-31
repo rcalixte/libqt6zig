@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -37,10 +36,10 @@ typedef struct QVariant QVariant;
 
 #ifdef __cplusplus
 typedef QTimeLine::Direction Direction; // C++ enum
-typedef QTimeLine::State State; // C++ enum
+typedef QTimeLine::State State;         // C++ enum
 #else
 typedef int Direction; // C ABI enum
-typedef int State; // C ABI enum
+typedef int State;     // C ABI enum
 #endif
 
 QTimeLine* QTimeLine_new();
@@ -120,6 +119,6 @@ void QTimeLine_Delete(QTimeLine* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

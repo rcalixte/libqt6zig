@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -40,10 +39,10 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QItemSelectionModel::SelectionFlag SelectionFlag; // C++ enum
+typedef QItemSelectionModel::SelectionFlag SelectionFlag;   // C++ enum
 typedef QItemSelectionModel::SelectionFlags SelectionFlags; // C++ QFlags
 #else
-typedef int SelectionFlag; // C ABI enum
+typedef int SelectionFlag;  // C ABI enum
 typedef int SelectionFlags; // C ABI QFlags
 #endif
 
@@ -183,6 +182,6 @@ void QItemSelection_Delete(QItemSelection* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

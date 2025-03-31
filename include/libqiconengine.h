@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -86,6 +85,6 @@ void QIconEngine__ScaledPixmapArgument_Delete(QIconEngine__ScaledPixmapArgument*
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

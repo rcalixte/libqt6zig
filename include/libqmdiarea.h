@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -89,14 +88,14 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QMdiArea::AreaOption AreaOption; // C++ enum
+typedef QMdiArea::AreaOption AreaOption;   // C++ enum
 typedef QMdiArea::AreaOptions AreaOptions; // C++ QFlags
-typedef QMdiArea::ViewMode ViewMode; // C++ enum
+typedef QMdiArea::ViewMode ViewMode;       // C++ enum
 typedef QMdiArea::WindowOrder WindowOrder; // C++ enum
 #else
-typedef int AreaOption; // C ABI enum
+typedef int AreaOption;  // C ABI enum
 typedef int AreaOptions; // C ABI QFlags
-typedef int ViewMode; // C ABI enum
+typedef int ViewMode;    // C ABI enum
 typedef int WindowOrder; // C ABI enum
 #endif
 
@@ -341,6 +340,6 @@ void QMdiArea_Delete(QMdiArea* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

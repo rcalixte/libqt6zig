@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -85,10 +84,10 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QLCDNumber::Mode Mode; // C++ enum
+typedef QLCDNumber::Mode Mode;                 // C++ enum
 typedef QLCDNumber::SegmentStyle SegmentStyle; // C++ enum
 #else
-typedef int Mode; // C ABI enum
+typedef int Mode;         // C ABI enum
 typedef int SegmentStyle; // C ABI enum
 #endif
 
@@ -303,6 +302,6 @@ void QLCDNumber_Delete(QLCDNumber* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

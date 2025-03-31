@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -35,14 +34,14 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QNetworkInformation::Feature Feature; // C++ enum
-typedef QNetworkInformation::Features Features; // C++ QFlags
-typedef QNetworkInformation::Reachability Reachability; // C++ enum
+typedef QNetworkInformation::Feature Feature;                 // C++ enum
+typedef QNetworkInformation::Features Features;               // C++ QFlags
+typedef QNetworkInformation::Reachability Reachability;       // C++ enum
 typedef QNetworkInformation::TransportMedium TransportMedium; // C++ enum
 #else
-typedef int Feature; // C ABI enum
-typedef int Features; // C ABI QFlags
-typedef int Reachability; // C ABI enum
+typedef int Feature;         // C ABI enum
+typedef int Features;        // C ABI QFlags
+typedef int Reachability;    // C ABI enum
 typedef int TransportMedium; // C ABI enum
 #endif
 
@@ -75,6 +74,6 @@ libqt_string QNetworkInformation_Tr3(const char* s, const char* c, int n);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

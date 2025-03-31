@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -42,6 +41,6 @@ void QStaticByteArrayMatcherBase_CopyAssign(QStaticByteArrayMatcherBase* self, Q
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

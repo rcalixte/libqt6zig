@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -43,10 +42,10 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QNetworkReply::NetworkError NetworkError; // C++ enum
+typedef QNetworkReply::NetworkError NetworkError;   // C++ enum
 typedef QNetworkReply::RawHeaderPair RawHeaderPair; // C++ QFlags
 #else
-typedef int NetworkError; // C ABI enum
+typedef int NetworkError;                                                      // C ABI enum
 typedef libqt_pair /* tuple of libqt_string and libqt_string */ RawHeaderPair; // C ABI QFlags
 #endif
 
@@ -119,6 +118,6 @@ void QNetworkReply_Delete(QNetworkReply* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

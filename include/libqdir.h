@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,14 +22,14 @@ typedef struct QFileInfo QFileInfo;
 #endif
 
 #ifdef __cplusplus
-typedef QDir::Filter Filter; // C++ enum
-typedef QDir::Filters Filters; // C++ QFlags
-typedef QDir::SortFlag SortFlag; // C++ enum
+typedef QDir::Filter Filter;       // C++ enum
+typedef QDir::Filters Filters;     // C++ QFlags
+typedef QDir::SortFlag SortFlag;   // C++ enum
 typedef QDir::SortFlags SortFlags; // C++ QFlags
 #else
-typedef int Filter; // C ABI enum
-typedef int Filters; // C ABI QFlags
-typedef int SortFlag; // C ABI enum
+typedef int Filter;    // C ABI enum
+typedef int Filters;   // C ABI QFlags
+typedef int SortFlag;  // C ABI enum
 typedef int SortFlags; // C ABI QFlags
 #endif
 
@@ -119,6 +118,6 @@ void QDir_Delete(QDir* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

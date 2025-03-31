@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -43,10 +42,10 @@ typedef struct QWebEngineUrlSchemeHandler QWebEngineUrlSchemeHandler;
 #endif
 
 #ifdef __cplusplus
-typedef QWebEngineProfile::HttpCacheType HttpCacheType; // C++ enum
+typedef QWebEngineProfile::HttpCacheType HttpCacheType;                     // C++ enum
 typedef QWebEngineProfile::PersistentCookiesPolicy PersistentCookiesPolicy; // C++ enum
 #else
-typedef int HttpCacheType; // C ABI enum
+typedef int HttpCacheType;           // C ABI enum
 typedef int PersistentCookiesPolicy; // C ABI enum
 #endif
 
@@ -138,6 +137,6 @@ void QWebEngineProfile_Delete(QWebEngineProfile* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -26,6 +25,6 @@ void QStringTokenizerBaseBase_CopyAssign(QStringTokenizerBaseBase* self, QString
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

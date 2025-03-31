@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -50,61 +49,61 @@ typedef struct QWidget QWidget;
 #endif
 
 #ifdef __cplusplus
-typedef QStyleHintReturn::HintReturnType HintReturnType; // C++ enum
-typedef QStyleOption::OptionType OptionType; // C++ enum
-typedef QStyleOption::StyleOptionType StyleOptionType; // C++ enum
-typedef QStyleOption::StyleOptionVersion StyleOptionVersion; // C++ enum
-typedef QStyleOptionButton::ButtonFeature ButtonFeature; // C++ enum
-typedef QStyleOptionButton::ButtonFeatures ButtonFeatures; // C++ QFlags
-typedef QStyleOptionFrame::FrameFeature FrameFeature; // C++ enum
-typedef QStyleOptionFrame::FrameFeatures FrameFeatures; // C++ QFlags
-typedef QStyleOptionHeader::SectionPosition SectionPosition; // C++ enum
-typedef QStyleOptionHeader::SelectedPosition SelectedPosition; // C++ enum
-typedef QStyleOptionHeader::SortIndicator SortIndicator; // C++ enum
-typedef QStyleOptionMenuItem::CheckType CheckType; // C++ enum
-typedef QStyleOptionMenuItem::MenuItemType MenuItemType; // C++ enum
-typedef QStyleOptionTab::CornerWidget CornerWidget; // C++ enum
-typedef QStyleOptionTab::CornerWidgets CornerWidgets; // C++ QFlags
-typedef QStyleOptionTab::TabFeature TabFeature; // C++ enum
-typedef QStyleOptionTab::TabFeatures TabFeatures; // C++ QFlags
-typedef QStyleOptionTab::TabPosition TabPosition; // C++ enum
-typedef QStyleOptionToolBar::ToolBarFeature ToolBarFeature; // C++ enum
-typedef QStyleOptionToolBar::ToolBarFeatures ToolBarFeatures; // C++ QFlags
-typedef QStyleOptionToolBar::ToolBarPosition ToolBarPosition; // C++ enum
-typedef QStyleOptionToolButton::ToolButtonFeature ToolButtonFeature; // C++ enum
+typedef QStyleHintReturn::HintReturnType HintReturnType;               // C++ enum
+typedef QStyleOption::OptionType OptionType;                           // C++ enum
+typedef QStyleOption::StyleOptionType StyleOptionType;                 // C++ enum
+typedef QStyleOption::StyleOptionVersion StyleOptionVersion;           // C++ enum
+typedef QStyleOptionButton::ButtonFeature ButtonFeature;               // C++ enum
+typedef QStyleOptionButton::ButtonFeatures ButtonFeatures;             // C++ QFlags
+typedef QStyleOptionFrame::FrameFeature FrameFeature;                  // C++ enum
+typedef QStyleOptionFrame::FrameFeatures FrameFeatures;                // C++ QFlags
+typedef QStyleOptionHeader::SectionPosition SectionPosition;           // C++ enum
+typedef QStyleOptionHeader::SelectedPosition SelectedPosition;         // C++ enum
+typedef QStyleOptionHeader::SortIndicator SortIndicator;               // C++ enum
+typedef QStyleOptionMenuItem::CheckType CheckType;                     // C++ enum
+typedef QStyleOptionMenuItem::MenuItemType MenuItemType;               // C++ enum
+typedef QStyleOptionTab::CornerWidget CornerWidget;                    // C++ enum
+typedef QStyleOptionTab::CornerWidgets CornerWidgets;                  // C++ QFlags
+typedef QStyleOptionTab::TabFeature TabFeature;                        // C++ enum
+typedef QStyleOptionTab::TabFeatures TabFeatures;                      // C++ QFlags
+typedef QStyleOptionTab::TabPosition TabPosition;                      // C++ enum
+typedef QStyleOptionToolBar::ToolBarFeature ToolBarFeature;            // C++ enum
+typedef QStyleOptionToolBar::ToolBarFeatures ToolBarFeatures;          // C++ QFlags
+typedef QStyleOptionToolBar::ToolBarPosition ToolBarPosition;          // C++ enum
+typedef QStyleOptionToolButton::ToolButtonFeature ToolButtonFeature;   // C++ enum
 typedef QStyleOptionToolButton::ToolButtonFeatures ToolButtonFeatures; // C++ QFlags
-typedef QStyleOptionViewItem::Position Position; // C++ enum
-typedef QStyleOptionViewItem::ViewItemFeature ViewItemFeature; // C++ enum
-typedef QStyleOptionViewItem::ViewItemFeatures ViewItemFeatures; // C++ QFlags
-typedef QStyleOptionViewItem::ViewItemPosition ViewItemPosition; // C++ enum
+typedef QStyleOptionViewItem::Position Position;                       // C++ enum
+typedef QStyleOptionViewItem::ViewItemFeature ViewItemFeature;         // C++ enum
+typedef QStyleOptionViewItem::ViewItemFeatures ViewItemFeatures;       // C++ QFlags
+typedef QStyleOptionViewItem::ViewItemPosition ViewItemPosition;       // C++ enum
 #else
-typedef int ButtonFeature; // C ABI enum
-typedef int ButtonFeatures; // C ABI QFlags
-typedef int CheckType; // C ABI enum
-typedef int CornerWidget; // C ABI enum
-typedef int CornerWidgets; // C ABI QFlags
-typedef int FrameFeature; // C ABI enum
-typedef int FrameFeatures; // C ABI QFlags
-typedef int HintReturnType; // C ABI enum
-typedef int MenuItemType; // C ABI enum
-typedef int OptionType; // C ABI enum
-typedef int Position; // C ABI enum
-typedef int SectionPosition; // C ABI enum
-typedef int SelectedPosition; // C ABI enum
-typedef int SortIndicator; // C ABI enum
-typedef int StyleOptionType; // C ABI enum
+typedef int ButtonFeature;      // C ABI enum
+typedef int ButtonFeatures;     // C ABI QFlags
+typedef int CheckType;          // C ABI enum
+typedef int CornerWidget;       // C ABI enum
+typedef int CornerWidgets;      // C ABI QFlags
+typedef int FrameFeature;       // C ABI enum
+typedef int FrameFeatures;      // C ABI QFlags
+typedef int HintReturnType;     // C ABI enum
+typedef int MenuItemType;       // C ABI enum
+typedef int OptionType;         // C ABI enum
+typedef int Position;           // C ABI enum
+typedef int SectionPosition;    // C ABI enum
+typedef int SelectedPosition;   // C ABI enum
+typedef int SortIndicator;      // C ABI enum
+typedef int StyleOptionType;    // C ABI enum
 typedef int StyleOptionVersion; // C ABI enum
-typedef int TabFeature; // C ABI enum
-typedef int TabFeatures; // C ABI QFlags
-typedef int TabPosition; // C ABI enum
-typedef int ToolBarFeature; // C ABI enum
-typedef int ToolBarFeatures; // C ABI QFlags
-typedef int ToolBarPosition; // C ABI enum
-typedef int ToolButtonFeature; // C ABI enum
+typedef int TabFeature;         // C ABI enum
+typedef int TabFeatures;        // C ABI QFlags
+typedef int TabPosition;        // C ABI enum
+typedef int ToolBarFeature;     // C ABI enum
+typedef int ToolBarFeatures;    // C ABI QFlags
+typedef int ToolBarPosition;    // C ABI enum
+typedef int ToolButtonFeature;  // C ABI enum
 typedef int ToolButtonFeatures; // C ABI QFlags
-typedef int ViewItemFeature; // C ABI enum
-typedef int ViewItemFeatures; // C ABI QFlags
-typedef int ViewItemPosition; // C ABI enum
+typedef int ViewItemFeature;    // C ABI enum
+typedef int ViewItemFeatures;   // C ABI QFlags
+typedef int ViewItemPosition;   // C ABI enum
 #endif
 
 QStyleOption* QStyleOption_new();
@@ -233,6 +232,6 @@ void QStyleHintReturnVariant_Delete(QStyleHintReturnVariant* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,10 +22,10 @@ typedef struct QVersionNumber QVersionNumber;
 
 #ifdef __cplusplus
 typedef QLibraryInfo::LibraryLocation LibraryLocation; // C++ QFlags
-typedef QLibraryInfo::LibraryPath LibraryPath; // C++ enum
+typedef QLibraryInfo::LibraryPath LibraryPath;         // C++ enum
 #else
 typedef int LibraryLocation; // C ABI QFlags
-typedef int LibraryPath; // C ABI enum
+typedef int LibraryPath;     // C ABI enum
 #endif
 
 QLibraryInfo* QLibraryInfo_new(QLibraryInfo* other);
@@ -43,6 +42,6 @@ void QLibraryInfo_Delete(QLibraryInfo* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -62,29 +61,29 @@ typedef struct QWebEngineUrlRequestInterceptor QWebEngineUrlRequestInterceptor;
 #endif
 
 #ifdef __cplusplus
-typedef QWebEnginePage::Feature Feature; // C++ enum
-typedef QWebEnginePage::FileSelectionMode FileSelectionMode; // C++ enum
-typedef QWebEnginePage::FindFlag FindFlag; // C++ enum
-typedef QWebEnginePage::FindFlags FindFlags; // C++ QFlags
-typedef QWebEnginePage::JavaScriptConsoleMessageLevel JavaScriptConsoleMessageLevel; // C++ enum
-typedef QWebEnginePage::LifecycleState LifecycleState; // C++ enum
-typedef QWebEnginePage::NavigationType NavigationType; // C++ enum
-typedef QWebEnginePage::PermissionPolicy PermissionPolicy; // C++ enum
+typedef QWebEnginePage::Feature Feature;                                               // C++ enum
+typedef QWebEnginePage::FileSelectionMode FileSelectionMode;                           // C++ enum
+typedef QWebEnginePage::FindFlag FindFlag;                                             // C++ enum
+typedef QWebEnginePage::FindFlags FindFlags;                                           // C++ QFlags
+typedef QWebEnginePage::JavaScriptConsoleMessageLevel JavaScriptConsoleMessageLevel;   // C++ enum
+typedef QWebEnginePage::LifecycleState LifecycleState;                                 // C++ enum
+typedef QWebEnginePage::NavigationType NavigationType;                                 // C++ enum
+typedef QWebEnginePage::PermissionPolicy PermissionPolicy;                             // C++ enum
 typedef QWebEnginePage::RenderProcessTerminationStatus RenderProcessTerminationStatus; // C++ enum
-typedef QWebEnginePage::WebAction WebAction; // C++ enum
-typedef QWebEnginePage::WebWindowType WebWindowType; // C++ enum
+typedef QWebEnginePage::WebAction WebAction;                                           // C++ enum
+typedef QWebEnginePage::WebWindowType WebWindowType;                                   // C++ enum
 #else
-typedef int Feature; // C ABI enum
-typedef int FileSelectionMode; // C ABI enum
-typedef int FindFlag; // C ABI enum
-typedef int FindFlags; // C ABI QFlags
-typedef int JavaScriptConsoleMessageLevel; // C ABI enum
-typedef int LifecycleState; // C ABI enum
-typedef int NavigationType; // C ABI enum
-typedef int PermissionPolicy; // C ABI enum
+typedef int Feature;                        // C ABI enum
+typedef int FileSelectionMode;              // C ABI enum
+typedef int FindFlag;                       // C ABI enum
+typedef int FindFlags;                      // C ABI QFlags
+typedef int JavaScriptConsoleMessageLevel;  // C ABI enum
+typedef int LifecycleState;                 // C ABI enum
+typedef int NavigationType;                 // C ABI enum
+typedef int PermissionPolicy;               // C ABI enum
 typedef int RenderProcessTerminationStatus; // C ABI enum
-typedef int WebAction; // C ABI enum
-typedef int WebWindowType; // C ABI enum
+typedef int WebAction;                      // C ABI enum
+typedef int WebWindowType;                  // C ABI enum
 #endif
 
 QWebEnginePage* QWebEnginePage_new();
@@ -285,6 +284,6 @@ void QWebEnginePage_Delete(QWebEnginePage* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

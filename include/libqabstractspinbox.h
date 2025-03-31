@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -85,17 +84,17 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QAbstractSpinBox::ButtonSymbols ButtonSymbols; // C++ enum
-typedef QAbstractSpinBox::CorrectionMode CorrectionMode; // C++ enum
-typedef QAbstractSpinBox::StepEnabled StepEnabled; // C++ QFlags
+typedef QAbstractSpinBox::ButtonSymbols ButtonSymbols;     // C++ enum
+typedef QAbstractSpinBox::CorrectionMode CorrectionMode;   // C++ enum
+typedef QAbstractSpinBox::StepEnabled StepEnabled;         // C++ QFlags
 typedef QAbstractSpinBox::StepEnabledFlag StepEnabledFlag; // C++ enum
-typedef QAbstractSpinBox::StepType StepType; // C++ enum
+typedef QAbstractSpinBox::StepType StepType;               // C++ enum
 #else
-typedef int ButtonSymbols; // C ABI enum
-typedef int CorrectionMode; // C ABI enum
-typedef int StepEnabled; // C ABI QFlags
+typedef int ButtonSymbols;   // C ABI enum
+typedef int CorrectionMode;  // C ABI enum
+typedef int StepEnabled;     // C ABI QFlags
 typedef int StepEnabledFlag; // C ABI enum
-typedef int StepType; // C ABI enum
+typedef int StepType;        // C ABI enum
 #endif
 
 QAbstractSpinBox* QAbstractSpinBox_new(QWidget* parent);
@@ -332,6 +331,6 @@ void QAbstractSpinBox_Delete(QAbstractSpinBox* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

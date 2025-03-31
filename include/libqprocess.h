@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -38,21 +37,21 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QProcess::ExitStatus ExitStatus; // C++ enum
-typedef QProcess::InputChannelMode InputChannelMode; // C++ enum
-typedef QProcess::ProcessChannel ProcessChannel; // C++ enum
-typedef QProcess::ProcessChannelMode ProcessChannelMode; // C++ enum
-typedef QProcess::ProcessError ProcessError; // C++ enum
-typedef QProcess::ProcessState ProcessState; // C++ enum
+typedef QProcess::ExitStatus ExitStatus;                    // C++ enum
+typedef QProcess::InputChannelMode InputChannelMode;        // C++ enum
+typedef QProcess::ProcessChannel ProcessChannel;            // C++ enum
+typedef QProcess::ProcessChannelMode ProcessChannelMode;    // C++ enum
+typedef QProcess::ProcessError ProcessError;                // C++ enum
+typedef QProcess::ProcessState ProcessState;                // C++ enum
 typedef QProcessEnvironment::Initialization Initialization; // C++ enum
 #else
-typedef int ExitStatus; // C ABI enum
-typedef int Initialization; // C ABI enum
-typedef int InputChannelMode; // C ABI enum
-typedef int ProcessChannel; // C ABI enum
+typedef int ExitStatus;         // C ABI enum
+typedef int Initialization;     // C ABI enum
+typedef int InputChannelMode;   // C ABI enum
+typedef int ProcessChannel;     // C ABI enum
 typedef int ProcessChannelMode; // C ABI enum
-typedef int ProcessError; // C ABI enum
-typedef int ProcessState; // C ABI enum
+typedef int ProcessError;       // C ABI enum
+typedef int ProcessState;       // C ABI enum
 #endif
 
 QProcessEnvironment* QProcessEnvironment_new();
@@ -243,6 +242,6 @@ void QProcess_Delete(QProcess* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

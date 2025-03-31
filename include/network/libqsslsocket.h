@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -50,10 +49,10 @@ typedef struct QVariant QVariant;
 
 #ifdef __cplusplus
 typedef QSslSocket::PeerVerifyMode PeerVerifyMode; // C++ enum
-typedef QSslSocket::SslMode SslMode; // C++ enum
+typedef QSslSocket::SslMode SslMode;               // C++ enum
 #else
 typedef int PeerVerifyMode; // C ABI enum
-typedef int SslMode; // C ABI enum
+typedef int SslMode;        // C ABI enum
 #endif
 
 QSslSocket* QSslSocket_new();
@@ -299,6 +298,6 @@ void QSslSocket_Delete(QSslSocket* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

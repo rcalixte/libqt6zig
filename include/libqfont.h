@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,27 +22,27 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QFont::Capitalization Capitalization; // C++ enum
+typedef QFont::Capitalization Capitalization;       // C++ enum
 typedef QFont::HintingPreference HintingPreference; // C++ enum
-typedef QFont::QtGadgetHelper QtGadgetHelper; // C++ QFlags
+typedef QFont::QtGadgetHelper QtGadgetHelper;       // C++ QFlags
 typedef QFont::ResolveProperties ResolveProperties; // C++ enum
-typedef QFont::SpacingType SpacingType; // C++ enum
-typedef QFont::Stretch Stretch; // C++ enum
-typedef QFont::Style Style; // C++ enum
-typedef QFont::StyleHint StyleHint; // C++ enum
-typedef QFont::StyleStrategy StyleStrategy; // C++ enum
-typedef QFont::Weight Weight; // C++ enum
+typedef QFont::SpacingType SpacingType;             // C++ enum
+typedef QFont::Stretch Stretch;                     // C++ enum
+typedef QFont::Style Style;                         // C++ enum
+typedef QFont::StyleHint StyleHint;                 // C++ enum
+typedef QFont::StyleStrategy StyleStrategy;         // C++ enum
+typedef QFont::Weight Weight;                       // C++ enum
 #else
-typedef int Capitalization; // C ABI enum
+typedef int Capitalization;    // C ABI enum
 typedef int HintingPreference; // C ABI enum
 typedef int ResolveProperties; // C ABI enum
-typedef int SpacingType; // C ABI enum
-typedef int Stretch; // C ABI enum
-typedef int Style; // C ABI enum
-typedef int StyleHint; // C ABI enum
-typedef int StyleStrategy; // C ABI enum
-typedef int Weight; // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
+typedef int SpacingType;       // C ABI enum
+typedef int Stretch;           // C ABI enum
+typedef int Style;             // C ABI enum
+typedef int StyleHint;         // C ABI enum
+typedef int StyleStrategy;     // C ABI enum
+typedef int Weight;            // C ABI enum
+typedef void QtGadgetHelper;   // C ABI QFlags
 #endif
 
 QFont* QFont_new();
@@ -133,6 +132,6 @@ void QFont_Delete(QFont* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

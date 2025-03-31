@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -21,15 +20,15 @@ typedef struct QWebEngineSettings QWebEngineSettings;
 #endif
 
 #ifdef __cplusplus
-typedef QWebEngineSettings::FontFamily FontFamily; // C++ enum
-typedef QWebEngineSettings::FontSize FontSize; // C++ enum
+typedef QWebEngineSettings::FontFamily FontFamily;                         // C++ enum
+typedef QWebEngineSettings::FontSize FontSize;                             // C++ enum
 typedef QWebEngineSettings::UnknownUrlSchemePolicy UnknownUrlSchemePolicy; // C++ enum
-typedef QWebEngineSettings::WebAttribute WebAttribute; // C++ enum
+typedef QWebEngineSettings::WebAttribute WebAttribute;                     // C++ enum
 #else
-typedef int FontFamily; // C ABI enum
-typedef int FontSize; // C ABI enum
+typedef int FontFamily;             // C ABI enum
+typedef int FontSize;               // C ABI enum
 typedef int UnknownUrlSchemePolicy; // C ABI enum
-typedef int WebAttribute; // C ABI enum
+typedef int WebAttribute;           // C ABI enum
 #endif
 
 void QWebEngineSettings_SetFontFamily(QWebEngineSettings* self, int which, libqt_string family);
@@ -50,6 +49,6 @@ void QWebEngineSettings_Delete(QWebEngineSettings* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

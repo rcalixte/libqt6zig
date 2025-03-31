@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -21,17 +20,17 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-typedef QAudio::Error Error; // C++ enum
-typedef QAudio::State State; // C++ enum
+typedef QAudio::Error Error;             // C++ enum
+typedef QAudio::State State;             // C++ enum
 typedef QAudio::VolumeScale VolumeScale; // C++ enum
 #else
-typedef int Error; // C ABI enum
-typedef int State; // C ABI enum
+typedef int Error;       // C ABI enum
+typedef int State;       // C ABI enum
 typedef int VolumeScale; // C ABI enum
 #endif
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

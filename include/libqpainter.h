@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -49,19 +48,19 @@ typedef struct QTransform QTransform;
 #endif
 
 #ifdef __cplusplus
-typedef QPainter::CompositionMode CompositionMode; // C++ enum
-typedef QPainter::PixmapFragmentHint PixmapFragmentHint; // C++ enum
+typedef QPainter::CompositionMode CompositionMode;         // C++ enum
+typedef QPainter::PixmapFragmentHint PixmapFragmentHint;   // C++ enum
 typedef QPainter::PixmapFragmentHints PixmapFragmentHints; // C++ QFlags
-typedef QPainter::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QPainter::RenderHint RenderHint; // C++ enum
-typedef QPainter::RenderHints RenderHints; // C++ QFlags
+typedef QPainter::QtGadgetHelper QtGadgetHelper;           // C++ QFlags
+typedef QPainter::RenderHint RenderHint;                   // C++ enum
+typedef QPainter::RenderHints RenderHints;                 // C++ QFlags
 #else
-typedef int CompositionMode; // C ABI enum
-typedef int PixmapFragmentHint; // C ABI enum
+typedef int CompositionMode;     // C ABI enum
+typedef int PixmapFragmentHint;  // C ABI enum
 typedef int PixmapFragmentHints; // C ABI QFlags
-typedef int RenderHint; // C ABI enum
-typedef int RenderHints; // C ABI QFlags
-typedef void QtGadgetHelper; // C ABI QFlags
+typedef int RenderHint;          // C ABI enum
+typedef int RenderHints;         // C ABI QFlags
+typedef void QtGadgetHelper;     // C ABI QFlags
 #endif
 
 QPainter* QPainter_new();
@@ -296,6 +295,6 @@ void QPainter__PixmapFragment_Delete(QPainter__PixmapFragment* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

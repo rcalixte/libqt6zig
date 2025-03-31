@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,15 +22,15 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QKeySequence::DataPtr DataPtr; // C++ QFlags
+typedef QKeySequence::DataPtr DataPtr;               // C++ QFlags
 typedef QKeySequence::QtGadgetHelper QtGadgetHelper; // C++ QFlags
 typedef QKeySequence::SequenceFormat SequenceFormat; // C++ enum
-typedef QKeySequence::SequenceMatch SequenceMatch; // C++ enum
-typedef QKeySequence::StandardKey StandardKey; // C++ enum
+typedef QKeySequence::SequenceMatch SequenceMatch;   // C++ enum
+typedef QKeySequence::StandardKey StandardKey;       // C++ enum
 #else
-typedef int SequenceFormat; // C ABI enum
-typedef int SequenceMatch; // C ABI enum
-typedef int StandardKey; // C ABI enum
+typedef int SequenceFormat;  // C ABI enum
+typedef int SequenceMatch;   // C ABI enum
+typedef int StandardKey;     // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -76,6 +75,6 @@ void QKeySequence_Delete(QKeySequence* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

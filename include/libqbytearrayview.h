@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -21,18 +20,18 @@ typedef struct QByteArrayView QByteArrayView;
 #endif
 
 #ifdef __cplusplus
-typedef QByteArrayView::const_pointer const_pointer; // C++ QFlags
+typedef QByteArrayView::const_pointer const_pointer;     // C++ QFlags
 typedef QByteArrayView::const_reference const_reference; // C++ QFlags
 typedef QByteArrayView::difference_type difference_type; // C++ QFlags
-typedef QByteArrayView::iterator iterator; // C++ QFlags
-typedef QByteArrayView::pointer pointer; // C++ QFlags
-typedef QByteArrayView::reference reference; // C++ QFlags
-typedef QByteArrayView::size_type size_type; // C++ QFlags
-typedef QByteArrayView::storage_type storage_type; // C++ QFlags
-typedef QByteArrayView::value_type value_type; // C++ QFlags
+typedef QByteArrayView::iterator iterator;               // C++ QFlags
+typedef QByteArrayView::pointer pointer;                 // C++ QFlags
+typedef QByteArrayView::reference reference;             // C++ QFlags
+typedef QByteArrayView::size_type size_type;             // C++ QFlags
+typedef QByteArrayView::storage_type storage_type;       // C++ QFlags
+typedef QByteArrayView::value_type value_type;           // C++ QFlags
 #else
 typedef long long difference_type; // C ABI QFlags
-typedef ptrdiff_t size_type; // C ABI QFlags
+typedef ptrdiff_t size_type;       // C ABI QFlags
 #endif
 
 QByteArrayView* QByteArrayView_new(QByteArrayView* other);
@@ -118,6 +117,6 @@ void QByteArrayView_Delete(QByteArrayView* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -21,10 +20,10 @@ typedef struct QTileRules QTileRules;
 #endif
 
 #ifdef __cplusplus
-typedef QDrawBorderPixmap::DrawingHint DrawingHint; // C++ enum
+typedef QDrawBorderPixmap::DrawingHint DrawingHint;   // C++ enum
 typedef QDrawBorderPixmap::DrawingHints DrawingHints; // C++ QFlags
 #else
-typedef int DrawingHint; // C ABI enum
+typedef int DrawingHint;  // C ABI enum
 typedef int DrawingHints; // C ABI QFlags
 #endif
 
@@ -40,6 +39,6 @@ void QTileRules_Delete(QTileRules* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

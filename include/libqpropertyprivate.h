@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -27,9 +26,8 @@ void QUntypedPropertyData_CopyAssign(QUntypedPropertyData* self, QUntypedPropert
 void QUntypedPropertyData_MoveAssign(QUntypedPropertyData* self, QUntypedPropertyData* other);
 void QUntypedPropertyData_Delete(QUntypedPropertyData* self);
 
-
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

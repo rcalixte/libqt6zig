@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,11 +23,11 @@ typedef struct QUrl QUrl;
 
 #ifdef __cplusplus
 typedef QNetworkCookie::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QNetworkCookie::RawForm RawForm; // C++ enum
-typedef QNetworkCookie::SameSite SameSite; // C++ enum
+typedef QNetworkCookie::RawForm RawForm;               // C++ enum
+typedef QNetworkCookie::SameSite SameSite;             // C++ enum
 #else
-typedef int RawForm; // C ABI enum
-typedef int SameSite; // C ABI enum
+typedef int RawForm;         // C ABI enum
+typedef int SameSite;        // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -66,6 +65,6 @@ void QNetworkCookie_Delete(QNetworkCookie* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

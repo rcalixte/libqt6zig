@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -36,10 +35,10 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QEventLoop::ProcessEventsFlag ProcessEventsFlag; // C++ enum
+typedef QEventLoop::ProcessEventsFlag ProcessEventsFlag;   // C++ enum
 typedef QEventLoop::ProcessEventsFlags ProcessEventsFlags; // C++ QFlags
 #else
-typedef int ProcessEventsFlag; // C ABI enum
+typedef int ProcessEventsFlag;  // C ABI enum
 typedef int ProcessEventsFlags; // C ABI QFlags
 #endif
 
@@ -105,6 +104,6 @@ void QEventLoopLocker_Delete(QEventLoopLocker* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

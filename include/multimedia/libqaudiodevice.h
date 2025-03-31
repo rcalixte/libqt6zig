@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -22,10 +21,10 @@ typedef struct QAudioFormat QAudioFormat;
 #endif
 
 #ifdef __cplusplus
-typedef QAudioDevice::Mode Mode; // C++ enum
+typedef QAudioDevice::Mode Mode;                     // C++ enum
 typedef QAudioDevice::QtGadgetHelper QtGadgetHelper; // C++ QFlags
 #else
-typedef int Mode; // C ABI enum
+typedef int Mode;            // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -52,6 +51,6 @@ void QAudioDevice_Delete(QAudioDevice* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

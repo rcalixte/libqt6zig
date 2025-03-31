@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -85,6 +84,6 @@ void QWebEngineUrlRequestInterceptor_Delete(QWebEngineUrlRequestInterceptor* sel
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

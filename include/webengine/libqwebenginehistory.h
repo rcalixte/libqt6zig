@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -101,6 +100,6 @@ libqt_string QWebEngineHistory_Tr3(const char* s, const char* c, int n);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

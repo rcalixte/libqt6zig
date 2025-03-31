@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -22,13 +21,13 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QScrollerProperties::FrameRates FrameRates; // C++ enum
+typedef QScrollerProperties::FrameRates FrameRates;           // C++ enum
 typedef QScrollerProperties::OvershootPolicy OvershootPolicy; // C++ enum
-typedef QScrollerProperties::ScrollMetric ScrollMetric; // C++ enum
+typedef QScrollerProperties::ScrollMetric ScrollMetric;       // C++ enum
 #else
-typedef int FrameRates; // C ABI enum
+typedef int FrameRates;      // C ABI enum
 typedef int OvershootPolicy; // C ABI enum
-typedef int ScrollMetric; // C ABI enum
+typedef int ScrollMetric;    // C ABI enum
 #endif
 
 QScrollerProperties* QScrollerProperties_new();
@@ -44,6 +43,6 @@ void QScrollerProperties_Delete(QScrollerProperties* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

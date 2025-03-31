@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -39,6 +38,6 @@ void QWebEngineRegisterProtocolHandlerRequest_Delete(QWebEngineRegisterProtocolH
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

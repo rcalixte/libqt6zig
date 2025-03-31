@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -47,13 +46,13 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QFileSystemModel::Option Option; // C++ enum
+typedef QFileSystemModel::Option Option;   // C++ enum
 typedef QFileSystemModel::Options Options; // C++ QFlags
-typedef QFileSystemModel::Roles Roles; // C++ enum
+typedef QFileSystemModel::Roles Roles;     // C++ enum
 #else
-typedef int Option; // C ABI enum
+typedef int Option;  // C ABI enum
 typedef int Options; // C ABI QFlags
-typedef int Roles; // C ABI enum
+typedef int Roles;   // C ABI enum
 #endif
 
 QFileSystemModel* QFileSystemModel_new();
@@ -316,6 +315,6 @@ void QFileSystemModel_Delete(QFileSystemModel* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

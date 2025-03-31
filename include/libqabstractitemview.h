@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -93,24 +92,24 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QAbstractItemView::DragDropMode DragDropMode; // C++ enum
-typedef QAbstractItemView::EditTrigger EditTrigger; // C++ enum
-typedef QAbstractItemView::EditTriggers EditTriggers; // C++ QFlags
-typedef QAbstractItemView::ScrollHint ScrollHint; // C++ enum
-typedef QAbstractItemView::ScrollMode ScrollMode; // C++ enum
+typedef QAbstractItemView::DragDropMode DragDropMode;           // C++ enum
+typedef QAbstractItemView::EditTrigger EditTrigger;             // C++ enum
+typedef QAbstractItemView::EditTriggers EditTriggers;           // C++ QFlags
+typedef QAbstractItemView::ScrollHint ScrollHint;               // C++ enum
+typedef QAbstractItemView::ScrollMode ScrollMode;               // C++ enum
 typedef QAbstractItemView::SelectionBehavior SelectionBehavior; // C++ enum
-typedef QAbstractItemView::SelectionMode SelectionMode; // C++ enum
+typedef QAbstractItemView::SelectionMode SelectionMode;         // C++ enum
 #else
-typedef int CursorAction; // C ABI enum
-typedef int DragDropMode; // C ABI enum
+typedef int CursorAction;          // C ABI enum
+typedef int DragDropMode;          // C ABI enum
 typedef int DropIndicatorPosition; // C ABI enum
-typedef int EditTrigger; // C ABI enum
-typedef int EditTriggers; // C ABI QFlags
-typedef int ScrollHint; // C ABI enum
-typedef int ScrollMode; // C ABI enum
-typedef int SelectionBehavior; // C ABI enum
-typedef int SelectionMode; // C ABI enum
-typedef int State; // C ABI enum
+typedef int EditTrigger;           // C ABI enum
+typedef int EditTriggers;          // C ABI QFlags
+typedef int ScrollHint;            // C ABI enum
+typedef int ScrollMode;            // C ABI enum
+typedef int SelectionBehavior;     // C ABI enum
+typedef int SelectionMode;         // C ABI enum
+typedef int State;                 // C ABI enum
 #endif
 
 QAbstractItemView* QAbstractItemView_new(QWidget* parent);
@@ -540,6 +539,6 @@ void QAbstractItemView_Delete(QAbstractItemView* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

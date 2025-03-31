@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -35,16 +34,16 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QSettings::Format Format; // C++ enum
-typedef QSettings::ReadFunc ReadFunc; // C++ QFlags
-typedef QSettings::Scope Scope; // C++ enum
+typedef QSettings::Format Format;           // C++ enum
+typedef QSettings::ReadFunc ReadFunc;       // C++ QFlags
+typedef QSettings::Scope Scope;             // C++ enum
 typedef QSettings::SettingsMap SettingsMap; // C++ QFlags
-typedef QSettings::Status Status; // C++ enum
-typedef QSettings::WriteFunc WriteFunc; // C++ QFlags
+typedef QSettings::Status Status;           // C++ enum
+typedef QSettings::WriteFunc WriteFunc;     // C++ QFlags
 #else
-typedef int Format; // C ABI enum
-typedef int Scope; // C ABI enum
-typedef int Status; // C ABI enum
+typedef int Format;                                               // C ABI enum
+typedef int Scope;                                                // C ABI enum
+typedef int Status;                                               // C ABI enum
 typedef libqt_map /* of libqt_string to QVariant* */ SettingsMap; // C ABI QFlags
 #endif
 
@@ -140,6 +139,6 @@ void QSettings_Delete(QSettings* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

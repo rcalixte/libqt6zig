@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,13 +22,13 @@ typedef struct QIODevice QIODevice;
 #endif
 
 #ifdef __cplusplus
-typedef QCborStreamReader::QtGadgetHelper QtGadgetHelper; // C++ QFlags
+typedef QCborStreamReader::QtGadgetHelper QtGadgetHelper;     // C++ QFlags
 typedef QCborStreamReader::StringResultCode StringResultCode; // C++ enum
-typedef QCborStreamReader::Type Type; // C++ enum
+typedef QCborStreamReader::Type Type;                         // C++ enum
 #else
 typedef int StringResultCode; // C ABI enum
-typedef unsigned char Type; // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
+typedef unsigned char Type;   // C ABI enum
+typedef void QtGadgetHelper;  // C ABI QFlags
 #endif
 
 QCborStreamReader* QCborStreamReader_new();
@@ -91,6 +90,6 @@ void QCborStreamReader_Delete(QCborStreamReader* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

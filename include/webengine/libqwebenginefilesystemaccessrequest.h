@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -22,14 +21,14 @@ typedef struct QWebEngineFileSystemAccessRequest QWebEngineFileSystemAccessReque
 #endif
 
 #ifdef __cplusplus
-typedef QWebEngineFileSystemAccessRequest::AccessFlag AccessFlag; // C++ enum
-typedef QWebEngineFileSystemAccessRequest::AccessFlags AccessFlags; // C++ QFlags
-typedef QWebEngineFileSystemAccessRequest::HandleType HandleType; // C++ enum
+typedef QWebEngineFileSystemAccessRequest::AccessFlag AccessFlag;         // C++ enum
+typedef QWebEngineFileSystemAccessRequest::AccessFlags AccessFlags;       // C++ QFlags
+typedef QWebEngineFileSystemAccessRequest::HandleType HandleType;         // C++ enum
 typedef QWebEngineFileSystemAccessRequest::QtGadgetHelper QtGadgetHelper; // C++ QFlags
 #else
-typedef int AccessFlag; // C ABI enum
-typedef int AccessFlags; // C ABI QFlags
-typedef int HandleType; // C ABI enum
+typedef int AccessFlag;      // C ABI enum
+typedef int AccessFlags;     // C ABI QFlags
+typedef int HandleType;      // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -46,6 +45,6 @@ void QWebEngineFileSystemAccessRequest_Delete(QWebEngineFileSystemAccessRequest*
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

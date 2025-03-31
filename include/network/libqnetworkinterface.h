@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -25,16 +24,16 @@ typedef struct QNetworkInterface QNetworkInterface;
 
 #ifdef __cplusplus
 typedef QNetworkAddressEntry::DnsEligibilityStatus DnsEligibilityStatus; // C++ enum
-typedef QNetworkInterface::InterfaceFlag InterfaceFlag; // C++ enum
-typedef QNetworkInterface::InterfaceFlags InterfaceFlags; // C++ QFlags
-typedef QNetworkInterface::InterfaceType InterfaceType; // C++ enum
-typedef QNetworkInterface::QtGadgetHelper QtGadgetHelper; // C++ QFlags
+typedef QNetworkInterface::InterfaceFlag InterfaceFlag;                  // C++ enum
+typedef QNetworkInterface::InterfaceFlags InterfaceFlags;                // C++ QFlags
+typedef QNetworkInterface::InterfaceType InterfaceType;                  // C++ enum
+typedef QNetworkInterface::QtGadgetHelper QtGadgetHelper;                // C++ QFlags
 #else
-typedef int InterfaceFlag; // C ABI enum
-typedef int InterfaceFlags; // C ABI QFlags
-typedef int InterfaceType; // C ABI enum
+typedef int InterfaceFlag;                // C ABI enum
+typedef int InterfaceFlags;               // C ABI QFlags
+typedef int InterfaceType;                // C ABI enum
 typedef signed char DnsEligibilityStatus; // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
+typedef void QtGadgetHelper;              // C ABI QFlags
 #endif
 
 QNetworkAddressEntry* QNetworkAddressEntry_new();
@@ -85,6 +84,6 @@ void QNetworkInterface_Delete(QNetworkInterface* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

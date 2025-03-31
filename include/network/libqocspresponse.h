@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,10 +22,10 @@ typedef struct QSslCertificate QSslCertificate;
 
 #ifdef __cplusplus
 typedef QOcspCertificateStatus QOcspCertificateStatus; // C++ enum
-typedef QOcspRevocationReason QOcspRevocationReason; // C++ enum
+typedef QOcspRevocationReason QOcspRevocationReason;   // C++ enum
 #else
 typedef int QOcspCertificateStatus; // C ABI enum
-typedef int QOcspRevocationReason; // C ABI enum
+typedef int QOcspRevocationReason;  // C ABI enum
 #endif
 
 QOcspResponse* QOcspResponse_new();
@@ -41,6 +40,6 @@ void QOcspResponse_Delete(QOcspResponse* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

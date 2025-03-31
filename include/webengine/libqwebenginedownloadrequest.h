@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -38,12 +37,12 @@ typedef struct QWebEnginePage QWebEnginePage;
 
 #ifdef __cplusplus
 typedef QWebEngineDownloadRequest::DownloadInterruptReason DownloadInterruptReason; // C++ enum
-typedef QWebEngineDownloadRequest::DownloadState DownloadState; // C++ enum
-typedef QWebEngineDownloadRequest::SavePageFormat SavePageFormat; // C++ enum
+typedef QWebEngineDownloadRequest::DownloadState DownloadState;                     // C++ enum
+typedef QWebEngineDownloadRequest::SavePageFormat SavePageFormat;                   // C++ enum
 #else
 typedef int DownloadInterruptReason; // C ABI enum
-typedef int DownloadState; // C ABI enum
-typedef int SavePageFormat; // C ABI enum
+typedef int DownloadState;           // C ABI enum
+typedef int SavePageFormat;          // C ABI enum
 #endif
 
 QMetaObject* QWebEngineDownloadRequest_MetaObject(const QWebEngineDownloadRequest* self);
@@ -99,6 +98,6 @@ void QWebEngineDownloadRequest_Delete(QWebEngineDownloadRequest* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

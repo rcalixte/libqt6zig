@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -26,14 +25,14 @@ typedef struct QTextOption__Tab QTextOption__Tab;
 #endif
 
 #ifdef __cplusplus
-typedef QTextOption::Flag Flag; // C++ enum
-typedef QTextOption::Flags Flags; // C++ QFlags
-typedef QTextOption::TabType TabType; // C++ enum
+typedef QTextOption::Flag Flag;         // C++ enum
+typedef QTextOption::Flags Flags;       // C++ QFlags
+typedef QTextOption::TabType TabType;   // C++ enum
 typedef QTextOption::WrapMode WrapMode; // C++ enum
 #else
-typedef int Flag; // C ABI enum
-typedef int Flags; // C ABI QFlags
-typedef int TabType; // C ABI enum
+typedef int Flag;     // C ABI enum
+typedef int Flags;    // C ABI QFlags
+typedef int TabType;  // C ABI enum
 typedef int WrapMode; // C ABI enum
 #endif
 
@@ -72,6 +71,6 @@ void QTextOption__Tab_Delete(QTextOption__Tab* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,12 +23,12 @@ typedef struct QIcon QIcon;
 
 #ifdef __cplusplus
 typedef QAbstractFileIconProvider::IconType IconType; // C++ enum
-typedef QAbstractFileIconProvider::Option Option; // C++ enum
-typedef QAbstractFileIconProvider::Options Options; // C++ QFlags
+typedef QAbstractFileIconProvider::Option Option;     // C++ enum
+typedef QAbstractFileIconProvider::Options Options;   // C++ QFlags
 #else
 typedef int IconType; // C ABI enum
-typedef int Option; // C ABI enum
-typedef int Options; // C ABI QFlags
+typedef int Option;   // C ABI enum
+typedef int Options;  // C ABI QFlags
 #endif
 
 QAbstractFileIconProvider* QAbstractFileIconProvider_new();
@@ -52,6 +51,6 @@ void QAbstractFileIconProvider_Delete(QAbstractFileIconProvider* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

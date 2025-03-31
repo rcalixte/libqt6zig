@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -68,6 +67,6 @@ void QPluginMetaData__ElfNoteHeader_Delete(QPluginMetaData__ElfNoteHeader* self)
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

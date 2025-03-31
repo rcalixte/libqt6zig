@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -280,6 +279,6 @@ void QAccessibleTableModelChangeEvent_Delete(QAccessibleTableModelChangeEvent* s
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

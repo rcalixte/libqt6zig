@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -25,17 +24,17 @@ typedef struct QTextStream QTextStream;
 #endif
 
 #ifdef __cplusplus
-typedef QTextStream::FieldAlignment FieldAlignment; // C++ enum
-typedef QTextStream::NumberFlag NumberFlag; // C++ enum
-typedef QTextStream::NumberFlags NumberFlags; // C++ QFlags
+typedef QTextStream::FieldAlignment FieldAlignment;         // C++ enum
+typedef QTextStream::NumberFlag NumberFlag;                 // C++ enum
+typedef QTextStream::NumberFlags NumberFlags;               // C++ QFlags
 typedef QTextStream::RealNumberNotation RealNumberNotation; // C++ enum
-typedef QTextStream::Status Status; // C++ enum
+typedef QTextStream::Status Status;                         // C++ enum
 #else
-typedef int FieldAlignment; // C ABI enum
-typedef int NumberFlag; // C ABI enum
-typedef int NumberFlags; // C ABI QFlags
+typedef int FieldAlignment;     // C ABI enum
+typedef int NumberFlag;         // C ABI enum
+typedef int NumberFlags;        // C ABI QFlags
 typedef int RealNumberNotation; // C ABI enum
-typedef int Status; // C ABI enum
+typedef int Status;             // C ABI enum
 #endif
 
 QTextStream* QTextStream_new();
@@ -115,6 +114,6 @@ void QTextStream_Delete(QTextStream* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

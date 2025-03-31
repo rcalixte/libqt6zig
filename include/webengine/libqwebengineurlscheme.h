@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -21,16 +20,16 @@ typedef struct QWebEngineUrlScheme QWebEngineUrlScheme;
 #endif
 
 #ifdef __cplusplus
-typedef QWebEngineUrlScheme::Flag Flag; // C++ enum
-typedef QWebEngineUrlScheme::Flags Flags; // C++ QFlags
+typedef QWebEngineUrlScheme::Flag Flag;                     // C++ enum
+typedef QWebEngineUrlScheme::Flags Flags;                   // C++ QFlags
 typedef QWebEngineUrlScheme::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QWebEngineUrlScheme::SpecialPort SpecialPort; // C++ enum
-typedef QWebEngineUrlScheme::Syntax Syntax; // C++ enum
+typedef QWebEngineUrlScheme::SpecialPort SpecialPort;       // C++ enum
+typedef QWebEngineUrlScheme::Syntax Syntax;                 // C++ enum
 #else
-typedef int Flag; // C ABI enum
-typedef int Flags; // C ABI QFlags
-typedef int SpecialPort; // C ABI enum
-typedef int Syntax; // C ABI enum
+typedef int Flag;            // C ABI enum
+typedef int Flags;           // C ABI QFlags
+typedef int SpecialPort;     // C ABI enum
+typedef int Syntax;          // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -54,6 +53,6 @@ void QWebEngineUrlScheme_Delete(QWebEngineUrlScheme* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

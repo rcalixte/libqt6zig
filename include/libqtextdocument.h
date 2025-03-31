@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -51,22 +50,22 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QTextDocument::FindFlag FindFlag; // C++ enum
-typedef QTextDocument::FindFlags FindFlags; // C++ QFlags
-typedef QTextDocument::MarkdownFeature MarkdownFeature; // C++ enum
+typedef QTextDocument::FindFlag FindFlag;                 // C++ enum
+typedef QTextDocument::FindFlags FindFlags;               // C++ QFlags
+typedef QTextDocument::MarkdownFeature MarkdownFeature;   // C++ enum
 typedef QTextDocument::MarkdownFeatures MarkdownFeatures; // C++ QFlags
-typedef QTextDocument::MetaInformation MetaInformation; // C++ enum
+typedef QTextDocument::MetaInformation MetaInformation;   // C++ enum
 typedef QTextDocument::ResourceProvider ResourceProvider; // C++ QFlags
-typedef QTextDocument::ResourceType ResourceType; // C++ enum
-typedef QTextDocument::Stacks Stacks; // C++ enum
+typedef QTextDocument::ResourceType ResourceType;         // C++ enum
+typedef QTextDocument::Stacks Stacks;                     // C++ enum
 #else
-typedef int FindFlag; // C ABI enum
-typedef int FindFlags; // C ABI QFlags
-typedef int MarkdownFeature; // C ABI enum
+typedef int FindFlag;         // C ABI enum
+typedef int FindFlags;        // C ABI QFlags
+typedef int MarkdownFeature;  // C ABI enum
 typedef int MarkdownFeatures; // C ABI QFlags
-typedef int MetaInformation; // C ABI enum
-typedef int ResourceType; // C ABI enum
-typedef int Stacks; // C ABI enum
+typedef int MetaInformation;  // C ABI enum
+typedef int ResourceType;     // C ABI enum
+typedef int Stacks;           // C ABI enum
 #endif
 
 void QAbstractUndoItem_Undo(QAbstractUndoItem* self);
@@ -251,6 +250,6 @@ void QTextDocument_Delete(QTextDocument* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

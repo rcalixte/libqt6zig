@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -25,16 +24,16 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QNetworkProxy::Capabilities Capabilities; // C++ QFlags
-typedef QNetworkProxy::Capability Capability; // C++ enum
-typedef QNetworkProxy::ProxyType ProxyType; // C++ enum
+typedef QNetworkProxy::Capabilities Capabilities;          // C++ QFlags
+typedef QNetworkProxy::Capability Capability;              // C++ enum
+typedef QNetworkProxy::ProxyType ProxyType;                // C++ enum
 typedef QNetworkProxyQuery::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QNetworkProxyQuery::QueryType QueryType; // C++ enum
+typedef QNetworkProxyQuery::QueryType QueryType;           // C++ enum
 #else
-typedef int Capabilities; // C ABI QFlags
-typedef int Capability; // C ABI enum
-typedef int ProxyType; // C ABI enum
-typedef int QueryType; // C ABI enum
+typedef int Capabilities;    // C ABI QFlags
+typedef int Capability;      // C ABI enum
+typedef int ProxyType;       // C ABI enum
+typedef int QueryType;       // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -116,6 +115,6 @@ void QNetworkProxyFactory_Delete(QNetworkProxyFactory* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

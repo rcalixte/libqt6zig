@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -27,12 +26,12 @@ typedef struct QTimeZone__OffsetData QTimeZone__OffsetData;
 #endif
 
 #ifdef __cplusplus
-typedef QTimeZone::NameType NameType; // C++ enum
+typedef QTimeZone::NameType NameType;             // C++ enum
 typedef QTimeZone::OffsetDataList OffsetDataList; // C++ QFlags
-typedef QTimeZone::TimeType TimeType; // C++ enum
+typedef QTimeZone::TimeType TimeType;             // C++ enum
 #else
-typedef int NameType; // C ABI enum
-typedef int TimeType; // C ABI enum
+typedef int NameType;                                              // C ABI enum
+typedef int TimeType;                                              // C ABI enum
 typedef libqt_list /* of QTimeZone__OffsetData* */ OffsetDataList; // C ABI QFlags
 #endif
 
@@ -87,6 +86,6 @@ void QTimeZone__OffsetData_Delete(QTimeZone__OffsetData* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

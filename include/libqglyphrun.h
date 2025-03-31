@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,10 +23,10 @@ typedef struct QRectF QRectF;
 #endif
 
 #ifdef __cplusplus
-typedef QGlyphRun::GlyphRunFlag GlyphRunFlag; // C++ enum
+typedef QGlyphRun::GlyphRunFlag GlyphRunFlag;   // C++ enum
 typedef QGlyphRun::GlyphRunFlags GlyphRunFlags; // C++ QFlags
 #else
-typedef int GlyphRunFlag; // C ABI enum
+typedef int GlyphRunFlag;  // C ABI enum
 typedef int GlyphRunFlags; // C ABI QFlags
 #endif
 
@@ -64,6 +63,6 @@ void QGlyphRun_Delete(QGlyphRun* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

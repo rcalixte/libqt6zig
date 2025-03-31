@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -31,11 +30,11 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QMetaMethod::Access Access; // C++ enum
+typedef QMetaMethod::Access Access;         // C++ enum
 typedef QMetaMethod::Attributes Attributes; // C++ enum
 typedef QMetaMethod::MethodType MethodType; // C++ enum
 #else
-typedef int Access; // C ABI enum
+typedef int Access;     // C ABI enum
 typedef int Attributes; // C ABI enum
 typedef int MethodType; // C ABI enum
 #endif
@@ -216,6 +215,6 @@ void QMetaClassInfo_Delete(QMetaClassInfo* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

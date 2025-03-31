@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -22,10 +21,10 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QMediaMetaData::Key Key; // C++ enum
+typedef QMediaMetaData::Key Key;                       // C++ enum
 typedef QMediaMetaData::QtGadgetHelper QtGadgetHelper; // C++ QFlags
 #else
-typedef int Key; // C ABI enum
+typedef int Key;             // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -44,6 +43,6 @@ void QMediaMetaData_Delete(QMediaMetaData* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

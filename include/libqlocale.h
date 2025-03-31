@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -25,39 +24,39 @@ typedef struct QTime QTime;
 #endif
 
 #ifdef __cplusplus
-typedef QLocale::Country Country; // C++ enum
-typedef QLocale::CurrencySymbolFormat CurrencySymbolFormat; // C++ enum
-typedef QLocale::DataSizeFormat DataSizeFormat; // C++ enum
-typedef QLocale::DataSizeFormats DataSizeFormats; // C++ QFlags
+typedef QLocale::Country Country;                                           // C++ enum
+typedef QLocale::CurrencySymbolFormat CurrencySymbolFormat;                 // C++ enum
+typedef QLocale::DataSizeFormat DataSizeFormat;                             // C++ enum
+typedef QLocale::DataSizeFormats DataSizeFormats;                           // C++ QFlags
 typedef QLocale::FloatingPointPrecisionOption FloatingPointPrecisionOption; // C++ enum
-typedef QLocale::FormatType FormatType; // C++ enum
-typedef QLocale::Language Language; // C++ enum
-typedef QLocale::LanguageCodeType LanguageCodeType; // C++ enum
-typedef QLocale::LanguageCodeTypes LanguageCodeTypes; // C++ QFlags
-typedef QLocale::MeasurementSystem MeasurementSystem; // C++ enum
-typedef QLocale::NumberOption NumberOption; // C++ enum
-typedef QLocale::NumberOptions NumberOptions; // C++ QFlags
-typedef QLocale::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QLocale::QuotationStyle QuotationStyle; // C++ enum
-typedef QLocale::Script Script; // C++ enum
-typedef QLocale::Territory Territory; // C++ QFlags
+typedef QLocale::FormatType FormatType;                                     // C++ enum
+typedef QLocale::Language Language;                                         // C++ enum
+typedef QLocale::LanguageCodeType LanguageCodeType;                         // C++ enum
+typedef QLocale::LanguageCodeTypes LanguageCodeTypes;                       // C++ QFlags
+typedef QLocale::MeasurementSystem MeasurementSystem;                       // C++ enum
+typedef QLocale::NumberOption NumberOption;                                 // C++ enum
+typedef QLocale::NumberOptions NumberOptions;                               // C++ QFlags
+typedef QLocale::QtGadgetHelper QtGadgetHelper;                             // C++ QFlags
+typedef QLocale::QuotationStyle QuotationStyle;                             // C++ enum
+typedef QLocale::Script Script;                                             // C++ enum
+typedef QLocale::Territory Territory;                                       // C++ QFlags
 #else
-typedef int CurrencySymbolFormat; // C ABI enum
-typedef int DataSizeFormat; // C ABI enum
-typedef int DataSizeFormats; // C ABI QFlags
+typedef int CurrencySymbolFormat;         // C ABI enum
+typedef int DataSizeFormat;               // C ABI enum
+typedef int DataSizeFormats;              // C ABI QFlags
 typedef int FloatingPointPrecisionOption; // C ABI enum
-typedef int FormatType; // C ABI enum
-typedef int LanguageCodeType; // C ABI enum
-typedef int LanguageCodeTypes; // C ABI QFlags
-typedef int MeasurementSystem; // C ABI enum
-typedef int NumberOption; // C ABI enum
-typedef int NumberOptions; // C ABI QFlags
-typedef int QuotationStyle; // C ABI enum
-typedef int Script; // C ABI enum
-typedef uint16_t Country; // C ABI enum
-typedef uint16_t Language; // C ABI enum
-typedef uint16_t Territory; // C ABI QFlags
-typedef void QtGadgetHelper; // C ABI QFlags
+typedef int FormatType;                   // C ABI enum
+typedef int LanguageCodeType;             // C ABI enum
+typedef int LanguageCodeTypes;            // C ABI QFlags
+typedef int MeasurementSystem;            // C ABI enum
+typedef int NumberOption;                 // C ABI enum
+typedef int NumberOptions;                // C ABI QFlags
+typedef int QuotationStyle;               // C ABI enum
+typedef int Script;                       // C ABI enum
+typedef uint16_t Country;                 // C ABI enum
+typedef uint16_t Language;                // C ABI enum
+typedef uint16_t Territory;               // C ABI QFlags
+typedef void QtGadgetHelper;              // C ABI QFlags
 #endif
 
 QLocale* QLocale_new();
@@ -213,6 +212,6 @@ void QLocale_Delete(QLocale* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

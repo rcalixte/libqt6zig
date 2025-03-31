@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -34,27 +33,27 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QCborMap::ConstIterator::difference_type ConstIteratordifference_type; // C++ QFlags
+typedef QCborMap::ConstIterator::difference_type ConstIteratordifference_type;     // C++ QFlags
 typedef QCborMap::ConstIterator::iterator_category ConstIteratoriterator_category; // C++ QFlags
-typedef QCborMap::ConstIterator::pointer ConstIteratorpointer; // C++ QFlags
-typedef QCborMap::ConstIterator::reference ConstIteratorreference; // C++ QFlags
-typedef QCborMap::ConstIterator::value_type ConstIteratorvalue_type; // C++ QFlags
-typedef QCborMap::Iterator::difference_type Iteratordifference_type; // C++ QFlags
-typedef QCborMap::Iterator::iterator_category Iteratoriterator_category; // C++ QFlags
-typedef QCborMap::Iterator::pointer Iteratorpointer; // C++ QFlags
-typedef QCborMap::Iterator::reference Iteratorreference; // C++ QFlags
-typedef QCborMap::Iterator::value_type Iteratorvalue_type; // C++ QFlags
-typedef QCborMap::iterator iterator; // C++ QFlags
-typedef QCborMap::key_type key_type; // C++ QFlags
-typedef QCborMap::mapped_type mapped_type; // C++ QFlags
-typedef QCborMap::size_type size_type; // C++ QFlags
-typedef QCborMap::value_type value_type; // C++ QFlags
+typedef QCborMap::ConstIterator::pointer ConstIteratorpointer;                     // C++ QFlags
+typedef QCborMap::ConstIterator::reference ConstIteratorreference;                 // C++ QFlags
+typedef QCborMap::ConstIterator::value_type ConstIteratorvalue_type;               // C++ QFlags
+typedef QCborMap::Iterator::difference_type Iteratordifference_type;               // C++ QFlags
+typedef QCborMap::Iterator::iterator_category Iteratoriterator_category;           // C++ QFlags
+typedef QCborMap::Iterator::pointer Iteratorpointer;                               // C++ QFlags
+typedef QCborMap::Iterator::reference Iteratorreference;                           // C++ QFlags
+typedef QCborMap::Iterator::value_type Iteratorvalue_type;                         // C++ QFlags
+typedef QCborMap::iterator iterator;                                               // C++ QFlags
+typedef QCborMap::key_type key_type;                                               // C++ QFlags
+typedef QCborMap::mapped_type mapped_type;                                         // C++ QFlags
+typedef QCborMap::size_type size_type;                                             // C++ QFlags
+typedef QCborMap::value_type value_type;                                           // C++ QFlags
 #else
-typedef QCborValue* key_type; // C ABI QFlags
-typedef QCborValue* mapped_type; // C ABI QFlags
+typedef QCborValue* key_type;                   // C ABI QFlags
+typedef QCborValue* mapped_type;                // C ABI QFlags
 typedef ptrdiff_t ConstIteratordifference_type; // C ABI QFlags
-typedef ptrdiff_t Iteratordifference_type; // C ABI QFlags
-typedef ptrdiff_t size_type; // C ABI QFlags
+typedef ptrdiff_t Iteratordifference_type;      // C ABI QFlags
+typedef ptrdiff_t size_type;                    // C ABI QFlags
 #endif
 
 QCborMap* QCborMap_new();
@@ -189,6 +188,6 @@ void QCborMap__ConstIterator_Delete(QCborMap__ConstIterator* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

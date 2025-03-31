@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -22,11 +21,11 @@ typedef struct QAudioFormat QAudioFormat;
 
 #ifdef __cplusplus
 typedef QAudioFormat::AudioChannelPosition AudioChannelPosition; // C++ enum
-typedef QAudioFormat::ChannelConfig ChannelConfig; // C++ enum
-typedef QAudioFormat::SampleFormat SampleFormat; // C++ enum
+typedef QAudioFormat::ChannelConfig ChannelConfig;               // C++ enum
+typedef QAudioFormat::SampleFormat SampleFormat;                 // C++ enum
 #else
-typedef int AudioChannelPosition; // C ABI enum
-typedef uint16_t SampleFormat; // C ABI enum
+typedef int AudioChannelPosition;   // C ABI enum
+typedef uint16_t SampleFormat;      // C ABI enum
 typedef unsigned int ChannelConfig; // C ABI enum
 #endif
 
@@ -60,6 +59,6 @@ void QAudioFormat_Delete(QAudioFormat* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

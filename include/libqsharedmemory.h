@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -35,10 +34,10 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QSharedMemory::AccessMode AccessMode; // C++ enum
+typedef QSharedMemory::AccessMode AccessMode;               // C++ enum
 typedef QSharedMemory::SharedMemoryError SharedMemoryError; // C++ enum
 #else
-typedef int AccessMode; // C ABI enum
+typedef int AccessMode;        // C ABI enum
 typedef int SharedMemoryError; // C ABI enum
 #endif
 
@@ -109,6 +108,6 @@ void QSharedMemory_Delete(QSharedMemory* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

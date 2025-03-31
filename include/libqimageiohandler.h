@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -40,16 +39,16 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QImageIOHandler::ImageOption ImageOption; // C++ enum
-typedef QImageIOHandler::Transformation Transformation; // C++ enum
+typedef QImageIOHandler::ImageOption ImageOption;         // C++ enum
+typedef QImageIOHandler::Transformation Transformation;   // C++ enum
 typedef QImageIOHandler::Transformations Transformations; // C++ QFlags
-typedef QImageIOPlugin::Capabilities Capabilities; // C++ QFlags
-typedef QImageIOPlugin::Capability Capability; // C++ enum
+typedef QImageIOPlugin::Capabilities Capabilities;        // C++ QFlags
+typedef QImageIOPlugin::Capability Capability;            // C++ enum
 #else
-typedef int Capabilities; // C ABI QFlags
-typedef int Capability; // C ABI enum
-typedef int ImageOption; // C ABI enum
-typedef int Transformation; // C ABI enum
+typedef int Capabilities;    // C ABI QFlags
+typedef int Capability;      // C ABI enum
+typedef int ImageOption;     // C ABI enum
+typedef int Transformation;  // C ABI enum
 typedef int Transformations; // C ABI QFlags
 #endif
 
@@ -154,6 +153,6 @@ void QImageIOPlugin_Delete(QImageIOPlugin* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

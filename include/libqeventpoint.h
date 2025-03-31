@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -27,11 +26,11 @@ typedef struct QVector2D QVector2D;
 
 #ifdef __cplusplus
 typedef QEventPoint::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QEventPoint::State State; // C++ enum
-typedef QEventPoint::States States; // C++ QFlags
+typedef QEventPoint::State State;                   // C++ enum
+typedef QEventPoint::States States;                 // C++ QFlags
 #else
-typedef int State; // C ABI enum
-typedef int States; // C ABI QFlags
+typedef int State;           // C ABI enum
+typedef int States;          // C ABI QFlags
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -88,6 +87,6 @@ void QEventPoint_Delete(QEventPoint* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

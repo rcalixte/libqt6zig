@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -44,13 +43,13 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QAbstractItemModel::CheckIndexOption CheckIndexOption; // C++ enum
+typedef QAbstractItemModel::CheckIndexOption CheckIndexOption;   // C++ enum
 typedef QAbstractItemModel::CheckIndexOptions CheckIndexOptions; // C++ QFlags
-typedef QAbstractItemModel::LayoutChangeHint LayoutChangeHint; // C++ enum
+typedef QAbstractItemModel::LayoutChangeHint LayoutChangeHint;   // C++ enum
 #else
-typedef int CheckIndexOption; // C ABI enum
+typedef int CheckIndexOption;  // C ABI enum
 typedef int CheckIndexOptions; // C ABI QFlags
-typedef int LayoutChangeHint; // C ABI enum
+typedef int LayoutChangeHint;  // C ABI enum
 #endif
 
 QModelRoleData* QModelRoleData_new(int role);
@@ -805,6 +804,6 @@ void QAbstractListModel_Delete(QAbstractListModel* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

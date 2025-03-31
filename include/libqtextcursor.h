@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -34,11 +33,11 @@ typedef struct QTextTableFormat QTextTableFormat;
 #endif
 
 #ifdef __cplusplus
-typedef QTextCursor::MoveMode MoveMode; // C++ enum
+typedef QTextCursor::MoveMode MoveMode;           // C++ enum
 typedef QTextCursor::MoveOperation MoveOperation; // C++ enum
 typedef QTextCursor::SelectionType SelectionType; // C++ enum
 #else
-typedef int MoveMode; // C ABI enum
+typedef int MoveMode;      // C ABI enum
 typedef int MoveOperation; // C ABI enum
 typedef int SelectionType; // C ABI enum
 #endif
@@ -132,6 +131,6 @@ void QTextCursor_Delete(QTextCursor* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

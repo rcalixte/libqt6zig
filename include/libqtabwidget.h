@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -86,10 +85,10 @@ typedef struct QWindow QWindow;
 
 #ifdef __cplusplus
 typedef QTabWidget::TabPosition TabPosition; // C++ enum
-typedef QTabWidget::TabShape TabShape; // C++ enum
+typedef QTabWidget::TabShape TabShape;       // C++ enum
 #else
 typedef int TabPosition; // C ABI enum
-typedef int TabShape; // C ABI enum
+typedef int TabShape;    // C ABI enum
 #endif
 
 QTabWidget* QTabWidget_new(QWidget* parent);
@@ -342,6 +341,6 @@ void QTabWidget_Delete(QTabWidget* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

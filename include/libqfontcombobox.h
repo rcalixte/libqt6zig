@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -92,10 +91,10 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QFontComboBox::FontFilter FontFilter; // C++ enum
+typedef QFontComboBox::FontFilter FontFilter;   // C++ enum
 typedef QFontComboBox::FontFilters FontFilters; // C++ QFlags
 #else
-typedef int FontFilter; // C ABI enum
+typedef int FontFilter;  // C ABI enum
 typedef int FontFilters; // C ABI QFlags
 #endif
 
@@ -306,6 +305,6 @@ void QFontComboBox_Delete(QFontComboBox* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

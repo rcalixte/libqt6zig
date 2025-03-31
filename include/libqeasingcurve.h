@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,9 +23,9 @@ typedef struct QPointF QPointF;
 #ifdef __cplusplus
 typedef QEasingCurve::EasingFunction EasingFunction; // C++ QFlags
 typedef QEasingCurve::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QEasingCurve::Type Type; // C++ enum
+typedef QEasingCurve::Type Type;                     // C++ enum
 #else
-typedef unsigned char Type; // C ABI enum
+typedef unsigned char Type;  // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -53,6 +52,6 @@ void QEasingCurve_Delete(QEasingCurve* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

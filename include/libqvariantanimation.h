@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -39,8 +38,8 @@ typedef struct QVariantAnimation QVariantAnimation;
 
 #ifdef __cplusplus
 typedef QVariantAnimation::Interpolator Interpolator; // C++ QFlags
-typedef QVariantAnimation::KeyValue KeyValue; // C++ QFlags
-typedef QVariantAnimation::KeyValues KeyValues; // C++ QFlags
+typedef QVariantAnimation::KeyValue KeyValue;         // C++ QFlags
+typedef QVariantAnimation::KeyValues KeyValues;       // C++ QFlags
 #else
 typedef libqt_pair /* tuple of double and QVariant* */ KeyValue; // C ABI QFlags
 #endif
@@ -124,6 +123,6 @@ void QVariantAnimation_Delete(QVariantAnimation* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

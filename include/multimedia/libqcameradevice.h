@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,10 +22,10 @@ typedef struct QSize QSize;
 #endif
 
 #ifdef __cplusplus
-typedef QCameraDevice::Position Position; // C++ enum
+typedef QCameraDevice::Position Position;             // C++ enum
 typedef QCameraDevice::QtGadgetHelper QtGadgetHelper; // C++ QFlags
 #else
-typedef int Position; // C ABI enum
+typedef int Position;        // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -58,6 +57,6 @@ void QCameraDevice_Delete(QCameraDevice* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

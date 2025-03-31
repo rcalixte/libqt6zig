@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -38,12 +37,12 @@ typedef struct QVariant QVariant;
 
 #ifdef __cplusplus
 typedef QAbstractAnimation::DeletionPolicy DeletionPolicy; // C++ enum
-typedef QAbstractAnimation::Direction Direction; // C++ enum
-typedef QAbstractAnimation::State State; // C++ enum
+typedef QAbstractAnimation::Direction Direction;           // C++ enum
+typedef QAbstractAnimation::State State;                   // C++ enum
 #else
 typedef int DeletionPolicy; // C ABI enum
-typedef int Direction; // C ABI enum
-typedef int State; // C ABI enum
+typedef int Direction;      // C ABI enum
+typedef int State;          // C ABI enum
 #endif
 
 QAbstractAnimation* QAbstractAnimation_new();
@@ -197,6 +196,6 @@ void QAnimationDriver_Delete(QAnimationDriver* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

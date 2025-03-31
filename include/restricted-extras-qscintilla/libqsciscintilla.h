@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -99,41 +98,41 @@ typedef struct QsciStyledText QsciStyledText;
 #endif
 
 #ifdef __cplusplus
-typedef QsciScintilla::AnnotationDisplay AnnotationDisplay; // C++ enum
-typedef QsciScintilla::AutoCompletionSource AutoCompletionSource; // C++ enum
+typedef QsciScintilla::AnnotationDisplay AnnotationDisplay;             // C++ enum
+typedef QsciScintilla::AutoCompletionSource AutoCompletionSource;       // C++ enum
 typedef QsciScintilla::AutoCompletionUseSingle AutoCompletionUseSingle; // C++ enum
-typedef QsciScintilla::BraceMatch BraceMatch; // C++ enum
-typedef QsciScintilla::CallTipsPosition CallTipsPosition; // C++ enum
-typedef QsciScintilla::CallTipsStyle CallTipsStyle; // C++ enum
-typedef QsciScintilla::EdgeMode EdgeMode; // C++ enum
-typedef QsciScintilla::EolMode EolMode; // C++ enum
-typedef QsciScintilla::FoldStyle FoldStyle; // C++ enum
-typedef QsciScintilla::IndicatorStyle IndicatorStyle; // C++ enum
-typedef QsciScintilla::MarginType MarginType; // C++ enum
-typedef QsciScintilla::MarkerSymbol MarkerSymbol; // C++ enum
-typedef QsciScintilla::TabDrawMode TabDrawMode; // C++ enum
-typedef QsciScintilla::WhitespaceVisibility WhitespaceVisibility; // C++ enum
-typedef QsciScintilla::WrapIndentMode WrapIndentMode; // C++ enum
-typedef QsciScintilla::WrapMode WrapMode; // C++ enum
-typedef QsciScintilla::WrapVisualFlag WrapVisualFlag; // C++ enum
+typedef QsciScintilla::BraceMatch BraceMatch;                           // C++ enum
+typedef QsciScintilla::CallTipsPosition CallTipsPosition;               // C++ enum
+typedef QsciScintilla::CallTipsStyle CallTipsStyle;                     // C++ enum
+typedef QsciScintilla::EdgeMode EdgeMode;                               // C++ enum
+typedef QsciScintilla::EolMode EolMode;                                 // C++ enum
+typedef QsciScintilla::FoldStyle FoldStyle;                             // C++ enum
+typedef QsciScintilla::IndicatorStyle IndicatorStyle;                   // C++ enum
+typedef QsciScintilla::MarginType MarginType;                           // C++ enum
+typedef QsciScintilla::MarkerSymbol MarkerSymbol;                       // C++ enum
+typedef QsciScintilla::TabDrawMode TabDrawMode;                         // C++ enum
+typedef QsciScintilla::WhitespaceVisibility WhitespaceVisibility;       // C++ enum
+typedef QsciScintilla::WrapIndentMode WrapIndentMode;                   // C++ enum
+typedef QsciScintilla::WrapMode WrapMode;                               // C++ enum
+typedef QsciScintilla::WrapVisualFlag WrapVisualFlag;                   // C++ enum
 #else
-typedef int AnnotationDisplay; // C ABI enum
-typedef int AutoCompletionSource; // C ABI enum
+typedef int AnnotationDisplay;       // C ABI enum
+typedef int AutoCompletionSource;    // C ABI enum
 typedef int AutoCompletionUseSingle; // C ABI enum
-typedef int BraceMatch; // C ABI enum
-typedef int CallTipsPosition; // C ABI enum
-typedef int CallTipsStyle; // C ABI enum
-typedef int EdgeMode; // C ABI enum
-typedef int EolMode; // C ABI enum
-typedef int FoldStyle; // C ABI enum
-typedef int IndicatorStyle; // C ABI enum
-typedef int MarginType; // C ABI enum
-typedef int MarkerSymbol; // C ABI enum
-typedef int TabDrawMode; // C ABI enum
-typedef int WhitespaceVisibility; // C ABI enum
-typedef int WrapIndentMode; // C ABI enum
-typedef int WrapMode; // C ABI enum
-typedef int WrapVisualFlag; // C ABI enum
+typedef int BraceMatch;              // C ABI enum
+typedef int CallTipsPosition;        // C ABI enum
+typedef int CallTipsStyle;           // C ABI enum
+typedef int EdgeMode;                // C ABI enum
+typedef int EolMode;                 // C ABI enum
+typedef int FoldStyle;               // C ABI enum
+typedef int IndicatorStyle;          // C ABI enum
+typedef int MarginType;              // C ABI enum
+typedef int MarkerSymbol;            // C ABI enum
+typedef int TabDrawMode;             // C ABI enum
+typedef int WhitespaceVisibility;    // C ABI enum
+typedef int WrapIndentMode;          // C ABI enum
+typedef int WrapMode;                // C ABI enum
+typedef int WrapVisualFlag;          // C ABI enum
 #endif
 
 QsciScintilla* QsciScintilla_new(QWidget* parent);
@@ -821,6 +820,6 @@ void QsciScintilla_Delete(QsciScintilla* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

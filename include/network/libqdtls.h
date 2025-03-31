@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -47,12 +46,12 @@ typedef struct QVariant QVariant;
 
 #ifdef __cplusplus
 typedef QDtls::GeneratorParameters GeneratorParameters; // C++ QFlags
-typedef QDtls::HandshakeState HandshakeState; // C++ enum
-typedef QDtlsError QDtlsError; // C++ enum
+typedef QDtls::HandshakeState HandshakeState;           // C++ enum
+typedef QDtlsError QDtlsError;                          // C++ enum
 #else
 typedef QDtlsClientVerifier__GeneratorParameters* GeneratorParameters; // C ABI QFlags
-typedef int HandshakeState; // C ABI enum
-typedef unsigned char QDtlsError; // C ABI enum
+typedef int HandshakeState;                                            // C ABI enum
+typedef unsigned char QDtlsError;                                      // C ABI enum
 #endif
 
 QDtlsClientVerifier* QDtlsClientVerifier_new();
@@ -192,6 +191,6 @@ void QDtlsClientVerifier__GeneratorParameters_Delete(QDtlsClientVerifier__Genera
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

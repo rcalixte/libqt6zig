@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -25,10 +24,10 @@ typedef struct QVariant QVariant;
 
 #ifdef __cplusplus
 typedef QColor::NameFormat NameFormat; // C++ enum
-typedef QColor::Spec Spec; // C++ enum
+typedef QColor::Spec Spec;             // C++ enum
 #else
 typedef int NameFormat; // C ABI enum
-typedef int Spec; // C ABI enum
+typedef int Spec;       // C ABI enum
 #endif
 
 QColor* QColor_new(QColor* other);
@@ -173,6 +172,6 @@ void QColor_Delete(QColor* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

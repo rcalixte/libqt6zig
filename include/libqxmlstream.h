@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -28,13 +27,13 @@ typedef struct QXmlStreamWriter QXmlStreamWriter;
 #endif
 
 #ifdef __cplusplus
-typedef QXmlStreamReader::Error Error; // C++ enum
+typedef QXmlStreamReader::Error Error;                                       // C++ enum
 typedef QXmlStreamReader::ReadElementTextBehaviour ReadElementTextBehaviour; // C++ enum
-typedef QXmlStreamReader::TokenType TokenType; // C++ enum
+typedef QXmlStreamReader::TokenType TokenType;                               // C++ enum
 #else
-typedef int Error; // C ABI enum
+typedef int Error;                    // C ABI enum
 typedef int ReadElementTextBehaviour; // C ABI enum
-typedef int TokenType; // C ABI enum
+typedef int TokenType;                // C ABI enum
 #endif
 
 QXmlStreamAttribute* QXmlStreamAttribute_new();
@@ -157,6 +156,6 @@ void QXmlStreamWriter_Delete(QXmlStreamWriter* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -22,10 +21,10 @@ typedef struct QHstsPolicy QHstsPolicy;
 #endif
 
 #ifdef __cplusplus
-typedef QHstsPolicy::PolicyFlag PolicyFlag; // C++ enum
+typedef QHstsPolicy::PolicyFlag PolicyFlag;   // C++ enum
 typedef QHstsPolicy::PolicyFlags PolicyFlags; // C++ QFlags
 #else
-typedef int PolicyFlag; // C ABI enum
+typedef int PolicyFlag;  // C ABI enum
 typedef int PolicyFlags; // C ABI QFlags
 #endif
 
@@ -48,6 +47,6 @@ void QHstsPolicy_Delete(QHstsPolicy* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

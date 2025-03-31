@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -93,20 +92,20 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QGraphicsView::CacheMode CacheMode; // C++ QFlags
-typedef QGraphicsView::CacheModeFlag CacheModeFlag; // C++ enum
-typedef QGraphicsView::DragMode DragMode; // C++ enum
-typedef QGraphicsView::OptimizationFlag OptimizationFlag; // C++ enum
-typedef QGraphicsView::OptimizationFlags OptimizationFlags; // C++ QFlags
-typedef QGraphicsView::ViewportAnchor ViewportAnchor; // C++ enum
+typedef QGraphicsView::CacheMode CacheMode;                   // C++ QFlags
+typedef QGraphicsView::CacheModeFlag CacheModeFlag;           // C++ enum
+typedef QGraphicsView::DragMode DragMode;                     // C++ enum
+typedef QGraphicsView::OptimizationFlag OptimizationFlag;     // C++ enum
+typedef QGraphicsView::OptimizationFlags OptimizationFlags;   // C++ QFlags
+typedef QGraphicsView::ViewportAnchor ViewportAnchor;         // C++ enum
 typedef QGraphicsView::ViewportUpdateMode ViewportUpdateMode; // C++ enum
 #else
-typedef int CacheMode; // C ABI QFlags
-typedef int CacheModeFlag; // C ABI enum
-typedef int DragMode; // C ABI enum
-typedef int OptimizationFlag; // C ABI enum
-typedef int OptimizationFlags; // C ABI QFlags
-typedef int ViewportAnchor; // C ABI enum
+typedef int CacheMode;          // C ABI QFlags
+typedef int CacheModeFlag;      // C ABI enum
+typedef int DragMode;           // C ABI enum
+typedef int OptimizationFlag;   // C ABI enum
+typedef int OptimizationFlags;  // C ABI QFlags
+typedef int ViewportAnchor;     // C ABI enum
 typedef int ViewportUpdateMode; // C ABI enum
 #endif
 
@@ -415,6 +414,6 @@ void QGraphicsView_Delete(QGraphicsView* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

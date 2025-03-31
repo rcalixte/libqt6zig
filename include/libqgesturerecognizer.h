@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,10 +23,10 @@ typedef struct QObject QObject;
 #endif
 
 #ifdef __cplusplus
-typedef QGestureRecognizer::Result Result; // C++ QFlags
+typedef QGestureRecognizer::Result Result;         // C++ QFlags
 typedef QGestureRecognizer::ResultFlag ResultFlag; // C++ enum
 #else
-typedef int Result; // C ABI QFlags
+typedef int Result;     // C ABI QFlags
 typedef int ResultFlag; // C ABI enum
 #endif
 
@@ -48,6 +47,6 @@ void QGestureRecognizer_Delete(QGestureRecognizer* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

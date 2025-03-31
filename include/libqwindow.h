@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -61,10 +60,10 @@ typedef struct QWindow QWindow;
 
 #ifdef __cplusplus
 typedef QWindow::AncestorMode AncestorMode; // C++ enum
-typedef QWindow::Visibility Visibility; // C++ enum
+typedef QWindow::Visibility Visibility;     // C++ enum
 #else
 typedef int AncestorMode; // C ABI enum
-typedef int Visibility; // C ABI enum
+typedef int Visibility;   // C ABI enum
 #endif
 
 QWindow* QWindow_new();
@@ -335,6 +334,6 @@ void QWindow_Delete(QWindow* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -26,20 +25,20 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QNetworkRequest::Attribute Attribute; // C++ enum
-typedef QNetworkRequest::CacheLoadControl CacheLoadControl; // C++ enum
-typedef QNetworkRequest::KnownHeaders KnownHeaders; // C++ enum
-typedef QNetworkRequest::LoadControl LoadControl; // C++ enum
-typedef QNetworkRequest::Priority Priority; // C++ enum
-typedef QNetworkRequest::RedirectPolicy RedirectPolicy; // C++ enum
+typedef QNetworkRequest::Attribute Attribute;                             // C++ enum
+typedef QNetworkRequest::CacheLoadControl CacheLoadControl;               // C++ enum
+typedef QNetworkRequest::KnownHeaders KnownHeaders;                       // C++ enum
+typedef QNetworkRequest::LoadControl LoadControl;                         // C++ enum
+typedef QNetworkRequest::Priority Priority;                               // C++ enum
+typedef QNetworkRequest::RedirectPolicy RedirectPolicy;                   // C++ enum
 typedef QNetworkRequest::TransferTimeoutConstant TransferTimeoutConstant; // C++ enum
 #else
-typedef int Attribute; // C ABI enum
-typedef int CacheLoadControl; // C ABI enum
-typedef int KnownHeaders; // C ABI enum
-typedef int LoadControl; // C ABI enum
-typedef int Priority; // C ABI enum
-typedef int RedirectPolicy; // C ABI enum
+typedef int Attribute;               // C ABI enum
+typedef int CacheLoadControl;        // C ABI enum
+typedef int KnownHeaders;            // C ABI enum
+typedef int LoadControl;             // C ABI enum
+typedef int Priority;                // C ABI enum
+typedef int RedirectPolicy;          // C ABI enum
 typedef int TransferTimeoutConstant; // C ABI enum
 #endif
 
@@ -82,6 +81,6 @@ void QNetworkRequest_Delete(QNetworkRequest* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

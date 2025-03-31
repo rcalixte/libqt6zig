@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,10 +23,10 @@ typedef struct QPointF QPointF;
 #endif
 
 #ifdef __cplusplus
-typedef QLineF::IntersectType IntersectType; // C++ QFlags
+typedef QLineF::IntersectType IntersectType;       // C++ QFlags
 typedef QLineF::IntersectionType IntersectionType; // C++ enum
 #else
-typedef int IntersectType; // C ABI QFlags
+typedef int IntersectType;    // C ABI QFlags
 typedef int IntersectionType; // C ABI enum
 #endif
 
@@ -107,6 +106,6 @@ void QLineF_Delete(QLineF* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

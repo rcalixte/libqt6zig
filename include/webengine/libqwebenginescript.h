@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,10 +23,10 @@ typedef struct QWebEngineScript QWebEngineScript;
 #ifdef __cplusplus
 typedef QWebEngineScript::InjectionPoint InjectionPoint; // C++ enum
 typedef QWebEngineScript::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QWebEngineScript::ScriptWorldId ScriptWorldId; // C++ enum
+typedef QWebEngineScript::ScriptWorldId ScriptWorldId;   // C++ enum
 #else
-typedef int InjectionPoint; // C ABI enum
-typedef int ScriptWorldId; // C ABI enum
+typedef int InjectionPoint;  // C ABI enum
+typedef int ScriptWorldId;   // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -53,6 +52,6 @@ void QWebEngineScript_Delete(QWebEngineScript* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

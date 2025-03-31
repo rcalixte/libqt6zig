@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -37,10 +36,10 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QSoundEffect::Loop Loop; // C++ enum
+typedef QSoundEffect::Loop Loop;     // C++ enum
 typedef QSoundEffect::Status Status; // C++ enum
 #else
-typedef int Loop; // C ABI enum
+typedef int Loop;   // C ABI enum
 typedef int Status; // C ABI enum
 #endif
 
@@ -128,6 +127,6 @@ void QSoundEffect_Delete(QSoundEffect* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

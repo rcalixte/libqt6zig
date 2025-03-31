@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -41,14 +40,14 @@ typedef struct QVideoSink QVideoSink;
 #endif
 
 #ifdef __cplusplus
-typedef QMediaPlayer::Error Error; // C++ enum
-typedef QMediaPlayer::Loops Loops; // C++ enum
-typedef QMediaPlayer::MediaStatus MediaStatus; // C++ enum
+typedef QMediaPlayer::Error Error;                 // C++ enum
+typedef QMediaPlayer::Loops Loops;                 // C++ enum
+typedef QMediaPlayer::MediaStatus MediaStatus;     // C++ enum
 typedef QMediaPlayer::PlaybackState PlaybackState; // C++ enum
 #else
-typedef int Error; // C ABI enum
-typedef int Loops; // C ABI enum
-typedef int MediaStatus; // C ABI enum
+typedef int Error;         // C ABI enum
+typedef int Loops;         // C ABI enum
+typedef int MediaStatus;   // C ABI enum
 typedef int PlaybackState; // C ABI enum
 #endif
 
@@ -176,6 +175,6 @@ void QMediaPlayer_Delete(QMediaPlayer* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

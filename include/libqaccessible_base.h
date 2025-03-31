@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -33,28 +32,28 @@ typedef struct QTextCursor QTextCursor;
 #endif
 
 #ifdef __cplusplus
-typedef QAccessible::Event Event; // C++ enum
-typedef QAccessible::Id Id; // C++ QFlags
-typedef QAccessible::InterfaceFactory InterfaceFactory; // C++ QFlags
-typedef QAccessible::InterfaceType InterfaceType; // C++ enum
-typedef QAccessible::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QAccessible::Relation Relation; // C++ QFlags
-typedef QAccessible::RelationFlag RelationFlag; // C++ enum
-typedef QAccessible::Role Role; // C++ enum
+typedef QAccessible::Event Event;                         // C++ enum
+typedef QAccessible::Id Id;                               // C++ QFlags
+typedef QAccessible::InterfaceFactory InterfaceFactory;   // C++ QFlags
+typedef QAccessible::InterfaceType InterfaceType;         // C++ enum
+typedef QAccessible::QtGadgetHelper QtGadgetHelper;       // C++ QFlags
+typedef QAccessible::Relation Relation;                   // C++ QFlags
+typedef QAccessible::RelationFlag RelationFlag;           // C++ enum
+typedef QAccessible::Role Role;                           // C++ enum
 typedef QAccessible::RootObjectHandler RootObjectHandler; // C++ QFlags
-typedef QAccessible::Text Text; // C++ enum
-typedef QAccessible::TextBoundaryType TextBoundaryType; // C++ enum
-typedef QAccessible::UpdateHandler UpdateHandler; // C++ QFlags
+typedef QAccessible::Text Text;                           // C++ enum
+typedef QAccessible::TextBoundaryType TextBoundaryType;   // C++ enum
+typedef QAccessible::UpdateHandler UpdateHandler;         // C++ QFlags
 #else
-typedef int Event; // C ABI enum
-typedef int InterfaceType; // C ABI enum
-typedef int Relation; // C ABI QFlags
-typedef int RelationFlag; // C ABI enum
-typedef int Role; // C ABI enum
-typedef int Text; // C ABI enum
+typedef int Event;            // C ABI enum
+typedef int InterfaceType;    // C ABI enum
+typedef int Relation;         // C ABI QFlags
+typedef int RelationFlag;     // C ABI enum
+typedef int Role;             // C ABI enum
+typedef int Text;             // C ABI enum
 typedef int TextBoundaryType; // C ABI enum
-typedef unsigned int Id; // C ABI QFlags
-typedef void QtGadgetHelper; // C ABI QFlags
+typedef unsigned int Id;      // C ABI QFlags
+typedef void QtGadgetHelper;  // C ABI QFlags
 #endif
 
 QAccessible* QAccessible_new(QAccessible* other);
@@ -89,6 +88,6 @@ void QAccessible__ActivationObserver_Delete(QAccessible__ActivationObserver* sel
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -27,10 +26,10 @@ typedef struct QSslKey QSslKey;
 
 #ifdef __cplusplus
 typedef QSslCertificate::PatternSyntax PatternSyntax; // C++ enum
-typedef QSslCertificate::SubjectInfo SubjectInfo; // C++ enum
+typedef QSslCertificate::SubjectInfo SubjectInfo;     // C++ enum
 #else
 typedef int PatternSyntax; // C ABI enum
-typedef int SubjectInfo; // C ABI enum
+typedef int SubjectInfo;   // C ABI enum
 #endif
 
 QSslCertificate* QSslCertificate_new(QIODevice* device);
@@ -83,6 +82,6 @@ void QSslCertificate_Delete(QSslCertificate* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

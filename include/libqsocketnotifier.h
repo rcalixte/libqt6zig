@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -37,7 +36,7 @@ typedef struct QVariant QVariant;
 
 #ifdef __cplusplus
 typedef QSocketDescriptor::DescriptorType DescriptorType; // C++ QFlags
-typedef QSocketNotifier::Type Type; // C++ enum
+typedef QSocketNotifier::Type Type;                       // C++ enum
 #else
 typedef int DescriptorType; // C ABI QFlags
 typedef unsigned char Type; // C ABI enum
@@ -109,6 +108,6 @@ void QSocketDescriptor_Delete(QSocketDescriptor* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

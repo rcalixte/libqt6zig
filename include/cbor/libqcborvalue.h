@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -34,19 +33,19 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QCborValue::DiagnosticNotationOption DiagnosticNotationOption; // C++ enum
+typedef QCborValue::DiagnosticNotationOption DiagnosticNotationOption;   // C++ enum
 typedef QCborValue::DiagnosticNotationOptions DiagnosticNotationOptions; // C++ QFlags
-typedef QCborValue::EncodingOption EncodingOption; // C++ enum
-typedef QCborValue::EncodingOptions EncodingOptions; // C++ QFlags
-typedef QCborValue::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QCborValue::Type Type; // C++ enum
+typedef QCborValue::EncodingOption EncodingOption;                       // C++ enum
+typedef QCborValue::EncodingOptions EncodingOptions;                     // C++ QFlags
+typedef QCborValue::QtGadgetHelper QtGadgetHelper;                       // C++ QFlags
+typedef QCborValue::Type Type;                                           // C++ enum
 #else
-typedef int DiagnosticNotationOption; // C ABI enum
+typedef int DiagnosticNotationOption;  // C ABI enum
 typedef int DiagnosticNotationOptions; // C ABI QFlags
-typedef int EncodingOption; // C ABI enum
-typedef int EncodingOptions; // C ABI QFlags
-typedef unsigned char Type; // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
+typedef int EncodingOption;            // C ABI enum
+typedef int EncodingOptions;           // C ABI QFlags
+typedef unsigned char Type;            // C ABI enum
+typedef void QtGadgetHelper;           // C ABI QFlags
 #endif
 
 QCborParserError* QCborParserError_new(QCborParserError* other);
@@ -299,6 +298,6 @@ void QCborValueRef_Delete(QCborValueRef* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

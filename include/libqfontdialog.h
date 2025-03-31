@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -84,10 +83,10 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QFontDialog::FontDialogOption FontDialogOption; // C++ enum
+typedef QFontDialog::FontDialogOption FontDialogOption;   // C++ enum
 typedef QFontDialog::FontDialogOptions FontDialogOptions; // C++ QFlags
 #else
-typedef int FontDialogOption; // C ABI enum
+typedef int FontDialogOption;  // C ABI enum
 typedef int FontDialogOptions; // C ABI QFlags
 #endif
 
@@ -311,6 +310,6 @@ void QFontDialog_Delete(QFontDialog* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

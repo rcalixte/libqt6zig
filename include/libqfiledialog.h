@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -89,19 +88,19 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QFileDialog::AcceptMode AcceptMode; // C++ enum
+typedef QFileDialog::AcceptMode AcceptMode;   // C++ enum
 typedef QFileDialog::DialogLabel DialogLabel; // C++ enum
-typedef QFileDialog::FileMode FileMode; // C++ enum
-typedef QFileDialog::Option Option; // C++ enum
-typedef QFileDialog::Options Options; // C++ QFlags
-typedef QFileDialog::ViewMode ViewMode; // C++ enum
+typedef QFileDialog::FileMode FileMode;       // C++ enum
+typedef QFileDialog::Option Option;           // C++ enum
+typedef QFileDialog::Options Options;         // C++ QFlags
+typedef QFileDialog::ViewMode ViewMode;       // C++ enum
 #else
-typedef int AcceptMode; // C ABI enum
+typedef int AcceptMode;  // C ABI enum
 typedef int DialogLabel; // C ABI enum
-typedef int FileMode; // C ABI enum
-typedef int Option; // C ABI enum
-typedef int Options; // C ABI QFlags
-typedef int ViewMode; // C ABI enum
+typedef int FileMode;    // C ABI enum
+typedef int Option;      // C ABI enum
+typedef int Options;     // C ABI QFlags
+typedef int ViewMode;    // C ABI enum
 #endif
 
 QFileDialog* QFileDialog_new(QWidget* parent);
@@ -417,6 +416,6 @@ void QFileDialog_Delete(QFileDialog* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -37,18 +36,18 @@ typedef struct QWebEngineContextMenuRequest QWebEngineContextMenuRequest;
 #endif
 
 #ifdef __cplusplus
-typedef QWebEngineContextMenuRequest::EditFlag EditFlag; // C++ enum
-typedef QWebEngineContextMenuRequest::EditFlags EditFlags; // C++ QFlags
-typedef QWebEngineContextMenuRequest::MediaFlag MediaFlag; // C++ enum
+typedef QWebEngineContextMenuRequest::EditFlag EditFlag;     // C++ enum
+typedef QWebEngineContextMenuRequest::EditFlags EditFlags;   // C++ QFlags
+typedef QWebEngineContextMenuRequest::MediaFlag MediaFlag;   // C++ enum
 typedef QWebEngineContextMenuRequest::MediaFlags MediaFlags; // C++ QFlags
-typedef QWebEngineContextMenuRequest::MediaType MediaType; // C++ enum
-typedef QtWebEngineCore::ReferrerPolicy ReferrerPolicy; // C++ enum
+typedef QWebEngineContextMenuRequest::MediaType MediaType;   // C++ enum
+typedef QtWebEngineCore::ReferrerPolicy ReferrerPolicy;      // C++ enum
 #else
-typedef int EditFlag; // C ABI enum
-typedef int EditFlags; // C ABI QFlags
-typedef int MediaFlag; // C ABI enum
-typedef int MediaFlags; // C ABI QFlags
-typedef int MediaType; // C ABI enum
+typedef int EditFlag;       // C ABI enum
+typedef int EditFlags;      // C ABI QFlags
+typedef int MediaFlag;      // C ABI enum
+typedef int MediaFlags;     // C ABI QFlags
+typedef int MediaType;      // C ABI enum
 typedef int ReferrerPolicy; // C ABI enum
 #endif
 
@@ -77,6 +76,6 @@ void QWebEngineContextMenuRequest_Delete(QWebEngineContextMenuRequest* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

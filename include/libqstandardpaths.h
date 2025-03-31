@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -21,15 +20,15 @@ typedef struct QStandardPaths QStandardPaths;
 #endif
 
 #ifdef __cplusplus
-typedef QStandardPaths::LocateOption LocateOption; // C++ enum
-typedef QStandardPaths::LocateOptions LocateOptions; // C++ QFlags
-typedef QStandardPaths::QtGadgetHelper QtGadgetHelper; // C++ QFlags
+typedef QStandardPaths::LocateOption LocateOption;         // C++ enum
+typedef QStandardPaths::LocateOptions LocateOptions;       // C++ QFlags
+typedef QStandardPaths::QtGadgetHelper QtGadgetHelper;     // C++ QFlags
 typedef QStandardPaths::StandardLocation StandardLocation; // C++ enum
 #else
-typedef int LocateOption; // C ABI enum
-typedef int LocateOptions; // C ABI QFlags
+typedef int LocateOption;     // C ABI enum
+typedef int LocateOptions;    // C ABI QFlags
 typedef int StandardLocation; // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
+typedef void QtGadgetHelper;  // C ABI QFlags
 #endif
 
 libqt_string QStandardPaths_WritableLocation(int typeVal);
@@ -46,6 +45,6 @@ libqt_string QStandardPaths_FindExecutable2(libqt_string executableName, libqt_l
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

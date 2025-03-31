@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -29,6 +28,6 @@ void QWebEngineClientCertificateStore_Clear(QWebEngineClientCertificateStore* se
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

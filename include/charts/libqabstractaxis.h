@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -39,10 +38,10 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QAbstractAxis::AxisType AxisType; // C++ enum
+typedef QAbstractAxis::AxisType AxisType;   // C++ enum
 typedef QAbstractAxis::AxisTypes AxisTypes; // C++ QFlags
 #else
-typedef int AxisType; // C ABI enum
+typedef int AxisType;  // C ABI enum
 typedef int AxisTypes; // C ABI QFlags
 #endif
 
@@ -187,6 +186,6 @@ void QAbstractAxis_Delete(QAbstractAxis* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

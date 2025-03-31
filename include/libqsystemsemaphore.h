@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -21,10 +20,10 @@ typedef struct QSystemSemaphore QSystemSemaphore;
 #endif
 
 #ifdef __cplusplus
-typedef QSystemSemaphore::AccessMode AccessMode; // C++ enum
+typedef QSystemSemaphore::AccessMode AccessMode;                     // C++ enum
 typedef QSystemSemaphore::SystemSemaphoreError SystemSemaphoreError; // C++ enum
 #else
-typedef int AccessMode; // C ABI enum
+typedef int AccessMode;           // C ABI enum
 typedef int SystemSemaphoreError; // C ABI enum
 #endif
 
@@ -47,6 +46,6 @@ void QSystemSemaphore_Delete(QSystemSemaphore* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

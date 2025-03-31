@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -83,10 +82,10 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QWidget::RenderFlag RenderFlag; // C++ enum
+typedef QWidget::RenderFlag RenderFlag;   // C++ enum
 typedef QWidget::RenderFlags RenderFlags; // C++ QFlags
 #else
-typedef int RenderFlag; // C ABI enum
+typedef int RenderFlag;  // C ABI enum
 typedef int RenderFlags; // C ABI QFlags
 #endif
 
@@ -566,6 +565,6 @@ void QWidget_Delete(QWidget* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

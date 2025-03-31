@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -40,14 +39,14 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QMediaRecorder::EncodingMode EncodingMode; // C++ enum
-typedef QMediaRecorder::Error Error; // C++ enum
-typedef QMediaRecorder::Quality Quality; // C++ enum
+typedef QMediaRecorder::EncodingMode EncodingMode;   // C++ enum
+typedef QMediaRecorder::Error Error;                 // C++ enum
+typedef QMediaRecorder::Quality Quality;             // C++ enum
 typedef QMediaRecorder::RecorderState RecorderState; // C++ enum
 #else
-typedef int EncodingMode; // C ABI enum
-typedef int Error; // C ABI enum
-typedef int Quality; // C ABI enum
+typedef int EncodingMode;  // C ABI enum
+typedef int Error;         // C ABI enum
+typedef int Quality;       // C ABI enum
 typedef int RecorderState; // C ABI enum
 #endif
 
@@ -164,6 +163,6 @@ void QMediaRecorder_Delete(QMediaRecorder* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

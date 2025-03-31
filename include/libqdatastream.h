@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,15 +22,15 @@ typedef struct QIODeviceBase QIODeviceBase;
 #endif
 
 #ifdef __cplusplus
-typedef QDataStream::ByteOrder ByteOrder; // C++ enum
+typedef QDataStream::ByteOrder ByteOrder;                           // C++ enum
 typedef QDataStream::FloatingPointPrecision FloatingPointPrecision; // C++ enum
-typedef QDataStream::Status Status; // C++ enum
-typedef QDataStream::Version Version; // C++ enum
+typedef QDataStream::Status Status;                                 // C++ enum
+typedef QDataStream::Version Version;                               // C++ enum
 #else
-typedef int ByteOrder; // C ABI enum
+typedef int ByteOrder;              // C ABI enum
 typedef int FloatingPointPrecision; // C ABI enum
-typedef int Status; // C ABI enum
-typedef int Version; // C ABI enum
+typedef int Status;                 // C ABI enum
+typedef int Version;                // C ABI enum
 #endif
 
 QDataStream* QDataStream_new();
@@ -89,6 +88,6 @@ void QDataStream_Delete(QDataStream* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

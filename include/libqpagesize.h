@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -25,13 +24,13 @@ typedef struct QSizeF QSizeF;
 #endif
 
 #ifdef __cplusplus
-typedef QPageSize::PageSizeId PageSizeId; // C++ enum
+typedef QPageSize::PageSizeId PageSizeId;           // C++ enum
 typedef QPageSize::SizeMatchPolicy SizeMatchPolicy; // C++ enum
-typedef QPageSize::Unit Unit; // C++ enum
+typedef QPageSize::Unit Unit;                       // C++ enum
 #else
-typedef int PageSizeId; // C ABI enum
+typedef int PageSizeId;      // C ABI enum
 typedef int SizeMatchPolicy; // C ABI enum
-typedef int Unit; // C ABI enum
+typedef int Unit;            // C ABI enum
 #endif
 
 QPageSize* QPageSize_new();
@@ -76,6 +75,6 @@ void QPageSize_Delete(QPageSize* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

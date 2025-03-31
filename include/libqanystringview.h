@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,10 +22,10 @@ typedef struct QChar QChar;
 
 #ifdef __cplusplus
 typedef QAnyStringView::difference_type difference_type; // C++ QFlags
-typedef QAnyStringView::size_type size_type; // C++ QFlags
+typedef QAnyStringView::size_type size_type;             // C++ QFlags
 #else
 typedef long long difference_type; // C ABI QFlags
-typedef ptrdiff_t size_type; // C ABI QFlags
+typedef ptrdiff_t size_type;       // C ABI QFlags
 #endif
 
 QAnyStringView* QAnyStringView_new(QAnyStringView* other);
@@ -55,6 +54,6 @@ void QAnyStringView_Delete(QAnyStringView* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

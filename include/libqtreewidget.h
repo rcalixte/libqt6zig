@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -101,10 +100,10 @@ typedef struct QWindow QWindow;
 
 #ifdef __cplusplus
 typedef QTreeWidgetItem::ChildIndicatorPolicy ChildIndicatorPolicy; // C++ enum
-typedef QTreeWidgetItem::ItemType ItemType; // C++ enum
+typedef QTreeWidgetItem::ItemType ItemType;                         // C++ enum
 #else
 typedef int ChildIndicatorPolicy; // C ABI enum
-typedef int ItemType; // C ABI enum
+typedef int ItemType;             // C ABI enum
 #endif
 
 QTreeWidgetItem* QTreeWidgetItem_new();
@@ -665,6 +664,6 @@ void QTreeWidget_Delete(QTreeWidget* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

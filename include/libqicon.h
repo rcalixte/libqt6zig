@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -29,10 +28,10 @@ typedef struct QWindow QWindow;
 
 #ifdef __cplusplus
 typedef QIcon::DataPtr DataPtr; // C++ QFlags
-typedef QIcon::Mode Mode; // C++ enum
-typedef QIcon::State State; // C++ enum
+typedef QIcon::Mode Mode;       // C++ enum
+typedef QIcon::State State;     // C++ enum
 #else
-typedef int Mode; // C ABI enum
+typedef int Mode;  // C ABI enum
 typedef int State; // C ABI enum
 #endif
 
@@ -105,6 +104,6 @@ void QIcon_Delete(QIcon* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

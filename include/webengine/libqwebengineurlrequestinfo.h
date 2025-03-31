@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,10 +22,10 @@ typedef struct QWebEngineUrlRequestInfo QWebEngineUrlRequestInfo;
 
 #ifdef __cplusplus
 typedef QWebEngineUrlRequestInfo::NavigationType NavigationType; // C++ enum
-typedef QWebEngineUrlRequestInfo::ResourceType ResourceType; // C++ enum
+typedef QWebEngineUrlRequestInfo::ResourceType ResourceType;     // C++ enum
 #else
 typedef int NavigationType; // C ABI enum
-typedef int ResourceType; // C ABI enum
+typedef int ResourceType;   // C ABI enum
 #endif
 
 int QWebEngineUrlRequestInfo_ResourceType(const QWebEngineUrlRequestInfo* self);
@@ -42,6 +41,6 @@ void QWebEngineUrlRequestInfo_SetHttpHeader(QWebEngineUrlRequestInfo* self, libq
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -76,20 +75,20 @@ typedef struct QWidget QWidget;
 #endif
 
 #ifdef __cplusplus
-typedef QGraphicsItem::CacheMode CacheMode; // C++ enum
+typedef QGraphicsItem::CacheMode CacheMode;                   // C++ enum
 typedef QGraphicsItem::GraphicsItemChange GraphicsItemChange; // C++ enum
-typedef QGraphicsItem::GraphicsItemFlag GraphicsItemFlag; // C++ enum
-typedef QGraphicsItem::GraphicsItemFlags GraphicsItemFlags; // C++ QFlags
-typedef QGraphicsItem::PanelModality PanelModality; // C++ enum
-typedef QGraphicsPixmapItem::ShapeMode ShapeMode; // C++ enum
+typedef QGraphicsItem::GraphicsItemFlag GraphicsItemFlag;     // C++ enum
+typedef QGraphicsItem::GraphicsItemFlags GraphicsItemFlags;   // C++ QFlags
+typedef QGraphicsItem::PanelModality PanelModality;           // C++ enum
+typedef QGraphicsPixmapItem::ShapeMode ShapeMode;             // C++ enum
 #else
-typedef int CacheMode; // C ABI enum
-typedef int Extension; // C ABI enum
+typedef int CacheMode;          // C ABI enum
+typedef int Extension;          // C ABI enum
 typedef int GraphicsItemChange; // C ABI enum
-typedef int GraphicsItemFlag; // C ABI enum
-typedef int GraphicsItemFlags; // C ABI QFlags
-typedef int PanelModality; // C ABI enum
-typedef int ShapeMode; // C ABI enum
+typedef int GraphicsItemFlag;   // C ABI enum
+typedef int GraphicsItemFlags;  // C ABI QFlags
+typedef int PanelModality;      // C ABI enum
+typedef int ShapeMode;          // C ABI enum
 #endif
 
 QGraphicsItem* QGraphicsItem_new();
@@ -1903,6 +1902,6 @@ void QGraphicsItemGroup_Delete(QGraphicsItemGroup* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

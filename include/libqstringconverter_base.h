@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -26,16 +25,15 @@ typedef struct QStringConverterBase__State QStringConverterBase__State;
 #endif
 
 #ifdef __cplusplus
-typedef QStringConverter::Encoding Encoding; // C++ enum
-typedef QStringConverterBase::Flag Flag; // C++ enum
-typedef QStringConverterBase::Flags Flags; // C++ QFlags
+typedef QStringConverter::Encoding Encoding;                       // C++ enum
+typedef QStringConverterBase::Flag Flag;                           // C++ enum
+typedef QStringConverterBase::Flags Flags;                         // C++ QFlags
 typedef QStringConverterBase::State::ClearDataFn StateClearDataFn; // C++ QFlags
 #else
 typedef int Encoding; // C ABI enum
-typedef int Flag; // C ABI enum
-typedef int Flags; // C ABI QFlags
+typedef int Flag;     // C ABI enum
+typedef int Flags;    // C ABI QFlags
 #endif
-
 
 bool QStringConverter_IsValid(const QStringConverter* self);
 void QStringConverter_ResetState(QStringConverter* self);
@@ -51,6 +49,6 @@ void QStringConverterBase__State_Delete(QStringConverterBase__State* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

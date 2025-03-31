@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,11 +23,11 @@ typedef struct QFontInfo QFontInfo;
 
 #ifdef __cplusplus
 typedef QFontDatabase::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QFontDatabase::SystemFont SystemFont; // C++ enum
-typedef QFontDatabase::WritingSystem WritingSystem; // C++ enum
+typedef QFontDatabase::SystemFont SystemFont;         // C++ enum
+typedef QFontDatabase::WritingSystem WritingSystem;   // C++ enum
 #else
-typedef int SystemFont; // C ABI enum
-typedef int WritingSystem; // C ABI enum
+typedef int SystemFont;      // C ABI enum
+typedef int WritingSystem;   // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -74,6 +73,6 @@ void QFontDatabase_Delete(QFontDatabase* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

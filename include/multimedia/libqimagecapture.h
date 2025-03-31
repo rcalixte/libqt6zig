@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -40,13 +39,13 @@ typedef struct QVideoFrame QVideoFrame;
 #endif
 
 #ifdef __cplusplus
-typedef QImageCapture::Error Error; // C++ enum
+typedef QImageCapture::Error Error;           // C++ enum
 typedef QImageCapture::FileFormat FileFormat; // C++ enum
-typedef QImageCapture::Quality Quality; // C++ enum
+typedef QImageCapture::Quality Quality;       // C++ enum
 #else
-typedef int Error; // C ABI enum
+typedef int Error;      // C ABI enum
 typedef int FileFormat; // C ABI enum
-typedef int Quality; // C ABI enum
+typedef int Quality;    // C ABI enum
 #endif
 
 QImageCapture* QImageCapture_new();
@@ -141,6 +140,6 @@ void QImageCapture_Delete(QImageCapture* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

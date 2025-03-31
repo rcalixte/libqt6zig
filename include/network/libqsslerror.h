@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,9 +22,9 @@ typedef struct QSslError QSslError;
 
 #ifdef __cplusplus
 typedef QSslError::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QSslError::SslError SslError; // C++ enum
+typedef QSslError::SslError SslError;             // C++ enum
 #else
-typedef int SslError; // C ABI enum
+typedef int SslError;        // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -44,6 +43,6 @@ void QSslError_Delete(QSslError* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

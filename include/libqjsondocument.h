@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -26,7 +25,7 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QJsonDocument::JsonFormat JsonFormat; // C++ enum
+typedef QJsonDocument::JsonFormat JsonFormat;   // C++ enum
 typedef QJsonParseError::ParseError ParseError; // C++ enum
 #else
 typedef int JsonFormat; // C ABI enum
@@ -68,6 +67,6 @@ void QJsonDocument_Delete(QJsonDocument* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

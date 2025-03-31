@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -39,10 +38,10 @@ typedef struct QVector3D QVector3D;
 
 #ifdef __cplusplus
 typedef QAudioRoom::Material Material; // C++ enum
-typedef QAudioRoom::Wall Wall; // C++ enum
+typedef QAudioRoom::Wall Wall;         // C++ enum
 #else
 typedef int Material; // C ABI enum
-typedef int Wall; // C ABI enum
+typedef int Wall;     // C ABI enum
 #endif
 
 QAudioRoom* QAudioRoom_new(QAudioEngine* engine);
@@ -123,6 +122,6 @@ void QAudioRoom_Delete(QAudioRoom* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

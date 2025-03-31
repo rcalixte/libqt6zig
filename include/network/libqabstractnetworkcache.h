@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -40,10 +39,10 @@ typedef struct QVariant QVariant;
 
 #ifdef __cplusplus
 typedef QNetworkCacheMetaData::AttributesMap AttributesMap; // C++ QFlags
-typedef QNetworkCacheMetaData::RawHeader RawHeader; // C++ QFlags
+typedef QNetworkCacheMetaData::RawHeader RawHeader;         // C++ QFlags
 typedef QNetworkCacheMetaData::RawHeaderList RawHeaderList; // C++ QFlags
 #else
-typedef libqt_map /* of int to QVariant* */ AttributesMap; // C ABI QFlags
+typedef libqt_map /* of int to QVariant* */ AttributesMap;                 // C ABI QFlags
 typedef libqt_pair /* tuple of libqt_string and libqt_string */ RawHeader; // C ABI QFlags
 #endif
 
@@ -88,6 +87,6 @@ void QAbstractNetworkCache_Delete(QAbstractNetworkCache* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

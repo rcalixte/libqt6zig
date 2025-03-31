@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -84,12 +83,12 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QFrame::Shadow Shadow; // C++ enum
-typedef QFrame::Shape Shape; // C++ enum
+typedef QFrame::Shadow Shadow;       // C++ enum
+typedef QFrame::Shape Shape;         // C++ enum
 typedef QFrame::StyleMask StyleMask; // C++ enum
 #else
-typedef int Shadow; // C ABI enum
-typedef int Shape; // C ABI enum
+typedef int Shadow;    // C ABI enum
+typedef int Shape;     // C ABI enum
 typedef int StyleMask; // C ABI enum
 #endif
 
@@ -295,6 +294,6 @@ void QFrame_Delete(QFrame* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

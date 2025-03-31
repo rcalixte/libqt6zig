@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -85,10 +84,10 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QColorDialog::ColorDialogOption ColorDialogOption; // C++ enum
+typedef QColorDialog::ColorDialogOption ColorDialogOption;   // C++ enum
 typedef QColorDialog::ColorDialogOptions ColorDialogOptions; // C++ QFlags
 #else
-typedef int ColorDialogOption; // C ABI enum
+typedef int ColorDialogOption;  // C ABI enum
 typedef int ColorDialogOptions; // C ABI QFlags
 #endif
 
@@ -316,6 +315,6 @@ void QColorDialog_Delete(QColorDialog* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

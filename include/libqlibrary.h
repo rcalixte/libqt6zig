@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -35,10 +34,10 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QLibrary::LoadHint LoadHint; // C++ enum
+typedef QLibrary::LoadHint LoadHint;   // C++ enum
 typedef QLibrary::LoadHints LoadHints; // C++ QFlags
 #else
-typedef int LoadHint; // C ABI enum
+typedef int LoadHint;  // C ABI enum
 typedef int LoadHints; // C ABI QFlags
 #endif
 
@@ -106,6 +105,6 @@ void QLibrary_Delete(QLibrary* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

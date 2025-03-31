@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -38,13 +37,13 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QScroller::Input Input; // C++ enum
+typedef QScroller::Input Input;                             // C++ enum
 typedef QScroller::ScrollerGestureType ScrollerGestureType; // C++ enum
-typedef QScroller::State State; // C++ enum
+typedef QScroller::State State;                             // C++ enum
 #else
-typedef int Input; // C ABI enum
+typedef int Input;               // C ABI enum
 typedef int ScrollerGestureType; // C ABI enum
-typedef int State; // C ABI enum
+typedef int State;               // C ABI enum
 #endif
 
 QMetaObject* QScroller_MetaObject(const QScroller* self);
@@ -87,6 +86,6 @@ bool QScroller_HandleInput3(QScroller* self, int input, QPointF* position, long 
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

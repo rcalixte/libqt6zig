@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -26,17 +25,17 @@ typedef struct QPartialOrdering QPartialOrdering;
 #endif
 
 #ifdef __cplusplus
-typedef QCborSimpleType QCborSimpleType; // C++ enum
-typedef QMetaType::ConverterFunction ConverterFunction; // C++ QFlags
+typedef QCborSimpleType QCborSimpleType;                    // C++ enum
+typedef QMetaType::ConverterFunction ConverterFunction;     // C++ QFlags
 typedef QMetaType::MutableViewFunction MutableViewFunction; // C++ QFlags
-typedef QMetaType::Type Type; // C++ enum
-typedef QMetaType::TypeFlag TypeFlag; // C++ enum
-typedef QMetaType::TypeFlags TypeFlags; // C++ QFlags
+typedef QMetaType::Type Type;                               // C++ enum
+typedef QMetaType::TypeFlag TypeFlag;                       // C++ enum
+typedef QMetaType::TypeFlags TypeFlags;                     // C++ QFlags
 #else
-typedef int TypeFlag; // C ABI enum
-typedef int TypeFlags; // C ABI QFlags
+typedef int TypeFlag;                  // C ABI enum
+typedef int TypeFlags;                 // C ABI QFlags
 typedef unsigned char QCborSimpleType; // C ABI enum
-typedef unsigned char Type; // C ABI enum
+typedef unsigned char Type;            // C ABI enum
 #endif
 
 QMetaType* QMetaType_new(QMetaType* other);
@@ -104,6 +103,6 @@ void QMetaType_Delete(QMetaType* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

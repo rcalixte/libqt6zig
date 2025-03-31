@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,15 +23,15 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QColorSpace::NamedColorSpace NamedColorSpace; // C++ enum
-typedef QColorSpace::Primaries Primaries; // C++ enum
-typedef QColorSpace::QtGadgetHelper QtGadgetHelper; // C++ QFlags
+typedef QColorSpace::NamedColorSpace NamedColorSpace;   // C++ enum
+typedef QColorSpace::Primaries Primaries;               // C++ enum
+typedef QColorSpace::QtGadgetHelper QtGadgetHelper;     // C++ QFlags
 typedef QColorSpace::TransferFunction TransferFunction; // C++ enum
 #else
-typedef int NamedColorSpace; // C ABI enum
-typedef int Primaries; // C ABI enum
+typedef int NamedColorSpace;  // C ABI enum
+typedef int Primaries;        // C ABI enum
 typedef int TransferFunction; // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
+typedef void QtGadgetHelper;  // C ABI QFlags
 #endif
 
 QColorSpace* QColorSpace_new();
@@ -73,6 +72,6 @@ void QColorSpace_Delete(QColorSpace* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

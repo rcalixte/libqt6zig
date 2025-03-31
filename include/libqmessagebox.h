@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -87,16 +86,16 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QMessageBox::Button Button; // C++ QFlags
-typedef QMessageBox::ButtonRole ButtonRole; // C++ enum
-typedef QMessageBox::Icon Icon; // C++ enum
-typedef QMessageBox::StandardButton StandardButton; // C++ enum
+typedef QMessageBox::Button Button;                   // C++ QFlags
+typedef QMessageBox::ButtonRole ButtonRole;           // C++ enum
+typedef QMessageBox::Icon Icon;                       // C++ enum
+typedef QMessageBox::StandardButton StandardButton;   // C++ enum
 typedef QMessageBox::StandardButtons StandardButtons; // C++ QFlags
 #else
-typedef int Button; // C ABI QFlags
-typedef int ButtonRole; // C ABI enum
-typedef int Icon; // C ABI enum
-typedef int StandardButton; // C ABI enum
+typedef int Button;          // C ABI QFlags
+typedef int ButtonRole;      // C ABI enum
+typedef int Icon;            // C ABI enum
+typedef int StandardButton;  // C ABI enum
 typedef int StandardButtons; // C ABI QFlags
 #endif
 
@@ -397,6 +396,6 @@ void QMessageBox_Delete(QMessageBox* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

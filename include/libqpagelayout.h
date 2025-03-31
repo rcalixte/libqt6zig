@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -26,13 +25,13 @@ typedef struct QRectF QRectF;
 #endif
 
 #ifdef __cplusplus
-typedef QPageLayout::Mode Mode; // C++ enum
+typedef QPageLayout::Mode Mode;               // C++ enum
 typedef QPageLayout::Orientation Orientation; // C++ enum
-typedef QPageLayout::Unit Unit; // C++ enum
+typedef QPageLayout::Unit Unit;               // C++ enum
 #else
-typedef int Mode; // C ABI enum
+typedef int Mode;        // C ABI enum
 typedef int Orientation; // C ABI enum
-typedef int Unit; // C ABI enum
+typedef int Unit;        // C ABI enum
 #endif
 
 QPageLayout* QPageLayout_new();
@@ -77,6 +76,6 @@ void QPageLayout_Delete(QPageLayout* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

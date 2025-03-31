@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -100,13 +99,13 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QTextEdit::AutoFormatting AutoFormatting; // C++ QFlags
+typedef QTextEdit::AutoFormatting AutoFormatting;         // C++ QFlags
 typedef QTextEdit::AutoFormattingFlag AutoFormattingFlag; // C++ enum
-typedef QTextEdit::LineWrapMode LineWrapMode; // C++ enum
+typedef QTextEdit::LineWrapMode LineWrapMode;             // C++ enum
 #else
-typedef int AutoFormatting; // C ABI QFlags
+typedef int AutoFormatting;     // C ABI QFlags
 typedef int AutoFormattingFlag; // C ABI enum
-typedef int LineWrapMode; // C ABI enum
+typedef int LineWrapMode;       // C ABI enum
 #endif
 
 QTextEdit* QTextEdit_new(QWidget* parent);
@@ -447,6 +446,6 @@ void QTextEdit__ExtraSelection_Delete(QTextEdit__ExtraSelection* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

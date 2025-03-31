@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -40,23 +39,23 @@ typedef struct QTransform QTransform;
 #endif
 
 #ifdef __cplusplus
-typedef QPaintEngine::DirtyFlag DirtyFlag; // C++ enum
-typedef QPaintEngine::DirtyFlags DirtyFlags; // C++ QFlags
-typedef QPaintEngine::PaintEngineFeature PaintEngineFeature; // C++ enum
+typedef QPaintEngine::DirtyFlag DirtyFlag;                     // C++ enum
+typedef QPaintEngine::DirtyFlags DirtyFlags;                   // C++ QFlags
+typedef QPaintEngine::PaintEngineFeature PaintEngineFeature;   // C++ enum
 typedef QPaintEngine::PaintEngineFeatures PaintEngineFeatures; // C++ QFlags
-typedef QPaintEngine::PolygonDrawMode PolygonDrawMode; // C++ enum
-typedef QPaintEngine::Type Type; // C++ enum
-typedef QTextItem::RenderFlag RenderFlag; // C++ enum
-typedef QTextItem::RenderFlags RenderFlags; // C++ QFlags
+typedef QPaintEngine::PolygonDrawMode PolygonDrawMode;         // C++ enum
+typedef QPaintEngine::Type Type;                               // C++ enum
+typedef QTextItem::RenderFlag RenderFlag;                      // C++ enum
+typedef QTextItem::RenderFlags RenderFlags;                    // C++ QFlags
 #else
-typedef int DirtyFlag; // C ABI enum
-typedef int DirtyFlags; // C ABI QFlags
-typedef int PaintEngineFeature; // C ABI enum
+typedef int DirtyFlag;           // C ABI enum
+typedef int DirtyFlags;          // C ABI QFlags
+typedef int PaintEngineFeature;  // C ABI enum
 typedef int PaintEngineFeatures; // C ABI QFlags
-typedef int PolygonDrawMode; // C ABI enum
-typedef int RenderFlag; // C ABI enum
-typedef int RenderFlags; // C ABI QFlags
-typedef unsigned char Type; // C ABI enum
+typedef int PolygonDrawMode;     // C ABI enum
+typedef int RenderFlag;          // C ABI enum
+typedef int RenderFlags;         // C ABI QFlags
+typedef unsigned char Type;      // C ABI enum
 #endif
 
 QTextItem* QTextItem_new(QTextItem* other);
@@ -183,6 +182,6 @@ void QPaintEngineState_Delete(QPaintEngineState* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

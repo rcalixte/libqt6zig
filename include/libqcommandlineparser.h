@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -24,10 +23,10 @@ typedef struct QCoreApplication QCoreApplication;
 
 #ifdef __cplusplus
 typedef QCommandLineParser::OptionsAfterPositionalArgumentsMode OptionsAfterPositionalArgumentsMode; // C++ enum
-typedef QCommandLineParser::SingleDashWordOptionMode SingleDashWordOptionMode; // C++ enum
+typedef QCommandLineParser::SingleDashWordOptionMode SingleDashWordOptionMode;                       // C++ enum
 #else
 typedef int OptionsAfterPositionalArgumentsMode; // C ABI enum
-typedef int SingleDashWordOptionMode; // C ABI enum
+typedef int SingleDashWordOptionMode;            // C ABI enum
 #endif
 
 QCommandLineParser* QCommandLineParser_new();
@@ -66,6 +65,6 @@ void QCommandLineParser_Delete(QCommandLineParser* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

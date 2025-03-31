@@ -10,7 +10,6 @@
 
 #include "../qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -42,9 +41,9 @@ typedef struct QVariant QVariant;
 
 #ifdef __cplusplus
 typedef QDnsLookup::Error Error; // C++ enum
-typedef QDnsLookup::Type Type; // C++ enum
+typedef QDnsLookup::Type Type;   // C++ enum
 #else
-typedef int Error; // C ABI enum
+typedef int Error;          // C ABI enum
 typedef unsigned char Type; // C ABI enum
 #endif
 
@@ -174,6 +173,6 @@ void QDnsLookup_Delete(QDnsLookup* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

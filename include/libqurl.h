@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -22,25 +21,25 @@ typedef struct QUrlQuery QUrlQuery;
 #endif
 
 #ifdef __cplusplus
-typedef QUrl::AceProcessingOption AceProcessingOption; // C++ enum
-typedef QUrl::AceProcessingOptions AceProcessingOptions; // C++ QFlags
-typedef QUrl::ComponentFormattingOption ComponentFormattingOption; // C++ enum
+typedef QUrl::AceProcessingOption AceProcessingOption;               // C++ enum
+typedef QUrl::AceProcessingOptions AceProcessingOptions;             // C++ QFlags
+typedef QUrl::ComponentFormattingOption ComponentFormattingOption;   // C++ enum
 typedef QUrl::ComponentFormattingOptions ComponentFormattingOptions; // C++ QFlags
-typedef QUrl::DataPtr DataPtr; // C++ QFlags
-typedef QUrl::FormattingOptions FormattingOptions; // C++ QFlags
-typedef QUrl::ParsingMode ParsingMode; // C++ enum
-typedef QUrl::UrlFormattingOption UrlFormattingOption; // C++ enum
-typedef QUrl::UserInputResolutionOption UserInputResolutionOption; // C++ enum
+typedef QUrl::DataPtr DataPtr;                                       // C++ QFlags
+typedef QUrl::FormattingOptions FormattingOptions;                   // C++ QFlags
+typedef QUrl::ParsingMode ParsingMode;                               // C++ enum
+typedef QUrl::UrlFormattingOption UrlFormattingOption;               // C++ enum
+typedef QUrl::UserInputResolutionOption UserInputResolutionOption;   // C++ enum
 typedef QUrl::UserInputResolutionOptions UserInputResolutionOptions; // C++ QFlags
 #else
-typedef int AceProcessingOptions; // C ABI QFlags
-typedef int ComponentFormattingOptions; // C ABI QFlags
-typedef int ParsingMode; // C ABI enum
-typedef int UserInputResolutionOption; // C ABI enum
-typedef int UserInputResolutionOptions; // C ABI QFlags
-typedef unsigned int AceProcessingOption; // C ABI enum
+typedef int AceProcessingOptions;               // C ABI QFlags
+typedef int ComponentFormattingOptions;         // C ABI QFlags
+typedef int ParsingMode;                        // C ABI enum
+typedef int UserInputResolutionOption;          // C ABI enum
+typedef int UserInputResolutionOptions;         // C ABI QFlags
+typedef unsigned int AceProcessingOption;       // C ABI enum
 typedef unsigned int ComponentFormattingOption; // C ABI enum
-typedef unsigned int UrlFormattingOption; // C ABI enum
+typedef unsigned int UrlFormattingOption;       // C ABI enum
 #endif
 
 QUrl* QUrl_new();
@@ -135,6 +134,6 @@ void QUrl_Delete(QUrl* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -50,7 +49,7 @@ typedef struct QVariantConstPointer QVariantConstPointer;
 
 #ifdef __cplusplus
 typedef QVariant::DataPtr DataPtr; // C++ QFlags
-typedef QVariant::Type Type; // C++ enum
+typedef QVariant::Type Type;       // C++ enum
 #else
 typedef unsigned char Type; // C ABI enum
 #endif
@@ -178,6 +177,6 @@ void QVariantConstPointer_Delete(QVariantConstPointer* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

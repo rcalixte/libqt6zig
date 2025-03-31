@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,20 +22,20 @@ typedef struct QRegularExpressionMatchIterator QRegularExpressionMatchIterator;
 #endif
 
 #ifdef __cplusplus
-typedef QRegularExpression::MatchOption MatchOption; // C++ enum
-typedef QRegularExpression::MatchOptions MatchOptions; // C++ QFlags
-typedef QRegularExpression::MatchType MatchType; // C++ enum
-typedef QRegularExpression::PatternOption PatternOption; // C++ enum
-typedef QRegularExpression::PatternOptions PatternOptions; // C++ QFlags
-typedef QRegularExpression::WildcardConversionOption WildcardConversionOption; // C++ enum
+typedef QRegularExpression::MatchOption MatchOption;                             // C++ enum
+typedef QRegularExpression::MatchOptions MatchOptions;                           // C++ QFlags
+typedef QRegularExpression::MatchType MatchType;                                 // C++ enum
+typedef QRegularExpression::PatternOption PatternOption;                         // C++ enum
+typedef QRegularExpression::PatternOptions PatternOptions;                       // C++ QFlags
+typedef QRegularExpression::WildcardConversionOption WildcardConversionOption;   // C++ enum
 typedef QRegularExpression::WildcardConversionOptions WildcardConversionOptions; // C++ QFlags
 #else
-typedef int MatchOption; // C ABI enum
-typedef int MatchOptions; // C ABI QFlags
-typedef int MatchType; // C ABI enum
-typedef int PatternOption; // C ABI enum
-typedef int PatternOptions; // C ABI QFlags
-typedef int WildcardConversionOption; // C ABI enum
+typedef int MatchOption;               // C ABI enum
+typedef int MatchOptions;              // C ABI QFlags
+typedef int MatchType;                 // C ABI enum
+typedef int PatternOption;             // C ABI enum
+typedef int PatternOptions;            // C ABI QFlags
+typedef int WildcardConversionOption;  // C ABI enum
 typedef int WildcardConversionOptions; // C ABI QFlags
 #endif
 
@@ -115,6 +114,6 @@ void QRegularExpressionMatchIterator_Delete(QRegularExpressionMatchIterator* sel
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

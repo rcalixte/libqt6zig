@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -38,37 +37,37 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QTextBlockFormat::LineHeightTypes LineHeightTypes; // C++ enum
-typedef QTextBlockFormat::MarkerType MarkerType; // C++ enum
+typedef QTextBlockFormat::LineHeightTypes LineHeightTypes;                                    // C++ enum
+typedef QTextBlockFormat::MarkerType MarkerType;                                              // C++ enum
 typedef QTextCharFormat::FontPropertiesInheritanceBehavior FontPropertiesInheritanceBehavior; // C++ enum
-typedef QTextCharFormat::UnderlineStyle UnderlineStyle; // C++ enum
-typedef QTextCharFormat::VerticalAlignment VerticalAlignment; // C++ enum
-typedef QTextFormat::FormatType FormatType; // C++ enum
-typedef QTextFormat::ObjectTypes ObjectTypes; // C++ enum
-typedef QTextFormat::PageBreakFlag PageBreakFlag; // C++ enum
-typedef QTextFormat::PageBreakFlags PageBreakFlags; // C++ QFlags
-typedef QTextFormat::Property Property; // C++ enum
-typedef QTextFormat::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QTextFrameFormat::BorderStyle BorderStyle; // C++ enum
-typedef QTextFrameFormat::Position Position; // C++ enum
-typedef QTextLength::Type Type; // C++ enum
-typedef QTextListFormat::Style Style; // C++ enum
+typedef QTextCharFormat::UnderlineStyle UnderlineStyle;                                       // C++ enum
+typedef QTextCharFormat::VerticalAlignment VerticalAlignment;                                 // C++ enum
+typedef QTextFormat::FormatType FormatType;                                                   // C++ enum
+typedef QTextFormat::ObjectTypes ObjectTypes;                                                 // C++ enum
+typedef QTextFormat::PageBreakFlag PageBreakFlag;                                             // C++ enum
+typedef QTextFormat::PageBreakFlags PageBreakFlags;                                           // C++ QFlags
+typedef QTextFormat::Property Property;                                                       // C++ enum
+typedef QTextFormat::QtGadgetHelper QtGadgetHelper;                                           // C++ QFlags
+typedef QTextFrameFormat::BorderStyle BorderStyle;                                            // C++ enum
+typedef QTextFrameFormat::Position Position;                                                  // C++ enum
+typedef QTextLength::Type Type;                                                               // C++ enum
+typedef QTextListFormat::Style Style;                                                         // C++ enum
 #else
-typedef int BorderStyle; // C ABI enum
+typedef int BorderStyle;                       // C ABI enum
 typedef int FontPropertiesInheritanceBehavior; // C ABI enum
-typedef int FormatType; // C ABI enum
-typedef int LineHeightTypes; // C ABI enum
-typedef int MarkerType; // C ABI enum
-typedef int ObjectTypes; // C ABI enum
-typedef int PageBreakFlag; // C ABI enum
-typedef int PageBreakFlags; // C ABI QFlags
-typedef int Position; // C ABI enum
-typedef int Property; // C ABI enum
-typedef int Style; // C ABI enum
-typedef int UnderlineStyle; // C ABI enum
-typedef int VerticalAlignment; // C ABI enum
-typedef unsigned char Type; // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
+typedef int FormatType;                        // C ABI enum
+typedef int LineHeightTypes;                   // C ABI enum
+typedef int MarkerType;                        // C ABI enum
+typedef int ObjectTypes;                       // C ABI enum
+typedef int PageBreakFlag;                     // C ABI enum
+typedef int PageBreakFlags;                    // C ABI QFlags
+typedef int Position;                          // C ABI enum
+typedef int Property;                          // C ABI enum
+typedef int Style;                             // C ABI enum
+typedef int UnderlineStyle;                    // C ABI enum
+typedef int VerticalAlignment;                 // C ABI enum
+typedef unsigned char Type;                    // C ABI enum
+typedef void QtGadgetHelper;                   // C ABI QFlags
 #endif
 
 QTextLength* QTextLength_new(QTextLength* other);
@@ -368,6 +367,6 @@ void QTextTableCellFormat_Delete(QTextTableCellFormat* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

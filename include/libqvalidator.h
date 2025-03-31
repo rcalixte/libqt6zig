@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -41,10 +40,10 @@ typedef struct QVariant QVariant;
 
 #ifdef __cplusplus
 typedef QDoubleValidator::Notation Notation; // C++ enum
-typedef QValidator::State State; // C++ enum
+typedef QValidator::State State;             // C++ enum
 #else
 typedef int Notation; // C ABI enum
-typedef int State; // C ABI enum
+typedef int State;    // C ABI enum
 #endif
 
 QValidator* QValidator_new();
@@ -294,6 +293,6 @@ void QRegularExpressionValidator_Delete(QRegularExpressionValidator* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

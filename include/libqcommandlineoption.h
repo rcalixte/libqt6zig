@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -21,10 +20,10 @@ typedef struct QCommandLineOption QCommandLineOption;
 #endif
 
 #ifdef __cplusplus
-typedef QCommandLineOption::Flag Flag; // C++ enum
+typedef QCommandLineOption::Flag Flag;   // C++ enum
 typedef QCommandLineOption::Flags Flags; // C++ QFlags
 #else
-typedef int Flag; // C ABI enum
+typedef int Flag;  // C ABI enum
 typedef int Flags; // C ABI QFlags
 #endif
 
@@ -53,6 +52,6 @@ void QCommandLineOption_Delete(QCommandLineOption* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -33,22 +32,22 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QJsonObject::ConstIterator ConstIterator; // C++ QFlags
-typedef QJsonObject::Iterator Iterator; // C++ QFlags
-typedef QJsonObject::iterator::difference_type iteratordifference_type; // C++ QFlags
+typedef QJsonObject::ConstIterator ConstIterator;                           // C++ QFlags
+typedef QJsonObject::Iterator Iterator;                                     // C++ QFlags
+typedef QJsonObject::iterator::difference_type iteratordifference_type;     // C++ QFlags
 typedef QJsonObject::iterator::iterator_category iteratoriterator_category; // C++ QFlags
-typedef QJsonObject::iterator::pointer iteratorpointer; // C++ QFlags
-typedef QJsonObject::iterator::reference iteratorreference; // C++ QFlags
-typedef QJsonObject::iterator::value_type iteratorvalue_type; // C++ QFlags
-typedef QJsonObject::key_type key_type; // C++ QFlags
-typedef QJsonObject::mapped_type mapped_type; // C++ QFlags
-typedef QJsonObject::size_type size_type; // C++ QFlags
+typedef QJsonObject::iterator::pointer iteratorpointer;                     // C++ QFlags
+typedef QJsonObject::iterator::reference iteratorreference;                 // C++ QFlags
+typedef QJsonObject::iterator::value_type iteratorvalue_type;               // C++ QFlags
+typedef QJsonObject::key_type key_type;                                     // C++ QFlags
+typedef QJsonObject::mapped_type mapped_type;                               // C++ QFlags
+typedef QJsonObject::size_type size_type;                                   // C++ QFlags
 #else
-typedef QJsonValue* iteratorvalue_type; // C ABI QFlags
-typedef QJsonValueRef* iteratorpointer; // C ABI QFlags
-typedef QJsonValueRef* iteratorreference; // C ABI QFlags
+typedef QJsonValue* iteratorvalue_type;    // C ABI QFlags
+typedef QJsonValueRef* iteratorpointer;    // C ABI QFlags
+typedef QJsonValueRef* iteratorreference;  // C ABI QFlags
 typedef ptrdiff_t iteratordifference_type; // C ABI QFlags
-typedef ptrdiff_t size_type; // C ABI QFlags
+typedef ptrdiff_t size_type;               // C ABI QFlags
 #endif
 
 QJsonObject* QJsonObject_new();
@@ -156,6 +155,6 @@ void QJsonObject__const_iterator_Delete(QJsonObject__const_iterator* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

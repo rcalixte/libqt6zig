@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -23,10 +22,10 @@ typedef struct QTreeWidgetItemIterator QTreeWidgetItemIterator;
 #endif
 
 #ifdef __cplusplus
-typedef QTreeWidgetItemIterator::IteratorFlag IteratorFlag; // C++ enum
+typedef QTreeWidgetItemIterator::IteratorFlag IteratorFlag;   // C++ enum
 typedef QTreeWidgetItemIterator::IteratorFlags IteratorFlags; // C++ QFlags
 #else
-typedef int IteratorFlag; // C ABI enum
+typedef int IteratorFlag;  // C ABI enum
 typedef int IteratorFlags; // C ABI QFlags
 #endif
 
@@ -47,6 +46,6 @@ void QTreeWidgetItemIterator_Delete(QTreeWidgetItemIterator* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

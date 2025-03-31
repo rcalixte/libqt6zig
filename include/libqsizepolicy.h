@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -22,16 +21,16 @@ typedef struct QVariant QVariant;
 #endif
 
 #ifdef __cplusplus
-typedef QSizePolicy::ControlType ControlType; // C++ enum
-typedef QSizePolicy::ControlTypes ControlTypes; // C++ QFlags
-typedef QSizePolicy::Policy Policy; // C++ enum
-typedef QSizePolicy::PolicyFlag PolicyFlag; // C++ enum
+typedef QSizePolicy::ControlType ControlType;       // C++ enum
+typedef QSizePolicy::ControlTypes ControlTypes;     // C++ QFlags
+typedef QSizePolicy::Policy Policy;                 // C++ enum
+typedef QSizePolicy::PolicyFlag PolicyFlag;         // C++ enum
 typedef QSizePolicy::QtGadgetHelper QtGadgetHelper; // C++ QFlags
 #else
-typedef int ControlType; // C ABI enum
-typedef int ControlTypes; // C ABI QFlags
-typedef int Policy; // C ABI enum
-typedef int PolicyFlag; // C ABI enum
+typedef int ControlType;     // C ABI enum
+typedef int ControlTypes;    // C ABI QFlags
+typedef int Policy;          // C ABI enum
+typedef int PolicyFlag;      // C ABI enum
 typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
@@ -69,6 +68,6 @@ void QSizePolicy_Delete(QSizePolicy* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

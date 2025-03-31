@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -171,6 +170,6 @@ void QAbstractTextDocumentLayout__PaintContext_Delete(QAbstractTextDocumentLayou
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif

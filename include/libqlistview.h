@@ -10,7 +10,6 @@
 
 #include "qtlibc.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -94,17 +93,17 @@ typedef struct QWindow QWindow;
 #endif
 
 #ifdef __cplusplus
-typedef QListView::Flow Flow; // C++ enum
+typedef QListView::Flow Flow;             // C++ enum
 typedef QListView::LayoutMode LayoutMode; // C++ enum
-typedef QListView::Movement Movement; // C++ enum
+typedef QListView::Movement Movement;     // C++ enum
 typedef QListView::ResizeMode ResizeMode; // C++ enum
-typedef QListView::ViewMode ViewMode; // C++ enum
+typedef QListView::ViewMode ViewMode;     // C++ enum
 #else
-typedef int Flow; // C ABI enum
+typedef int Flow;       // C ABI enum
 typedef int LayoutMode; // C ABI enum
-typedef int Movement; // C ABI enum
+typedef int Movement;   // C ABI enum
 typedef int ResizeMode; // C ABI enum
-typedef int ViewMode; // C ABI enum
+typedef int ViewMode;   // C ABI enum
 #endif
 
 QListView* QListView_new(QWidget* parent);
@@ -508,6 +507,6 @@ void QListView_Delete(QListView* self);
 
 #ifdef __cplusplus
 } /* extern C */
-#endif 
+#endif
 
 #endif
