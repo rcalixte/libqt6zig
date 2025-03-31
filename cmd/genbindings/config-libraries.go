@@ -198,7 +198,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	// Qt 6 Charts
 	// Depends on QtCore/Gui/Widgets
 	generate(
-		"src/charts",
+		"src/restricted-extras-charts",
 		[]string{
 			"/usr/include/x86_64-linux-gnu/qt6/QtCharts",
 		},
@@ -206,7 +206,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		clangBin,
 		"--std=c++17 "+pkgConfigCflags("Qt6Charts"),
 		outDir,
-		"include/charts",
+		"include/restricted-extras-charts",
 		ClangMatchSameHeaderDefinitionOnly,
 		&headerList,
 		zigIncMap,
