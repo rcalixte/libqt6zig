@@ -15,7 +15,8 @@ type CppParameter struct {
 	ByRef         bool
 	Optional      bool
 
-	QtCppOriginalType *CppParameter // If we rewrote QStringList->QList<String>, this field contains the original QStringList. Otherwise, it's blank
+	QtCppOriginalType     *CppParameter // If we rewrote QStringList->QList<String>, this field contains the original QStringList. Otherwise, it's blank
+	BecomesConstInVersion *string       // "6,9"
 }
 
 type QFlagsInfo struct {
