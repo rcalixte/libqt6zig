@@ -20,7 +20,12 @@
 #include "libqobject.h"
 #include "libqobject.hxx"
 
+// This method's return type was changed from non-const to const in Qt 6.9
+#if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
+const QMetaObject* QObjectData_DynamicMetaObject(const QObjectData* self) {
+#else
 QMetaObject* QObjectData_DynamicMetaObject(const QObjectData* self) {
+#endif
     return self->dynamicMetaObject();
 }
 
