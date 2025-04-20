@@ -71,6 +71,8 @@ pub fn build(b: *std.Build) !void {
         "QtMultimedia",
         "QtMultimediaWidgets",
         "QtNetwork",
+        "QtPdf",
+        "QtPdfWidgets",
         "QtPrintSupport",
         "QtSpatialAudio",
         "QtSvg",
