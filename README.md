@@ -105,7 +105,7 @@ FreeBSD (native)
 For dynamic linking with the Qt 6 system libraries:
 
 ```bash
-sudo pkg install qt6-base qt6-charts qt6-multimedia qt6-svg qt6-webchannel qt6-webengine qscintilla2-qt6 zig
+sudo pkg install qt6-base qt6-charts qt6-multimedia qt6-pdf qt6-svg qt6-webchannel qt6-webengine qscintilla2-qt6 zig
 ```
 
 > [!NOTE]
@@ -129,7 +129,7 @@ For dynamic linking with the Qt 6 system libraries:
 - __Debian-based distributions__:
 
 ```bash
-sudo apt install qt6-base-dev libqscintilla2-qt6-dev qt6-base-private-dev qt6-charts-dev qt6-multimedia-dev qt6-svg-dev qt6-webchannel-dev qt6-webengine-dev
+sudo apt install qt6-base-dev libqscintilla2-qt6-dev qt6-base-private-dev qt6-charts-dev qt6-multimedia-dev qt6-pdf-dev qt6-svg-dev qt6-webchannel-dev qt6-webengine-dev
 ```
 
 > [!NOTE]
@@ -138,7 +138,7 @@ sudo apt install qt6-base-dev libqscintilla2-qt6-dev qt6-base-private-dev qt6-ch
 - __Fedora-based distributions__:
 
 ```bash
-sudo dnf install qt6-qtbase-devel qscintilla-qt6-devel qt6-qtcharts-devel qt6-qtmultimedia-devel qt6-qtsvg-devel qt6-qtwebchannel-devel qt6-qtwebengine-devel zig
+sudo dnf install qt6-qtbase-devel qscintilla-qt6-devel qt6-qtcharts-devel qt6-qtmultimedia-devel qt6-qtpdf-devel qt6-qtsvg-devel qt6-qtwebchannel-devel qt6-qtwebengine-devel zig
 ```
 
 > [!NOTE]
