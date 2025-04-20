@@ -195,6 +195,25 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		qtstructdefs,
 	)
 
+	// Qt 6 PDF
+	// Depends on QtCore/Gui/Widgets
+	generate(
+		"src/pdf",
+		[]string{
+			"/usr/include/x86_64-linux-gnu/qt6/QtPdf",
+			"/usr/include/x86_64-linux-gnu/qt6/QtPdfWidgets",
+		},
+		AllowAllHeaders,
+		clangBin,
+		"--std=c++17 "+pkgConfigCflags("Qt6PdfWidgets"),
+		outDir,
+		"include/pdf",
+		ClangMatchSameHeaderDefinitionOnly,
+		&headerList,
+		zigIncMap,
+		qtstructdefs,
+	)
+
 	// Qt 6 Charts
 	// Depends on QtCore/Gui/Widgets
 	generate(
