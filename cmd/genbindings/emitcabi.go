@@ -18,6 +18,9 @@ func (p CppParameter) RenderTypeCabi() string {
 	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" {
 		return "libqt_string"
 
+	} else if p.ParameterType == "QAnyStringView" {
+		return "char*"
+
 	} else if p.ParameterType == "QStringList" {
 		return "libqt_list /* of libqt_string */"
 
@@ -243,6 +246,9 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string) (preamb
 		// This ctor makes a deep copy, on the stack which will be dtor'd by RAII
 		preamble += indent + p.ParameterType + " " + nameprefix + "_" + p.ParameterType + "(" + p.ParameterName + ".data, " + p.ParameterName + ".len);\n"
 		return preamble, nameprefix + "_" + p.ParameterType
+
+	} else if p.ParameterType == "QAnyStringView" {
+		return preamble, p.ParameterType + "(" + nameprefix + ")"
 
 	} else if listType, ok := p.QListOf(); ok {
 

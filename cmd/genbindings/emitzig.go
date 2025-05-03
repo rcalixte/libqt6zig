@@ -548,9 +548,10 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 		rvalue = nameprefix + "_str"
 
-	} else if p.ParameterType == "QAnyStringView" || p.ParameterType == "QByteArrayView" ||
-		p.ParameterType == "QStringView" {
+	} else if p.ParameterType == "QAnyStringView" {
+		rvalue = "@constCast(" + p.ParameterName + ".ptr)"
 
+	} else if p.ParameterType == "QByteArrayView" || p.ParameterType == "QStringView" {
 		// Take the address of the pointer and cast it to the expected type
 		rvalue = "@ptrCast(@constCast(&" + p.ParameterName + "))"
 
