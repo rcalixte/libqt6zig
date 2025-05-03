@@ -275,7 +275,7 @@ pub const qsettings = struct {
     ///
     /// ``` self: ?*C.QSettings, prefix: []const u8 ```
     pub fn BeginGroup(self: ?*anyopaque, prefix: []const u8) void {
-        C.QSettings_BeginGroup(@ptrCast(self), @ptrCast(@constCast(&prefix)));
+        C.QSettings_BeginGroup(@ptrCast(self), @constCast(prefix.ptr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#endGroup)
@@ -302,14 +302,14 @@ pub const qsettings = struct {
     ///
     /// ``` self: ?*C.QSettings, prefix: []const u8 ```
     pub fn BeginReadArray(self: ?*anyopaque, prefix: []const u8) i32 {
-        return C.QSettings_BeginReadArray(@ptrCast(self), @ptrCast(@constCast(&prefix)));
+        return C.QSettings_BeginReadArray(@ptrCast(self), @constCast(prefix.ptr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#beginWriteArray)
     ///
     /// ``` self: ?*C.QSettings, prefix: []const u8 ```
     pub fn BeginWriteArray(self: ?*anyopaque, prefix: []const u8) void {
-        C.QSettings_BeginWriteArray(@ptrCast(self), @ptrCast(@constCast(&prefix)));
+        C.QSettings_BeginWriteArray(@ptrCast(self), @constCast(prefix.ptr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#endArray)
@@ -403,35 +403,35 @@ pub const qsettings = struct {
     ///
     /// ``` self: ?*C.QSettings, key: []const u8, value: ?*C.QVariant ```
     pub fn SetValue(self: ?*anyopaque, key: []const u8, value: ?*anyopaque) void {
-        C.QSettings_SetValue(@ptrCast(self), @ptrCast(@constCast(&key)), @ptrCast(value));
+        C.QSettings_SetValue(@ptrCast(self), @constCast(key.ptr), @ptrCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#value)
     ///
     /// ``` self: ?*C.QSettings, key: []const u8, defaultValue: ?*C.QVariant ```
     pub fn Value(self: ?*anyopaque, key: []const u8, defaultValue: ?*anyopaque) ?*C.QVariant {
-        return C.QSettings_Value(@ptrCast(self), @ptrCast(@constCast(&key)), @ptrCast(defaultValue));
+        return C.QSettings_Value(@ptrCast(self), @constCast(key.ptr), @ptrCast(defaultValue));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#value)
     ///
     /// ``` self: ?*C.QSettings, key: []const u8 ```
     pub fn ValueWithKey(self: ?*anyopaque, key: []const u8) ?*C.QVariant {
-        return C.QSettings_ValueWithKey(@ptrCast(self), @ptrCast(@constCast(&key)));
+        return C.QSettings_ValueWithKey(@ptrCast(self), @constCast(key.ptr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#remove)
     ///
     /// ``` self: ?*C.QSettings, key: []const u8 ```
     pub fn Remove(self: ?*anyopaque, key: []const u8) void {
-        C.QSettings_Remove(@ptrCast(self), @ptrCast(@constCast(&key)));
+        C.QSettings_Remove(@ptrCast(self), @constCast(key.ptr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#contains)
     ///
     /// ``` self: ?*C.QSettings, key: []const u8 ```
     pub fn Contains(self: ?*anyopaque, key: []const u8) bool {
-        return C.QSettings_Contains(@ptrCast(self), @ptrCast(@constCast(&key)));
+        return C.QSettings_Contains(@ptrCast(self), @constCast(key.ptr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#setFallbacksEnabled)
@@ -581,7 +581,7 @@ pub const qsettings = struct {
     ///
     /// ``` self: ?*C.QSettings, prefix: []const u8, size: i32 ```
     pub fn BeginWriteArray2(self: ?*anyopaque, prefix: []const u8, size: i32) void {
-        C.QSettings_BeginWriteArray2(@ptrCast(self), @ptrCast(@constCast(&prefix)), @intCast(size));
+        C.QSettings_BeginWriteArray2(@ptrCast(self), @constCast(prefix.ptr), @intCast(size));
     }
 
     /// Inherited from QObject
@@ -605,7 +605,7 @@ pub const qsettings = struct {
     ///
     /// ``` self: ?*C.QSettings, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @ptrCast(@constCast(&name)));
+        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject

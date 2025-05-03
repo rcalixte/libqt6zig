@@ -867,7 +867,7 @@ pub const qboxlayout = struct {
     ///
     /// ``` self: ?*C.QBoxLayout, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @ptrCast(@constCast(&name)));
+        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
@@ -2515,7 +2515,7 @@ pub const qhboxlayout = struct {
     ///
     /// ``` self: ?*C.QHBoxLayout, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @ptrCast(@constCast(&name)));
+        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
@@ -4598,7 +4598,7 @@ pub const qvboxlayout = struct {
     ///
     /// ``` self: ?*C.QVBoxLayout, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @ptrCast(@constCast(&name)));
+        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject

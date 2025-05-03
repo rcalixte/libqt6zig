@@ -8,14 +8,14 @@ pub const qanystringview = struct {
     ///
     /// ``` other: []const u8 ```
     pub fn New(other: []const u8) ?*C.QAnyStringView {
-        return C.QAnyStringView_new(@ptrCast(@constCast(&other)));
+        return C.QAnyStringView_new(@constCast(other.ptr));
     }
 
     /// New2 constructs a new QAnyStringView object and invalidates the source QAnyStringView object.
     ///
     /// ``` other: []const u8 ```
     pub fn New2(other: []const u8) ?*C.QAnyStringView {
-        return C.QAnyStringView_new2(@ptrCast(@constCast(&other)));
+        return C.QAnyStringView_new2(@constCast(other.ptr));
     }
 
     /// New3 constructs a new QAnyStringView object.
@@ -60,7 +60,7 @@ pub const qanystringview = struct {
     ///
     /// ``` param1: []const u8 ```
     pub fn New7(param1: []const u8) ?*C.QAnyStringView {
-        return C.QAnyStringView_new7(@ptrCast(@constCast(&param1)));
+        return C.QAnyStringView_new7(@constCast(param1.ptr));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -108,14 +108,14 @@ pub const qanystringview = struct {
     ///
     /// ``` lhs: []const u8, rhs: []const u8 ```
     pub fn Compare(lhs: []const u8, rhs: []const u8) i32 {
-        return C.QAnyStringView_Compare(@ptrCast(@constCast(&lhs)), @ptrCast(@constCast(&rhs)));
+        return C.QAnyStringView_Compare(@constCast(lhs.ptr), @constCast(rhs.ptr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#equal)
     ///
     /// ``` lhs: []const u8, rhs: []const u8 ```
     pub fn Equal(lhs: []const u8, rhs: []const u8) bool {
-        return C.QAnyStringView_Equal(@ptrCast(@constCast(&lhs)), @ptrCast(@constCast(&rhs)));
+        return C.QAnyStringView_Equal(@constCast(lhs.ptr), @constCast(rhs.ptr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#front)
@@ -171,7 +171,7 @@ pub const qanystringview = struct {
     ///
     /// ``` lhs: []const u8, rhs: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn Compare3(lhs: []const u8, rhs: []const u8, cs: i64) i32 {
-        return C.QAnyStringView_Compare3(@ptrCast(@constCast(&lhs)), @ptrCast(@constCast(&rhs)), @intCast(cs));
+        return C.QAnyStringView_Compare3(@constCast(lhs.ptr), @constCast(rhs.ptr), @intCast(cs));
     }
 
     /// Delete this object from C++ memory.

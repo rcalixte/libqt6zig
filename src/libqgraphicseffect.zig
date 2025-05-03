@@ -409,7 +409,7 @@ pub const qgraphicseffect = struct {
     ///
     /// ``` self: ?*C.QGraphicsEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @ptrCast(@constCast(&name)));
+        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
@@ -1310,7 +1310,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ``` self: ?*C.QGraphicsColorizeEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @ptrCast(@constCast(&name)));
+        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
@@ -2435,7 +2435,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ``` self: ?*C.QGraphicsBlurEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @ptrCast(@constCast(&name)));
+        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
@@ -3599,7 +3599,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ``` self: ?*C.QGraphicsDropShadowEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @ptrCast(@constCast(&name)));
+        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
@@ -4674,7 +4674,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ``` self: ?*C.QGraphicsOpacityEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @ptrCast(@constCast(&name)));
+        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject

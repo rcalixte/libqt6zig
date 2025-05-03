@@ -201,7 +201,7 @@ pub const qvalidator = struct {
     ///
     /// ``` self: ?*C.QValidator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @ptrCast(@constCast(&name)));
+        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
@@ -1142,7 +1142,7 @@ pub const qintvalidator = struct {
     ///
     /// ``` self: ?*C.QIntValidator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @ptrCast(@constCast(&name)));
+        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
@@ -2142,7 +2142,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` self: ?*C.QDoubleValidator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @ptrCast(@constCast(&name)));
+        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject
@@ -3021,7 +3021,7 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` self: ?*C.QRegularExpressionValidator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @ptrCast(@constCast(&name)));
+        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject

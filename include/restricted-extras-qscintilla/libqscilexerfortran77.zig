@@ -464,7 +464,7 @@ pub const qscilexerfortran77 = struct {
     ///
     /// ``` self: ?*C.QsciLexerFortran77, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @ptrCast(@constCast(&name)));
+        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// Inherited from QObject

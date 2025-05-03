@@ -158,14 +158,14 @@ pub const qversionnumber = struct {
     ///
     /// ``` stringVal: []const u8 ```
     pub fn FromString(stringVal: []const u8) ?*C.QVersionNumber {
-        return C.QVersionNumber_FromString(@ptrCast(@constCast(&stringVal)));
+        return C.QVersionNumber_FromString(@constCast(stringVal.ptr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#fromString)
     ///
     /// ``` stringVal: []const u8, suffixIndex: ?*i64 ```
     pub fn FromString2(stringVal: []const u8, suffixIndex: ?*anyopaque) ?*C.QVersionNumber {
-        return C.QVersionNumber_FromString2(@ptrCast(@constCast(&stringVal)), @intCast(suffixIndex));
+        return C.QVersionNumber_FromString2(@constCast(stringVal.ptr), @intCast(suffixIndex));
     }
 
     /// Delete this object from C++ memory.

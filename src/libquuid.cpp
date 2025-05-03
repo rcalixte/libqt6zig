@@ -25,8 +25,8 @@ QUuid* QUuid_new4(unsigned int l, uint16_t w1, uint16_t w2, unsigned char b1, un
     return new QUuid(static_cast<uint>(l), static_cast<ushort>(w1), static_cast<ushort>(w2), static_cast<uchar>(b1), static_cast<uchar>(b2), static_cast<uchar>(b3), static_cast<uchar>(b4), static_cast<uchar>(b5), static_cast<uchar>(b6), static_cast<uchar>(b7), static_cast<uchar>(b8));
 }
 
-QUuid* QUuid_new5(QAnyStringView* stringVal) {
-    return new QUuid(*stringVal);
+QUuid* QUuid_new5(char* stringVal) {
+    return new QUuid(QAnyStringView(stringVal));
 }
 
 QUuid* QUuid_new6(QUuid* param1) {
@@ -41,8 +41,8 @@ void QUuid_MoveAssign(QUuid* self, QUuid* other) {
     *self = std::move(*other);
 }
 
-QUuid* QUuid_FromString(QAnyStringView* stringVal) {
-    return new QUuid(QUuid::fromString(*stringVal));
+QUuid* QUuid_FromString(char* stringVal) {
+    return new QUuid(QUuid::fromString(QAnyStringView(stringVal)));
 }
 
 libqt_string QUuid_ToString(const QUuid* self) {

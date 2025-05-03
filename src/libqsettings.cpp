@@ -161,8 +161,8 @@ void QSettings_SetAtomicSyncRequired(QSettings* self, bool enable) {
     self->setAtomicSyncRequired(enable);
 }
 
-void QSettings_BeginGroup(QSettings* self, QAnyStringView* prefix) {
-    self->beginGroup(*prefix);
+void QSettings_BeginGroup(QSettings* self, char* prefix) {
+    self->beginGroup(QAnyStringView(prefix));
 }
 
 void QSettings_EndGroup(QSettings* self) {
@@ -181,12 +181,12 @@ libqt_string QSettings_Group(const QSettings* self) {
     return _str;
 }
 
-int QSettings_BeginReadArray(QSettings* self, QAnyStringView* prefix) {
-    return self->beginReadArray(*prefix);
+int QSettings_BeginReadArray(QSettings* self, char* prefix) {
+    return self->beginReadArray(QAnyStringView(prefix));
 }
 
-void QSettings_BeginWriteArray(QSettings* self, QAnyStringView* prefix) {
-    self->beginWriteArray(*prefix);
+void QSettings_BeginWriteArray(QSettings* self, char* prefix) {
+    self->beginWriteArray(QAnyStringView(prefix));
 }
 
 void QSettings_EndArray(QSettings* self) {
@@ -264,24 +264,24 @@ bool QSettings_IsWritable(const QSettings* self) {
     return self->isWritable();
 }
 
-void QSettings_SetValue(QSettings* self, QAnyStringView* key, QVariant* value) {
-    self->setValue(*key, *value);
+void QSettings_SetValue(QSettings* self, char* key, QVariant* value) {
+    self->setValue(QAnyStringView(key), *value);
 }
 
-QVariant* QSettings_Value(const QSettings* self, QAnyStringView* key, QVariant* defaultValue) {
-    return new QVariant(self->value(*key, *defaultValue));
+QVariant* QSettings_Value(const QSettings* self, char* key, QVariant* defaultValue) {
+    return new QVariant(self->value(QAnyStringView(key), *defaultValue));
 }
 
-QVariant* QSettings_ValueWithKey(const QSettings* self, QAnyStringView* key) {
-    return new QVariant(self->value(*key));
+QVariant* QSettings_ValueWithKey(const QSettings* self, char* key) {
+    return new QVariant(self->value(QAnyStringView(key)));
 }
 
-void QSettings_Remove(QSettings* self, QAnyStringView* key) {
-    self->remove(*key);
+void QSettings_Remove(QSettings* self, char* key) {
+    self->remove(QAnyStringView(key));
 }
 
-bool QSettings_Contains(const QSettings* self, QAnyStringView* key) {
-    return self->contains(*key);
+bool QSettings_Contains(const QSettings* self, char* key) {
+    return self->contains(QAnyStringView(key));
 }
 
 void QSettings_SetFallbacksEnabled(QSettings* self, bool b) {
@@ -373,8 +373,8 @@ libqt_string QSettings_Tr3(const char* s, const char* c, int n) {
     return _str;
 }
 
-void QSettings_BeginWriteArray2(QSettings* self, QAnyStringView* prefix, int size) {
-    self->beginWriteArray(*prefix, static_cast<int>(size));
+void QSettings_BeginWriteArray2(QSettings* self, char* prefix, int size) {
+    self->beginWriteArray(QAnyStringView(prefix), static_cast<int>(size));
 }
 
 // Derived class handler implementation

@@ -141,7 +141,7 @@ pub const qobject = struct {
     ///
     /// ``` self: ?*C.QObject, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        C.QObject_SetObjectName(@ptrCast(self), @ptrCast(@constCast(&name)));
+        C.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isWidgetType)

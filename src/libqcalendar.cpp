@@ -28,8 +28,8 @@ QCalendar* QCalendar_new4(int system) {
     return new QCalendar(static_cast<QCalendar::System>(system));
 }
 
-QCalendar* QCalendar_new5(QAnyStringView* name) {
-    return new QCalendar(*name);
+QCalendar* QCalendar_new5(char* name) {
+    return new QCalendar(QAnyStringView(name));
 }
 
 QCalendar* QCalendar_new6(QCalendar__SystemId* id) {

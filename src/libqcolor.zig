@@ -128,7 +128,7 @@ pub const qcolor = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn FromString(name: []const u8) ?*C.QColor {
-        return C.QColor_FromString(@ptrCast(@constCast(&name)));
+        return C.QColor_FromString(@constCast(name.ptr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#operator=)
@@ -808,7 +808,7 @@ pub const qcolor = struct {
     ///
     /// ``` param1: []const u8 ```
     pub fn IsValidColorName(param1: []const u8) bool {
-        return C.QColor_IsValidColorName(@ptrCast(@constCast(&param1)));
+        return C.QColor_IsValidColorName(@constCast(param1.ptr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#name)

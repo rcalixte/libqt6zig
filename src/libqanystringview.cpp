@@ -8,12 +8,12 @@
 #include "libqanystringview.h"
 #include "libqanystringview.hxx"
 
-QAnyStringView* QAnyStringView_new(QAnyStringView* other) {
-    return new QAnyStringView(*other);
+QAnyStringView* QAnyStringView_new(char* other) {
+    return new QAnyStringView(QAnyStringView(other));
 }
 
-QAnyStringView* QAnyStringView_new2(QAnyStringView* other) {
-    return new QAnyStringView(std::move(*other));
+QAnyStringView* QAnyStringView_new2(char* other) {
+    return new QAnyStringView(std::move(QAnyStringView(other)));
 }
 
 QAnyStringView* QAnyStringView_new3() {
@@ -34,8 +34,8 @@ QAnyStringView* QAnyStringView_new6(QChar* c) {
     return new QAnyStringView(*c);
 }
 
-QAnyStringView* QAnyStringView_new7(QAnyStringView* param1) {
-    return new QAnyStringView(*param1);
+QAnyStringView* QAnyStringView_new7(char* param1) {
+    return new QAnyStringView(QAnyStringView(param1));
 }
 
 void QAnyStringView_CopyAssign(QAnyStringView* self, QAnyStringView* other) {
@@ -66,12 +66,12 @@ const void* QAnyStringView_Data(const QAnyStringView* self) {
     return (const void*)self->data();
 }
 
-int QAnyStringView_Compare(QAnyStringView* lhs, QAnyStringView* rhs) {
-    return QAnyStringView::compare(*lhs, *rhs);
+int QAnyStringView_Compare(char* lhs, char* rhs) {
+    return QAnyStringView::compare(QAnyStringView(lhs), QAnyStringView(rhs));
 }
 
-bool QAnyStringView_Equal(QAnyStringView* lhs, QAnyStringView* rhs) {
-    return QAnyStringView::equal(*lhs, *rhs);
+bool QAnyStringView_Equal(char* lhs, char* rhs) {
+    return QAnyStringView::equal(QAnyStringView(lhs), QAnyStringView(rhs));
 }
 
 QChar* QAnyStringView_Front(const QAnyStringView* self) {
@@ -102,8 +102,8 @@ ptrdiff_t QAnyStringView_Length(const QAnyStringView* self) {
     return static_cast<ptrdiff_t>(self->length());
 }
 
-int QAnyStringView_Compare3(QAnyStringView* lhs, QAnyStringView* rhs, int cs) {
-    return QAnyStringView::compare(*lhs, *rhs, static_cast<Qt::CaseSensitivity>(cs));
+int QAnyStringView_Compare3(char* lhs, char* rhs, int cs) {
+    return QAnyStringView::compare(QAnyStringView(lhs), QAnyStringView(rhs), static_cast<Qt::CaseSensitivity>(cs));
 }
 
 void QAnyStringView_Delete(QAnyStringView* self) {

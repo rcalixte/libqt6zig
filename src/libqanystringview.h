@@ -28,20 +28,20 @@ typedef long long difference_type; // C ABI QFlags
 typedef ptrdiff_t size_type;       // C ABI QFlags
 #endif
 
-QAnyStringView* QAnyStringView_new(QAnyStringView* other);
-QAnyStringView* QAnyStringView_new2(QAnyStringView* other);
+QAnyStringView* QAnyStringView_new(char* other);
+QAnyStringView* QAnyStringView_new2(char* other);
 QAnyStringView* QAnyStringView_new3();
 QAnyStringView* QAnyStringView_new4(libqt_string str);
 QAnyStringView* QAnyStringView_new5(libqt_string str);
 QAnyStringView* QAnyStringView_new6(QChar* c);
-QAnyStringView* QAnyStringView_new7(QAnyStringView* param1);
+QAnyStringView* QAnyStringView_new7(char* param1);
 void QAnyStringView_CopyAssign(QAnyStringView* self, QAnyStringView* other);
 void QAnyStringView_MoveAssign(QAnyStringView* self, QAnyStringView* other);
 libqt_string QAnyStringView_ToString(const QAnyStringView* self);
 ptrdiff_t QAnyStringView_Size(const QAnyStringView* self);
 const void* QAnyStringView_Data(const QAnyStringView* self);
-int QAnyStringView_Compare(QAnyStringView* lhs, QAnyStringView* rhs);
-bool QAnyStringView_Equal(QAnyStringView* lhs, QAnyStringView* rhs);
+int QAnyStringView_Compare(char* lhs, char* rhs);
+bool QAnyStringView_Equal(char* lhs, char* rhs);
 QChar* QAnyStringView_Front(const QAnyStringView* self);
 QChar* QAnyStringView_Back(const QAnyStringView* self);
 bool QAnyStringView_Empty(const QAnyStringView* self);
@@ -49,7 +49,7 @@ ptrdiff_t QAnyStringView_SizeBytes(const QAnyStringView* self);
 bool QAnyStringView_IsNull(const QAnyStringView* self);
 bool QAnyStringView_IsEmpty(const QAnyStringView* self);
 ptrdiff_t QAnyStringView_Length(const QAnyStringView* self);
-int QAnyStringView_Compare3(QAnyStringView* lhs, QAnyStringView* rhs, int cs);
+int QAnyStringView_Compare3(char* lhs, char* rhs, int cs);
 void QAnyStringView_Delete(QAnyStringView* self);
 
 #ifdef __cplusplus

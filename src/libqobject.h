@@ -62,7 +62,7 @@ bool QObject_EventFilter(QObject* self, QObject* watched, QEvent* event);
 void QObject_OnEventFilter(QObject* self, intptr_t slot);
 bool QObject_QBaseEventFilter(QObject* self, QObject* watched, QEvent* event);
 libqt_string QObject_ObjectName(const QObject* self);
-void QObject_SetObjectName(QObject* self, QAnyStringView* name);
+void QObject_SetObjectName(QObject* self, char* name);
 bool QObject_IsWidgetType(const QObject* self);
 bool QObject_IsWindowType(const QObject* self);
 bool QObject_IsQuickItemType(const QObject* self);

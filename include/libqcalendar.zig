@@ -37,7 +37,7 @@ pub const qcalendar = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn New5(name: []const u8) ?*C.QCalendar {
-        return C.QCalendar_new5(@ptrCast(@constCast(&name)));
+        return C.QCalendar_new5(@constCast(name.ptr));
     }
 
     /// New6 constructs a new QCalendar object.

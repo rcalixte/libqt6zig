@@ -36,7 +36,7 @@ pub const quuid = struct {
     ///
     /// ``` stringVal: []const u8 ```
     pub fn New5(stringVal: []const u8) ?*C.QUuid {
-        return C.QUuid_new5(@ptrCast(@constCast(&stringVal)));
+        return C.QUuid_new5(@constCast(stringVal.ptr));
     }
 
     /// New6 constructs a new QUuid object.
@@ -64,7 +64,7 @@ pub const quuid = struct {
     ///
     /// ``` stringVal: []const u8 ```
     pub fn FromString(stringVal: []const u8) ?*C.QUuid {
-        return C.QUuid_FromString(@ptrCast(@constCast(&stringVal)));
+        return C.QUuid_FromString(@constCast(stringVal.ptr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#toString)
